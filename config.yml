@@ -1,0 +1,20 @@
+model_dir: model_directory
+
+data:
+  train_features_file: data/train.en
+  train_labels_file: data/train.es
+  eval_features_file: data/validate.en
+  eval_labels_file: data/validate.es
+  source_vocabulary: data/en-es.vocab
+  target_vocabulary: data/en-es.vocab
+
+train:
+  save_checkpoints_steps: 100
+  keep_checkpoint_max: 3
+  batch_size: 500
+
+eval:
+  external_evaluators: BLEU
+
+infer:
+  batch_size: 32
