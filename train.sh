@@ -1,33 +1,24 @@
-# Based on OpenNMT example scripts
-# https://github.com/OpenNMT/OpenNMT-tf/tree/master/scripts/wmt
+#!/bin/bash
 
-# Config
-sl="en"
-tl="es"
-data_dir="data"
-src_data="$data_dir/en-es.en"
-tgt_data="$data_dir/en-es.es"
+# set relevant paths
 vocab_size=32000
-character_coverage=1 # 0.9995 for languages with a large number of characters (Chinese) 1 for languages with a small number (English)
+sl=en
+tl=es
 
-# Train SentencePiece
-echo "Training SentencePiece (This may take a while)"
-cat $src_data > $data_dir/all.txt
-cat $tgt_data >> $data_dir/all.txt
-spm_train --input=all.txt --model_prefix=sentencepiece --input_sentence_size=10000000 --shuffle_input_sentence=true --vocab_size=$vocab_size --character_coverage=$character_coverage
-rm $data_dir/all.txt
+rm -f raw_data/all.txt
+cp raw_data/source.$sl raw_data/all.txt
+cat raw_data/source.$tl >> raw_data/all.txt
 
-# Use SentencePiece
-echo "Running SentencePiece"
-spm_encode --model=sentencepiece$sl$tl.model < $src_data > $data_dir/train.$sl
-spm_encode --model=sentencepiece$sl$tl.model < $tgt_data > $data_dir/train.$tl
+spm_train --input=raw_data/all.txt --model_prefix=sentencepiece \
+           --vocab_size=$vocab_size --character_coverage=1
 
-# Prepare vocab for OpenNMT-tf
-echo "Setting up vocab"
-onmt-build-vocab --from_format sentencepiece --from_vocab sentencepiece$sl$tl.vocab --save_vocab $data_dir/$sl$tl.vocab
+mkdir -p tokenized
+spm_encode --model=sentencepiece.model < raw_data/source.$sl > tokenized/train.$sl
+spm_encode --model=sentencepiece.model < raw_data/source.$tl > tokenized/train.$tl
 
-# Train Model! (If you need to pause during this step you can do so with Ctrl-C and then resume by re-running this command)
+onmt-build-vocab --from_format sentencepiece --from_vocab sentencepiece.vocab --save_vocab tokenized/vocab.vocab
+
+export CUDA_VISIBLE_DEVICES=0
 onmt-main --model_type Transformer \
           --config config.yml --auto_config \
           train --with_eval
-
