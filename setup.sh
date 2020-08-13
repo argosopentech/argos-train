@@ -1,6 +1,7 @@
 apt-get update && apt-get upgrade -y
-pip install --upgrade pip
-pip install OpenNMT-tf
+apt-get install python3 python3-pip -y
+python3 -m pip install --upgrade pip
+python3 -m pip install OpenNMT-tf
 python3 -m pip install ctranslate2
 
 cd

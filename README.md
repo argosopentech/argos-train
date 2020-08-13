@@ -1,36 +1,33 @@
 # onmt-models
-Training script for OpenNMT models
+Training script for OpenNMT models tested on Ubuntu 20.04 with NVidia Driver 440.100 and GeForce GTX 780
 
-1. Install NVIDIA drivers
-2. Install Docker
-3. Start Docker container 
+- Install NVIDIA drivers
+- Install Docker
 
-sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04 bash
+	sudo apt-get update && sudo apt-get install docker.io
 
-4. Inside of Docker container install OpenNMT
+- Install [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
 
-apt-get update && apt-get upgrade -y
-pip install --upgrade pip
-pip install OpenNMT-tf
+	# Add the package repositories
+	distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+	curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+	curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
-5. Download and install SentencePiece from source
+	sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+	sudo systemctl restart docker
 
-cd
-apt-get install cmake build-essential pkg-config libgoogle-perftools-dev vim git -y
-git clone https://github.com/google/sentencepiece.git
-cd sentencepiece
-mkdir build
-cd build
-cmake ..
-make -j $(nproc)
-make install
-ldconfig -v
-cd
 
-6. Download training script
+- Start Docker container 
 
-git clone https://github.com/argosopentech/onmt-models.git
+	sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04 bash
 
-7. Move data directory into root of onmt-models
-8. Update information about your training data in the top of onmt-models/train.sh
-9. From the top level of the onmt-models directory run train.sh
+- Inside Docker container download training script 
+
+	apt-get install git vim -y
+	git clone https://github.com/argosopentech/onmt-models
+
+- Run setup.sh to install OpenNMT-tf, ctranslate2, and sentencepiece
+- Copy training data into onmt-models/raw_data and update location in the top of train.sh
+- Run train.sh to train
+- Training can be stopped with Ctrl-C and resumed with resume_train.sh
+- 
