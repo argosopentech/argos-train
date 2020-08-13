@@ -15,6 +15,8 @@ cat raw_data/train.$tl >> raw_data/all.txt
 spm_train --input=raw_data/all.txt --model_prefix=sentencepiece \
            --vocab_size=$vocab_size --character_coverage=1
 
+rm raw_data/all.txt
+
 mkdir -p tokenized
 spm_encode --model=sentencepiece.model < raw_data/train.$sl > tokenized/train.$sl
 spm_encode --model=sentencepiece.model < raw_data/train.$tl > tokenized/train.$tl
