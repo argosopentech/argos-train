@@ -29,5 +29,5 @@ Training script for OpenNMT models tested on Ubuntu 20.04 with NVidia Driver 440
 - Run setup.sh to install OpenNMT-tf, ctranslate2, and sentencepiece
 - Copy training data into onmt-models/raw_data and update location in the top of train.sh
 - Run train.sh to train
-- Training can be stopped with Ctrl-C and resumed with resume_train.sh
+- Once SentencePiece has finished training can be stopped with Ctrl-C and resumed with resume_train.sh
 - 
