@@ -1,1 +1,5 @@
-ct2-opennmt-tf-converter --model_path wmt_ende_transformer --model_spec TransformerBase --output_dir converted_model --src_vocab tokenized/vocab.vocab --tgt_vocab tokenized/vocab.vocab --quantization int8
+# Averaging checkpoints
+onmt-main --config config.yml --auto_config average_checkpoints --output_dir averaged_model --max_count 5
+
+# Convert to CTranslate
+ct2-opennmt-tf-converter --model_path averaged_model --model_spec TransformerBase --output_dir converted_model --src_vocab tokenized/vocab.vocab --tgt_vocab tokenized/vocab.vocab --quantization int8
