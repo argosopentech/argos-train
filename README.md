@@ -29,7 +29,7 @@ git clone https://github.com/argosopentech/onmt-models
 - Copy training data into onmt-models/raw_data and update location in the top of train.sh
 - Run train.sh to train
 - Once SentencePiece has finished training can be stopped with Ctrl-C and resumed with resume_train.sh
-- Run package.sh to package model for [Argos Translate](https://github.com/argosopentech/argos-translate)
+- Run conver.sh to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate)
 
 ### Batch Size
 Depending on your GPU you may want to tweak ```batch_size``` in config.yml. This works with a GPU with 2GB or GPU memory. If you have more memory increasing the batch size should give you better performance. If you have a less powerful GPU you may need to decrease batch size for this script to run.
