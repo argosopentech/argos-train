@@ -27,6 +27,7 @@ sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:10.1-cudnn7-
 - Inside Docker container download training script 
 ```
 apt-get install git vim -y
+cd /root
 git clone https://github.com/argosopentech/onmt-models
 ```
 - Run ```setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
@@ -35,6 +36,10 @@ git clone https://github.com/argosopentech/onmt-models
 - Once SentencePiece has finished training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
 - Run ```package.sh``` to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate). The packaged model will be at <sl>_<tl>.argosmodel
 - If you want to delete all of the generated files but not your source files run ```reset.sh```. You will lose any model training progress.
+- To copy the model out of the docker container and into your host system *from your host system* run:
+```
+sudo docker cp cuda:/root/<sl>_<tl>.argos_model
+```
 
 ### Batch Size
 Depending on your GPU you may want to tweak ```batch_size``` in ```config.yml```. This works with a GPU with 2GB or GPU memory. If you have more memory increasing the batch size should give you better performance. If you have a less powerful GPU you may need to decrease batch size for this script to run.
