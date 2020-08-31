@@ -1,4 +1,4 @@
-model_dir: wmt_ende_transformer
+model_dir: model_dir
 
 data:
   train_features_file: tokenized/train.en

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# set relevant paths
-vocab_size=32000
-sl=en
-tl=es
+# Based on OpenNMT baseline training script:
+# https://github.com/OpenNMT/OpenNMT-tf/tree/master/scripts/wmt
+
+source config.sh
 
 echo "Splitting train and valid data"
 ./split_train_and_valid.py raw_data/source.$sl
