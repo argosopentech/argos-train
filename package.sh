@@ -1,4 +1,5 @@
 source config.sh
+./reset_packaging.sh
 
 # Averaging checkpoints
 onmt-main --config config.yml --auto_config average_checkpoints --output_dir averaged_model --max_count 5
