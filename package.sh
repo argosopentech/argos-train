@@ -14,5 +14,7 @@ mv packaged_model/converted_model packaged_model/model
 cp sentencepiece.model packaged_model/
 
 # Zip packaged model into Argos Translate model
+mv packaged_model "${sl}_${tl}"
 zip -r "${sl}_${tl}.argosmodel" packaged_model/
+mv "${sl}_${tl}" packaged_model
 
