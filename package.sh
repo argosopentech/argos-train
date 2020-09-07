@@ -9,12 +9,20 @@ ct2-opennmt-tf-converter --model_path averaged_model --model_spec TransformerBas
 
 # Create model package
 mkdir packaged_model
-cp -r converted_model packaged_model/
-mv packaged_model/converted_model packaged_model/model
+cp -r converted_model packaged_model/model
+
+# Copy in sentencepiece
 cp sentencepiece.model packaged_model/
+
+# Setup Stanza sentence boundary detection
+./download_stanza_model.sh
+cp -r stanza packaged_model/
+
+# Copy in metadata.json and MODEL_README.md
+cp metadata.json packaged_model/
+cp MODEL_README.md packaged_model/README.md
 
 # Zip packaged model into Argos Translate model
 mv packaged_model "${sl}_${tl}"
-zip -r "${sl}_${tl}.argosmodel" packaged_model/
-mv "${sl}_${tl}" packaged_model
+zip -r "${sl}_${tl}.argosmodel" "${sl}_${tl}"
 

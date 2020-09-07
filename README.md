@@ -33,20 +33,18 @@ git clone https://github.com/argosopentech/onmt-models
 - Run ```setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
 - Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh. 
 - Run ```train.sh``` to train
-- Once SentencePiece has finished training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
+- Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
+- Optionally edit metadata.json and MODEL_README.md which will be packaged with your model
 - Run ```package.sh``` to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate). The packaged model will be at <sl>_<tl>.argosmodel
 - If you want to delete all of the generated files but not your source files run ```reset.sh```. You will lose any model training progress.
 - To copy the model out of the docker container and into your host system *from your host system* run:
 ```
-sudo docker cp cuda:/root/<sl>_<tl>.argos_model
+sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argos_model
 ```
-- Packages also need a [NLTK Punkt](https://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.punkt) model called ```punkt.pickle``` in its root for sentence boundary detection. Pretrained NLTK pickles are available for a number of European Languages from [NLTK](https://www.nltk.org/data.html). Once you have the appropriate pickle for your source language unzip the .argosmodel file, rename the pickle to  ```punkt.pickle``` in the root of the package, and rezip it.
-- Packages also need a metadata.json in the root as defined in argos-translate/argos_translate/package.py
-- REAME.md files can optionally also be put in the root directory.
 
 ### Batch Size
 Depending on your GPU you may want to tweak ```batch_size``` in ```config.yml```. This works with a GPU with 2GB or GPU memory. If you have more memory increasing the batch size should give you better performance. If you have a less powerful GPU you may need to decrease batch size for this script to run.
 
 ### Data
-Parallel Corpuses for training are available [here](https://drive.google.com/drive/folders/1E_JMvYzP5wLGSF0wAulYNc5xGQHkVrDR?usp=sharing), these are a combination of several [Opus](http://opus.nlpl.eu/) corpuses.
+Trained on [OpenSubtitles](opus.nlpl.eu/OpenSubtitles.php), [ParaCrawl](http://opus.nlpl.eu/ParaCrawl.php), and [UNPC](http://opus.nlpl.eu/UNPC.php) parallel corpuses compiled by [Opus](http://opus.nlpl.eu/index.php)
  
