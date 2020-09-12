@@ -31,7 +31,7 @@ cd /root
 git clone https://github.com/argosopentech/onmt-models
 ```
 - Run ```setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
-- Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh. 
+- Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh and config.yml. 
 - Run ```train.sh``` to train
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
 - Optionally edit metadata.json and MODEL_README.md which will be packaged with your model
