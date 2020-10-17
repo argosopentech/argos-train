@@ -13,7 +13,7 @@ cp raw_data/train.$sl raw_data/all.txt
 cat raw_data/train.$tl >> raw_data/all.txt
 
 spm_train --input=raw_data/all.txt --model_prefix=sentencepiece \
-           --vocab_size=$vocab_size --character_coverage=1 \
+           --vocab_size=$vocab_size --character_coverage=$character_coverage\
 	   --input_sentence_size=10000000
 
 rm raw_data/all.txt
