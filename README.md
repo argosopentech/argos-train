@@ -34,14 +34,14 @@ git clone https://github.com/argosopentech/onmt-models
 - Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh and config.yml. 
 - Run ```train.sh``` to train
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
-- Optionally edit metadata.json and MODEL_README.md which will be packaged with your model
+- Optionally edit ```metadata.json``` and ```MODEL_README.md``` which will be packaged with your model
 - Run ```package.sh``` to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate). The packaged model will be at <sl>_<tl>.argosmodel
 - If you want to delete all of the generated files but not your source files run ```reset.sh```. You will lose any model training progress.
 - To copy the model out of the docker container and into your host system *from your host system* run:
 ```
 sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argosmodel .
 ```
-- Run ```export_checkpoint.sh``` to export a zip archive of your averaged OpenNMT checkpoints and files for sentencepiece tokenization.
+- Run ```export_checkpoint.sh``` to export a zip archive of your averaged OpenNMT checkpoints and files for sentencepiece tokenization. ```reset_packaging.sh``` deletes everything generated while packaging, but unlike ```reset.sh``` leaves your trained models intact.
 
 ### Batch Size
 Depending on your GPU you may want to tweak ```batch_size``` in ```config.yml```. This works with a GPU with 2GB or GPU memory. If you have more memory increasing the batch size should give you better performance. If you have a less powerful GPU you may need to decrease batch size for this script to run.
