@@ -39,7 +39,7 @@ git clone https://github.com/argosopentech/onmt-models
 - If you want to delete all of the generated files but not your source files run ```reset.sh```. You will lose any model training progress.
 - To copy the model out of the docker container and into your host system *from your host system* run:
 ```
-sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argos_model .
+sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argosmodel .
 ```
 - Run ```export_checkpoint.sh``` to export a zip archive of your averaged OpenNMT checkpoints and files for sentencepiece tokenization.
 
