@@ -1,0 +1,2 @@
+ctranslate2==1.14.0
+OpenNMT-tf==2.13.0

@@ -1,8 +1,7 @@
 apt-get update && apt-get upgrade -y
 apt-get install python3 python3-pip -y
 python3 -m pip install --upgrade pip
-python3 -m pip install OpenNMT-tf
-python3 -m pip install ctranslate2
+python3 -m pip install -r requirements.txt
 
 cd
 apt-get install cmake build-essential pkg-config libgoogle-perftools-dev vim git -y
