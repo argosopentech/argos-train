@@ -49,6 +49,4 @@ sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argosmodel .
 ### Batch Size
 Depending on your GPU you may want to tweak ```batch_size``` in ```config.yml```. This works with a GPU with 2GB or GPU memory. If you have more memory increasing the batch size should give you better performance. If you have a less powerful GPU you may need to decrease batch size for this script to run.
 
-### Data
-Trained on [OpenSubtitles](opus.nlpl.eu/OpenSubtitles.php), [ParaCrawl](http://opus.nlpl.eu/ParaCrawl.php), and [UNPC](http://opus.nlpl.eu/UNPC.php) parallel corpuses compiled by [Opus](http://opus.nlpl.eu/index.php)
  
