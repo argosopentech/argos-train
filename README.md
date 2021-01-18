@@ -4,6 +4,9 @@ Training script for OpenNMT models tested on Ubuntu 20.04 with NVidia Driver 440
 
 Trains an OpenNMT model and a SentencePiece parser then packages them for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
 
+## Data
+Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
+
 ## Running
 - Install NVIDIA drivers
 - Install Docker:
