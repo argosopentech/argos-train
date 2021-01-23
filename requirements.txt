@@ -1,2 +1,2 @@
 ctranslate2==1.14.0
-OpenNMT-tf==2.13.0
+OpenNMT-py==2.0.0

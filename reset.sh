@@ -1,2 +1,2 @@
-rm -rf sentencepiece.* tokenized/ model_dir/ raw_data/all.txt raw_data/train.* raw_data/valid.*
+rm -rf sentencepiece.* split_data/ openmt.* openmt-data
 ./reset_packaging.sh

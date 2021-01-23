@@ -6,24 +6,20 @@
 source config.sh
 
 echo "Splitting train and valid data"
-./split_train_and_valid.py raw_data/source.$sl
-./split_train_and_valid.py raw_data/source.$tl
+mkdir split_data
+./split_train_and_valid.py raw_data/source.$sl src
+./split_train_and_valid.py raw_data/source.$tl tgt
 
-cp raw_data/train.$sl raw_data/all.txt
-cat raw_data/train.$tl >> raw_data/all.txt
+cat split_data/*train.txt >> split_data/all.txt
 
-spm_train --input=raw_data/all.txt --model_prefix=sentencepiece \
+spm_train --input=split_data/all.txt --model_prefix=sentencepiece \
            --vocab_size=$vocab_size --character_coverage=$character_coverage\
 	   --input_sentence_size=1000000 --shuffle_input_sentence=true
 
-rm raw_data/all.txt
+onmt_build_vocab -config config.yml -n_sample -1
 
-mkdir -p tokenized
-spm_encode --model=sentencepiece.model < raw_data/train.$sl > tokenized/train.$sl
-spm_encode --model=sentencepiece.model < raw_data/train.$tl > tokenized/train.$tl
-spm_encode --model=sentencepiece.model < raw_data/valid.$sl > tokenized/valid.$sl
-spm_encode --model=sentencepiece.model < raw_data/valid.$tl > tokenized/valid.$tl
+rm split_data/all.txt
 
-onmt-build-vocab --from_format sentencepiece --from_vocab sentencepiece.vocab --save_vocab tokenized/vocab.vocab
+echo "Done with tokenization"
 
 ./resume_train.sh
