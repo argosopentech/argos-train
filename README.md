@@ -37,6 +37,7 @@ sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:11.1.1-cudnn
 ```
 - Inside Docker container download training script 
 ```
+apt-get update
 apt-get install git vim zip -y
 cd /root
 git clone https://github.com/argosopentech/onmt-models
