@@ -2,13 +2,21 @@
 
 Training script for OpenNMT models tested on Ubuntu 20.04 with NVidia Driver 440.100 and GeForce GTX 780. Argos Translate packages available for download [here](https://drive.google.com/drive/folders/11wxM3Ze7NCgOk_tdtRjwet10DmtvFu3i). OpenNMT checkpoints with SentencePiece files available for download at [https://drive.google.com/drive/folders/1fE7I4QD_W5Ul_CQzBHppE17wd-KQ_XPq](https://drive.google.com/drive/folders/1fE7I4QD_W5Ul_CQzBHppE17wd-KQ_XPq).
 
-Trains an OpenNMT model and a SentencePiece parser then packages them for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
+Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
 
 ## Data
 Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
 
 ## Running
 - Install NVIDIA drivers
+- You may need to add additional swap space
+```
+sudo fallocate -l 75G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+```
 - Install Docker:
 ```
 sudo apt-get update && sudo apt-get install docker.io
@@ -25,7 +33,7 @@ sudo systemctl restart docker
 ```
 - Start Docker container 
 ```
-sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04 bash
+sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04 bash
 ```
 - Inside Docker container download training script 
 ```
