@@ -33,7 +33,7 @@ sudo systemctl restart docker
 ```
 - Start Docker container 
 ```
-sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04 bash
+sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 bash
 ```
 - Inside Docker container download training script 
 ```
