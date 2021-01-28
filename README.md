@@ -1,3 +1,6 @@
+* Currently porting from Tensorflow to PyTorch and not stable. If you need stable training scripts use this commit: https://github.com/argosopentech/onmt-models/tree/6572085dad0a25698dfc6379820f103833c20190
+
+
 # ONMT Models
 
 Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
