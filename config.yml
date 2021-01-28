@@ -1,10 +1,10 @@
 # Based on https://opennmt.net/OpenNMT-py/examples/Translation.html
 
 ## Where the samples will be written
-save_data: openmt-data
+save_data: opennmt_data
 ## Where the vocab(s) will be written
-src_vocab: openmt.vocab.src
-tgt_vocab: openmt.vocab.tgt
+src_vocab: opennmt_data/openmt.vocab.src
+tgt_vocab: opennmt_data/openmt.vocab.tgt
 
 # Corpus opts:
 data:
