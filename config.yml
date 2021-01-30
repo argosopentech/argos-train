@@ -3,8 +3,10 @@
 ## Where the samples will be written
 save_data: opennmt_data
 ## Where the vocab(s) will be written
-src_vocab: opennmt_data/openmt.vocab.src
-tgt_vocab: opennmt_data/openmt.vocab.tgt
+src_vocab: opennmt_data/openmt.vocab
+tgt_vocab: opennmt_data/openmt.vocab
+
+share_vocab: True
 
 # Corpus opts:
 data:
@@ -44,8 +46,8 @@ valid_steps: 5000
 # Batching
 queue_size: 10000
 bucket_size: 32768
-world_size: 2
-gpu_ranks: [0, 1]
+world_size: 1
+gpu_ranks: [0]
 batch_type: "tokens"
 batch_size: 4096
 valid_batch_size: 16
