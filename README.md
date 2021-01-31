@@ -22,7 +22,7 @@ sudo swapon --show
 ```
 - Install Docker:
 ```
-sudo apt-get update && sudo apt-get install -y docker.io
+apt-get update && apt-get install -y docker.io
 ```
 - Install [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker):
 ```
@@ -36,7 +36,7 @@ sudo systemctl restart docker
 ```
 - Start Docker container 
 ```
-sudo docker run --gpus all -it --name cuda -p 6006:6006 nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 bash
+sudo docker run --gpus all -it --name cuda -p 6006:6006 10.2-runtime-ubuntu18.04 bash
 ```
 - Inside Docker container download training script 
 ```
