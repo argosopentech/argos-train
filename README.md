@@ -36,7 +36,7 @@ sudo systemctl restart docker
 ```
 - Start Docker container 
 ```
-sudo docker run --gpus all -it --name cuda -p 6006:6006 10.2-runtime-ubuntu18.04 bash
+sudo docker run --gpus all -it --name cuda 10.2-runtime-ubuntu18.04 bash
 ```
 - Inside Docker container download training script 
 ```
