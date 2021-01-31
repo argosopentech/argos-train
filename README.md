@@ -22,7 +22,7 @@ sudo swapon --show
 ```
 - Install Docker:
 ```
-sudo apt-get update && sudo apt-get install docker.io
+sudo apt-get update && sudo apt-get install -y docker.io
 ```
 - Install [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker):
 ```
