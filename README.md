@@ -45,7 +45,7 @@ apt-get install git vim zip -y
 cd /root
 git clone https://github.com/argosopentech/onmt-models
 ```
-- Run ```setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
+- Run ```sudo setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
 - Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh and config.yml. 
 - Run ```train.sh``` to train
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
