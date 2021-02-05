@@ -74,3 +74,6 @@ sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argosmodel .
 ```
 - Run ```export_checkpoint.sh``` to export a zip archive of your averaged OpenNMT checkpoints and files for sentencepiece tokenization. ```reset_packaging.sh``` deletes everything generated while packaging, but unlike ```reset.sh``` leaves your trained models intact.
 
+# Troubleshooting
+- If you're running out of GPU memory reduce `batch_size` in `config.yml`
+
