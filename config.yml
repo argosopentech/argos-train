@@ -49,7 +49,7 @@ bucket_size: 32768
 world_size: 1
 gpu_ranks: [0]
 batch_type: "tokens"
-batch_size: 4096
+batch_size: 2048
 valid_batch_size: 16
 batch_size_multiple: 1
 max_generator_batches: 0
