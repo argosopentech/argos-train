@@ -11,8 +11,39 @@ Argos Translate packages available for download [here](https://drive.google.com/
 Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
 
 ## Running
-- Install NVIDIA drivers
-- You may need to add additional swap space
+This is the setup currently used to train models:
+- NVIDIA Tesla K80 GPU
+- 7 cores, 30GB Memory
+- Ubuntu 20.04
+
+# Install CUDA
+```
+curl https://raw.githubusercontent.com/PJ-Finlay/cuda-setup/main/setup.sh | sh
+sudo reboot
+```
+
+# Install OpenNMT-py
+```
+cd
+git clone https://github.com/OpenNMT/OpenNMT-py.git
+cd OpenNMT-py
+pip3 install -e .
+pip3 install -r requirements.opt.txt
+PATH=~/.local/bin:$PATH
+```
+
+# Download data
+```
+cd
+git clone https://github.com/argosopentech/onmt-models.git
+cd ~/onmt-models/raw_data
+wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
+unzip en-es.txt.zip
+mv *.en source.en
+mv *.es source.es
+```
+
+# Add swap space
 ```
 sudo fallocate -l 75G /swapfile
 sudo chmod 600 /swapfile
@@ -20,34 +51,19 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo swapon --show
 ```
-- Install Docker:
-```
-apt-get update && apt-get install -y docker.io
-```
-- Install [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker):
-```
-# Add the package repositories
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
-sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
-sudo systemctl restart docker
+# Install training dependencies
 ```
-- Start Docker container 
+cd ~/onmt-models
+sudo ./setup.sh
 ```
-sudo docker run --gpus all -it --name cuda 10.2-runtime-ubuntu18.04 bash
+
+# Run training
 ```
-- Inside Docker container download training script 
+./train.sh
 ```
-apt-get update
-apt-get install git vim zip -y
-cd /root
-git clone https://github.com/argosopentech/onmt-models
-```
-- Run ```sudo setup.sh``` to install OpenNMT-tf, ctranslate2, and sentencepiece
-- Copy training data into onmt-models/raw_data with the source text at raw_data/source.<sl> and the target at raw_data/source.<tl>. Set values for $sl and $tl in config.sh and config.yml. 
-- Run ```train.sh``` to train
+
+# More
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
 - Optionally edit ```metadata.json``` and ```MODEL_README.md``` which will be packaged with your model
 - Run ```package.sh``` to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate). The packaged model will be at <sl>_<tl>.argosmodel
