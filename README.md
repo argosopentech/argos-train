@@ -5,24 +5,25 @@
 
 Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
 
-Argos Translate packages available for download [here](https://drive.google.com/drive/folders/11wxM3Ze7NCgOk_tdtRjwet10DmtvFu3i). OpenNMT checkpoints with SentencePiece files available for download at [https://drive.google.com/drive/folders/1fE7I4QD_W5Ul_CQzBHppE17wd-KQ_XPq](https://drive.google.com/drive/folders/1fE7I4QD_W5Ul_CQzBHppE17wd-KQ_XPq).
+Argos Translate packages available for download [here](https://drive.google.com/drive/folders/11wxM3Ze7NCgOk_tdtRjwet10DmtvFu3i). Legacy OpenNMT-tf checkpoints with SentencePiece files available for download [here](https://drive.google.com/drive/folders/1fE7I4QD_W5Ul_CQzBHppE17wd-KQ_XPq).
 
 ## Data
 Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
 
-## Running
+## Environment
 This is the setup currently used to train models:
 - NVIDIA Tesla K80 GPU
 - 7 cores, 30GB Memory
 - Ubuntu 20.04
 
-# Install CUDA
+## Install CUDA
 ```
 curl https://raw.githubusercontent.com/PJ-Finlay/cuda-setup/main/setup.sh | sh
 sudo reboot
+
 ```
 
-# Install OpenNMT-py
+## Install OpenNMT-py
 ```
 cd
 git clone https://github.com/OpenNMT/OpenNMT-py.git
@@ -30,9 +31,10 @@ cd OpenNMT-py
 pip3 install -e .
 pip3 install -r requirements.opt.txt
 PATH=~/.local/bin:$PATH
+
 ```
 
-# Download data
+## Download data
 ```
 cd
 git clone https://github.com/argosopentech/onmt-models.git
@@ -41,29 +43,34 @@ wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
 unzip en-es.txt.zip
 mv *.en source.en
 mv *.es source.es
+
 ```
 
-# Add swap space
+## Add swap space
 ```
 sudo fallocate -l 75G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo swapon --show
+
 ```
 
-# Install training dependencies
+## Install training dependencies
 ```
 cd ~/onmt-models
 sudo ./setup.sh
+
 ```
 
-# Run training
+## Run training
 ```
 ./train.sh
+
 ```
 
-# More
+## More
+- Edit config.sh to specify training metadata
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
 - Optionally edit ```metadata.json``` and ```MODEL_README.md``` which will be packaged with your model
 - Run ```package.sh``` to convert to a CTranslate model and package model for [Argos Translate](https://github.com/argosopentech/argos-translate). The packaged model will be at <sl>_<tl>.argosmodel
@@ -73,6 +80,7 @@ sudo ./setup.sh
 sudo docker cp cuda:/root/onmt-models/<sl>_<tl>.argosmodel .
 ```
 - Run ```export_checkpoint.sh``` to export a zip archive of your averaged OpenNMT checkpoints and files for sentencepiece tokenization. ```reset_packaging.sh``` deletes everything generated while packaging, but unlike ```reset.sh``` leaves your trained models intact.
+- Screen can be useful to train models on a remote server without maintaining a ssh connection. `screen` to start, `Ctrl-A d` to detach, and `screen -r` to re-attach/
 
 # Troubleshooting
 - If you're running out of GPU memory reduce `batch_size` in `config.yml`
