@@ -41,8 +41,8 @@ git clone https://github.com/argosopentech/onmt-models.git
 cd ~/onmt-models/raw_data
 wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
 unzip en-es.txt.zip
-cp *.en >> source.en
-cp *.es >> source.es
+cat *.en >> source.en
+cat *.es >> source.es
 
 ```
 
