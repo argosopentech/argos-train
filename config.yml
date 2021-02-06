@@ -19,6 +19,7 @@ data:
 
 
 ### Transform related opts:
+#### https://opennmt.net/OpenNMT-py/FAQ.html#how-do-i-use-the-transformer-model
 #### Subword
 src_subword_model: sentencepiece.model
 tgt_subword_model: sentencepiece.model
@@ -35,13 +36,9 @@ skip_empty_level: silent
 
 # General opts
 save_model: openmt.model
-keep_checkpoint: 50
-save_checkpoint_steps: 5000
-average_decay: 0.0005
-seed: 1234
-report_every: 100
-train_steps: 100000
-valid_steps: 5000
+save_checkpoint_steps: 10000
+valid_steps: 10000
+train_steps: 200000
 
 # Batching
 queue_size: 10000
@@ -49,11 +46,10 @@ bucket_size: 32768
 world_size: 1
 gpu_ranks: [0]
 batch_type: "tokens"
-batch_size: 1024
-valid_batch_size: 16
-batch_size_multiple: 1
-max_generator_batches: 0
-accum_count: [3]
+batch_size: 4096
+valid_batch_size: 8
+max_generator_batches: 2
+accum_count: [4]
 accum_steps: [0]
 
 # Optimization
@@ -72,6 +68,7 @@ normalization: "tokens"
 # Model
 encoder_type: transformer
 decoder_type: transformer
+position_encoding: true
 enc_layers: 6
 dec_layers: 6
 heads: 8
@@ -81,6 +78,3 @@ transformer_ff: 2048
 dropout_steps: [0]
 dropout: [0.1]
 attention_dropout: [0.1]
-share_decoder_embeddings: true
-share_embeddings: true
-
