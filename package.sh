@@ -15,7 +15,7 @@ cp -r converted_model packaged_model/model
 cp sentencepiece.model packaged_model/
 
 # Setup Stanza sentence boundary detection
-./download_stanza_model.sh
+python3 -c "import stanza; stanza.download('$stanza_lang_code', dir='stanza', processors='tokenize')"
 cp -r stanza packaged_model/
 
 # Copy in metadata.json and MODEL_README.md

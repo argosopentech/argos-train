@@ -1,1 +1,2 @@
 ctranslate2==1.14.0
+stanza==1.1.1
