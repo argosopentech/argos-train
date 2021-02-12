@@ -69,6 +69,10 @@ sudo ./setup.sh
 
 ```
 
+# Average checkpoints
+./../OpenNMT-py/tools/average_models.py -m <m1> <m2> -o averaged.pt
+
+
 ## More
 - Edit config.sh to specify training metadata
 - Once SentencePiece has finished model training can be stopped with Ctrl-C and resumed with ```resume_train.sh```
