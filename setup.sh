@@ -1,5 +1,5 @@
 apt-get update && apt-get upgrade -y
-apt-get install python3 python3-pip -y
+apt-get install python3 python3-pip zip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install -r requirements.txt
 
