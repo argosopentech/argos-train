@@ -6,7 +6,7 @@ ct2-opennmt-py-converter --model_path averaged.pt --model_spec TransformerBase -
 
 # Create model package
 mkdir packaged_model
-cp -r converted_model packaged_model/model
+cp -r exported packaged_model/model
 
 # Copy in sentencepiece
 cp sentencepiece.model packaged_model/
