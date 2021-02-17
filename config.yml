@@ -36,9 +36,9 @@ skip_empty_level: silent
 
 # General opts
 save_model: openmt.model
-save_checkpoint_steps: 10000
-valid_steps: 10000
-train_steps: 200000
+save_checkpoint_steps: 1000
+valid_steps: 1000
+train_steps: 40000
 
 # Batching
 queue_size: 10000
