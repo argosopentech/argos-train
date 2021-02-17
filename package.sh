@@ -2,7 +2,7 @@ source config.sh
 ./reset_packaging.sh
 
 # Convert to CTranslate
-ct2-opennmt-py-converter --model_path averaged.pt --model_spec TransformerBase --output_dir exported --quantization int8
+ct2-opennmt-py-converter --model_path averaged.pt --model_spec TransformerBase --output_dir converted_model --quantization int8
 
 # Create model package
 mkdir packaged_model
