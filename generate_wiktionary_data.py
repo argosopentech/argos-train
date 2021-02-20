@@ -26,14 +26,16 @@ print('Read JSON into memory')
 # Helper methods
 def get_forms(data):
     """Takes a JSON data object and returns a list of its forms"""
-    forms = data.get('forms')
-    if forms == None:
-        return None
     to_return = []
-    for form in forms:
-        form_value = form.get('form')
-        if form_value != None:
-            to_return.append(form_value)
+    forms = data.get('forms')
+    if forms:
+        for form in forms:
+            form_value = form.get('form')
+            if form_value != None:
+                to_return.append(form_value)
+    word = data.get('word')
+    if word:
+        to_return.append(word)
     return to_return
 
 # Extract single word translation data
@@ -67,7 +69,7 @@ for filename, data in [
         ('raw_data/wiktionary.' + sl, source_data),
         ('raw_data/wiktionary.' + tl, target_data)]:
     filename = Path(filename)
-    assert(filename.exists() == False)
+    assert(not filename.exists())
     data_file = open(filename, 'w')
     data_file.write('\n'.join(data))
     data_file.close()
