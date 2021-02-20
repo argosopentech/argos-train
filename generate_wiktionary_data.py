@@ -68,7 +68,7 @@ for data in wikidata:
 # Special token <define>
 DEFINE_TOKEN = '<define>'
 for data in wikidata:
-    if data.get('lang_code') != sl:
+    if data.get('lang_code') not in [sl, tl]:
         print('Skipping data not in source lang: ' +
                 str(data.get('lang_code')))
         continue

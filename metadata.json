@@ -1,8 +1,8 @@
 {
     "package_version": "1.0",
-    "argos_version": "1.0",
+    "argos_version": "1.1",
     "from_code": "en",
     "from_name": "English",
-    "to_code": "es",
-    "to_name": "Spanish"
+    "to_code": "zh",
+    "to_name": "Chinese"
 }
