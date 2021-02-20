@@ -25,10 +25,6 @@ if len(source_data) != len(target_data):
             f'Source and target data not the same size ' \
             '{len(source_data)} vs {len(target_data)}')
 
-# Shuffle data
-random.shuffle(source_data)
-random.shuffle(target_data)
-
 # Split and write data
 VALID_RATIO = 0.3
 
