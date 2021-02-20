@@ -30,14 +30,18 @@ if len(source_data) != len(target_data):
 html_entities = ['&apos;', '&nbsp;', '&lt;', '&gt;', '&quot;']
 html_tags = ['<a>', '<p>', '<h1>', '<i>']
 naughty_strings = html_entities + html_tags
-indices_to_remove = []
+filtered_source_data = []
+filtered_target_data = []
 for i in range(len(source_data)):
     for naughty_string in naughty_strings:
         if naughty_string in source_data[i] or naughty_string in target_data[i]:
-            indices_to_remove.append(i)
-source_data = [v for i, v in enumerate(source_data) if i not in indices_to_remove]
-target_data = [v for i, v in enumerate(target_data) if i not in indices_to_remove]
-print(f'Filtered {len(inices_to_remove)} from data')
+            print(f'Filtering {source_data[i]} - {target_data[i]}')
+        else:
+            filtered_source_data.append(source_data[i])
+            filtered_target_data.append(target_data[i])
+print(f'After filtering {len(filtered_source_data)} lines remaining')
+source_data = filtered_source_data
+target_data = filtered_target_data
 
 # Split and write data
 VALID_RATIO = 0.3
