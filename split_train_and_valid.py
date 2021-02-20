@@ -25,6 +25,19 @@ if len(source_data) != len(target_data):
             f'Source and target data not the same size ' \
             '{len(source_data)} vs {len(target_data)}')
 
+# Filter out bad data
+html_entities = ['&apos;', '&nbsp;', '&lt;', '&gt;', '&quot;']
+html_tags = ['<a>', '<p>', '<h1>', '<i>']
+naughty_strings = html_entities + html_tags
+indices_to_remove = []
+for i in range(len(source_data)):
+    for naughty_string in naughty_strings:
+        if naughty_string in source_data[i] or naughty_string in target_data[i]:
+            print('Removing line: ' + source_data[i] + ' ' + target_data[i])
+            indices_to_remove.append(i)
+source_data = [v for i, v in enumerate(source_data) if i not in indices_to_remove]
+target_data = [v for i, v in enumerate(target_data) if i not in indices_to_remove]
+
 # Split and write data
 VALID_RATIO = 0.3
 
