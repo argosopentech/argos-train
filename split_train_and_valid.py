@@ -18,6 +18,7 @@ source_data = source_data_file.readlines()
 source_data_file.close()
 target_data = target_data_file.readlines()
 target_data_file.close()
+print("Read data from file")
 
 # Check that source and target data are the same length
 if len(source_data) != len(target_data):
@@ -33,10 +34,10 @@ indices_to_remove = []
 for i in range(len(source_data)):
     for naughty_string in naughty_strings:
         if naughty_string in source_data[i] or naughty_string in target_data[i]:
-            print('Removing line: ' + source_data[i] + ' ' + target_data[i])
             indices_to_remove.append(i)
 source_data = [v for i, v in enumerate(source_data) if i not in indices_to_remove]
 target_data = [v for i, v in enumerate(target_data) if i not in indices_to_remove]
+print(f'Filtered {len(inices_to_remove)} from data')
 
 # Split and write data
 VALID_RATIO = 0.3
@@ -57,4 +58,5 @@ source_valid_file.close()
 source_train_file.close()
 target_valid_file.close()
 target_train_file.close()
+print('Done splitting data')
 
