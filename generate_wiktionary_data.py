@@ -47,7 +47,7 @@ for data in wikidata:
                 str(data.get('lang_code')))
         continue
     senses = data.get('senses')
-    if senses == None:
+    if not senses:
         # Data doesn't have translations
         continue
     translations = []
@@ -65,6 +65,29 @@ for data in wikidata:
                 source_data.append(form)
                 target_data.append(translation_value)
 
+# Special token <define>
+DEFINE_TOKEN = '<define>'
+for data in wikidata:
+    if data.get('lang_code') != sl:
+        print('Skipping data not in source lang: ' +
+                str(data.get('lang_code')))
+        continue
+    senses = data.get('senses')
+    if not senses:
+        # Data doesn't have translations
+        continue
+    definitions = []
+    forms = get_forms(data)
+    for sense in senses:
+        glosses = sense.get('glosses')
+        if not glosses:
+            continue
+        for gloss in glosses:
+            for form in forms:
+                source_data.append(DEFINE_TOKEN + ' ' + form)
+                target_data.append(gloss)
+
+# Write to file
 for filename, data in [
         ('raw_data/wiktionary.' + sl, source_data),
         ('raw_data/wiktionary.' + tl, target_data)]:
