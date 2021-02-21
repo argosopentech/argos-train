@@ -1,8 +1,3 @@
-#!/bin/bash
-
-# Based on OpenNMT baseline training script:
-# https://github.com/OpenNMT/OpenNMT-tf/tree/master/scripts/wmt
-
 source config.sh
 
 echo "Splitting train and valid data"
@@ -11,9 +6,9 @@ echo "Splitting train and valid data"
 cat split_data/*train.txt >> split_data/all.txt
 
 spm_train --input=split_data/all.txt --model_prefix=sentencepiece \
-           --vocab_size=$vocab_size --character_coverage=$character_coverage\
+           --vocab_size=$vocab_size --character_coverage=$character_coverage \
 	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
-	   --user_defined_symbols=<define>
+	   --user_defined_symbols="<define>"
 
 onmt_build_vocab -config config.yml -n_sample -1
 
