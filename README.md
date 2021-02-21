@@ -63,10 +63,21 @@ sudo ./setup.sh
 
 ```
 
+## Start screen (optional)
+```
+screen
+```
+
 ## Run training
 ```
 ./train.sh
 
+```
+
+# Detach and reattach screen (optional)
+```
+Ctrl-a d
+screen -r
 ```
 
 # Average checkpoints
