@@ -13,9 +13,11 @@ data:
     corpus_1:
         path_src: split_data/src-train.txt
         path_tgt: split_data/tgt-train.txt
+        transforms: [sentencepiece, filtertoolong]
     valid:
         path_src: split_data/src-val.txt
         path_tgt: split_data/tgt-val.txt
+        transforms: [sentencepiece, filtertoolong]
 
 
 ### Transform related opts:
