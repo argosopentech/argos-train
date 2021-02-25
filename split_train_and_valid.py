@@ -33,12 +33,16 @@ naughty_strings = html_entities + html_tags
 filtered_source_data = []
 filtered_target_data = []
 for i in range(len(source_data)):
+    should_filter = False
     for naughty_string in naughty_strings:
         if naughty_string in source_data[i] or naughty_string in target_data[i]:
-            print(f'Filtering {source_data[i]} - {target_data[i]}')
-        else:
-            filtered_source_data.append(source_data[i])
-            filtered_target_data.append(target_data[i])
+            should_filter = True
+            break
+    if should_filter:
+        print(f'Filtering {source_data[i]} - {target_data[i]}')
+    else:
+        filtered_source_data.append(source_data[i])
+        filtered_target_data.append(target_data[i])
 print(f'After filtering {len(filtered_source_data)} lines remaining')
 source_data = filtered_source_data
 target_data = filtered_target_data
