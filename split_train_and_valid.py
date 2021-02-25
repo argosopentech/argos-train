@@ -48,7 +48,7 @@ source_data = filtered_source_data
 target_data = filtered_target_data
 
 # Split and write data
-VALID_RATIO = 0.3
+VALID_RATIO = 0.1
 
 os.mkdir('split_data')
 source_valid_file = open('split_data/src-val.txt', 'w')
