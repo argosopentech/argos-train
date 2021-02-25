@@ -48,19 +48,18 @@ source_data = filtered_source_data
 target_data = filtered_target_data
 
 # Split and write data
-VALID_RATIO = 0.1
-
 os.mkdir('split_data')
 source_valid_file = open('split_data/src-val.txt', 'w')
 source_train_file = open('split_data/src-train.txt', 'w')
 target_valid_file = open('split_data/tgt-val.txt', 'w')
 target_train_file = open('split_data/tgt-train.txt', 'w')
 
-valid_index = int(VALID_RATIO * len(source_data))
-source_valid_file.writelines(source_data[0:valid_index])
-source_train_file.writelines(source_data[valid_index:])
-target_valid_file.writelines(target_data[0:valid_index])
-target_train_file.writelines(target_data[valid_index:])
+VALID_SIZE = 2000
+assert(len(source_data) > VALID_SIZE)
+source_valid_file.writelines(source_data[0:VALID_SIZE])
+source_train_file.writelines(source_data[VALID_SIZE:])
+target_valid_file.writelines(target_data[0:VALID_SIZE])
+target_train_file.writelines(target_data[VALID_SIZE:])
 
 source_valid_file.close()
 source_train_file.close()
