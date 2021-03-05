@@ -1,4 +1,4 @@
-# Argos Translate Training script
+# Argos Translate training script
 
 Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
 
