@@ -101,7 +101,7 @@ screen -r
 }
 ```
 
-`MODEL_README.md` is a Markdown document that will be packaged with your model
+`MODEL_README.md` is a Markdown document that will be packaged with your model.
 
 ## Package for Argos Translate
 ```
