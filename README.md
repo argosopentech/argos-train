@@ -46,7 +46,7 @@ cat *.es >> source.es
 ```
 
 ## Add swap space
-75GB works for most models, if you have free disk space you can do more
+75GB works for most models, if you have free disk space you can do more.
 ```
 sudo fallocate -l 75G /swapfile
 sudo chmod 600 /swapfile
