@@ -113,4 +113,4 @@ screen -r
 - `./resume_train.sh` - Resume training if training killed during OpenNMT model training.
 
 ## Troubleshooting
-- If you're running out of GPU memory reduce `batch_size` in `config.yml`.
+- If you're running out of GPU memory reduce `batch_size` and `valid_batch_size` in `config.yml`.
