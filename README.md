@@ -109,8 +109,8 @@ screen -r
 ```
 
 ## Useful scripts
-- `./reset.sh` - Reset training but leave data
-- `./resume_train.sh` - Resume training if training killed during OpenNMT model training
+- `./reset.sh` - Reset training but leave data.
+- `./resume_train.sh` - Resume training if training killed during OpenNMT model training.
 
 ## Troubleshooting
-- If you're running out of GPU memory reduce `batch_size` in `config.yml`
+- If you're running out of GPU memory reduce `batch_size` in `config.yml`.
