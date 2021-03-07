@@ -87,6 +87,7 @@ Reattaching:
 screen -r
 
 ```
+[Scrolling](https://unix.stackexchange.com/questions/40242/scroll-inside-screen-or-pause-output)
 
 ## Packaging
 ### Edit metadata (optional)
