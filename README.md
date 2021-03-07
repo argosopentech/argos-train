@@ -21,6 +21,7 @@ curl https://raw.githubusercontent.com/PJ-Finlay/cuda-setup/main/setup.sh | sh
 sudo reboot
 
 ```
+Using the nvidia/cuda Docker container should also work.
 
 ## Install OpenNMT-py from source with optional dependencies
 ```
