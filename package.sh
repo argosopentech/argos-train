@@ -3,11 +3,11 @@ source config.sh
 
 echo "Averaging checkpoints"
 ./../OpenNMT-py/tools/average_models.py -m \
-	openmt.model_step_10000.pt \
-	openmt.model_step_11000.pt \
+	openmt.model_step_49000.pt \
+	openmt.model_step_50000.pt \
 	-o averaged.pt
 # Debug:
-# cp openmt.model_step_20000.pt averaged.pt
+#cp openmt.model_step_50000.pt averaged.pt
 
 echo "Converting to CTranslate"
 ct2-opennmt-py-converter --model_path averaged.pt --model_spec TransformerBase --output_dir ctranslate_model --quantization int8
