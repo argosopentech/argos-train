@@ -16,4 +16,5 @@ rm split_data/all.txt
 
 echo "Done with tokenization"
 
-./resume_train.sh
+onmt_train -config config.yml
+
