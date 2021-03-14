@@ -14,11 +14,16 @@ tl = os.environ['tl']
 parser = argparse.ArgumentParser()
 parser.add_argument('wikidata', help=
         'path to JSON file from wiktextract for source lang')
+parser.add_argument('wikidata2', help=
+        'path to JSON file from wiktextract for source lang')
 args = parser.parse_args()
 
 # Read JSON
 wikidata = []
 with open(args.wikidata) as f:
+    for line in f:
+        wikidata.append(json.loads(line))
+with open(args.wikidata2) as f:
     for line in f:
         wikidata.append(json.loads(line))
 print('Read JSON into memory')
