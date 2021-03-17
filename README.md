@@ -115,3 +115,15 @@ screen -r
 
 ## Troubleshooting
 - If you're running out of GPU memory reduce `batch_size` and `valid_batch_size` in `config.yml`.
+
+## Making an Argospm package
+- Download data from Opus
+    - Use as many as you can. For many languages there's a big dropoff in size after the first few datasets so I generally only bother with the large ones.
+    - Cite each dataset in `MODEL_README.md`
+    - Only use freely licensed datasets. Some of the datasets have non commercial restrictions.
+ - Download Wikimedia data
+    -  Download pre extraced dictionaries from: [https://github.com/tatuylonen/wiktextract](https://github.com/tatuylonen/wiktextract)   
+    -  [https://kaikki.org/dictionary/](https://kaikki.org/dictionary/)
+    -  `source config.sh && ./generate_wiktionary_data.py kaikki.org-dictionary-Irish.json kaikki.org-dictionary-English.json`
+ - Combine datasets
+     - `cd raw_data && cat *.zh >> source.zh && cat *.en >> source.zh`
