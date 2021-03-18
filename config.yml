@@ -41,6 +41,7 @@ save_model: openmt.model
 save_checkpoint_steps: 1000
 valid_steps: 5000
 train_steps: 50000
+early_stopping: 4
 
 # Batching
 queue_size: 10000
