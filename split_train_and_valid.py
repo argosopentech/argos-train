@@ -4,6 +4,7 @@ import sys
 import os
 import argparse
 import random
+import emoji
 
 # Read args
 parser = argparse.ArgumentParser()
@@ -29,7 +30,7 @@ if len(source_data) != len(target_data):
 # Filter out bad data
 html_entities = ['&apos;', '&nbsp;', '&lt;', '&gt;', '&quot;']
 html_tags = ['<a>', '<p>', '<h1>', '<i>']
-naughty_strings = html_entities + html_tags
+naughty_strings = html_entities + html_tags + list(emoji.UNICODE_EMOJI_ENGLISH.keys())
 filtered_source_data = []
 filtered_target_data = []
 for i in range(len(source_data)):
