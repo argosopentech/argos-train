@@ -127,3 +127,8 @@ screen -r
     -  `source config.sh && ./generate_wiktionary_data.py kaikki.org-dictionary-Irish.json kaikki.org-dictionary-English.json`
  - Combine datasets
      - `cd raw_data && cat *.zh >> source.zh && cat *.en >> source.zh`
+
+
+## License
+Licensed under either the MIT or CC0 License (same as Argos Translate)
+
