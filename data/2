@@ -1,0 +1,38 @@
+[
+{
+  "name": "WikiMatrix",
+  "type": "parallel_corpus",
+  "from_code": "en",
+  "to_code": "de",
+  "size": "1573438",
+  "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+  "links": "https://storage.googleapis.com/argosopentech-data/wikimatrix-en_de.argosdata"
+},
+{
+  "name": "WikiMatrix",
+  "type": "parallel_corpus",
+  "from_code": "en",
+  "to_code": "fr",
+  "size": 2757884,
+  "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019."
+  "links": "https://storage.googleapis.com/argosopentech-data/wikimatrix-en_de.argosdata"
+},
+{       
+  "name": "WikiMatrix",
+  "type": "parallel_corpus",
+  "from_code": "en",
+  "to_code": "es",
+  "size": 3377912,
+  "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019."
+  "links": "https://storage.googleapis.com/argosopentech-data/wikimatrix-en_de.argosdata"
+},
+{
+  "name": "WikiMatrix",
+  "type": "parallel_corpus",
+  "from_code": "en",
+  "to_code": "ru",
+  "size": 1661909,
+  "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019."
+  "links": "https://storage.googleapis.com/argosopentech-data/wikimatrix-en_de.argosdata"
+}
+]
