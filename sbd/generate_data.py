@@ -41,8 +41,8 @@ for i in range(len(source_lang_data)):
 # Write to file
 print('Writing to file')
 for filename, data in [
-        ('sdb_source', sbd_source),
-        ('sdb_target', sbd_target)]:
+        ('sbd_source', sbd_source),
+        ('sbd_target', sbd_target)]:
     filename = Path(filename)
     assert(not filename.exists())
     data_file = open(filename, 'w')
