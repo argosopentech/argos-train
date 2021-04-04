@@ -2,8 +2,10 @@
 
 from pathlib import Path
 from collections import deque
+from random import randrange, random
 import json
 import zipfile
+import codecs
 
 
 import requests
@@ -56,9 +58,13 @@ class Dataset:
         target = None
         with zipfile.ZipFile(filepath, 'r') as zip_cache:
             with zip_cache.open(str(self) + '/source', 'r') as source_file:
-                source = deque(source_file.readlines())
+                source = deque()
+                for line in codecs.iterdecode(source_file, 'utf8'):
+                    source.append(line)
             with zip_cache.open(str(self) + '/target', 'r') as target_file:
-                target = deque(target_file.readlines())
+                target = deque()
+                for line in codecs.iterdecode(target_file, 'utf8'):
+                    target.append(line)
         assert(source != None)
         assert(target != None)
         assert(len(source) == len(target))
@@ -77,8 +83,7 @@ with open(DATA_INDEX) as data_index:
 es_data = list(filter(
         lambda x: x.to_code == 'es',
         available_datasets))
-for dataset in es_data:
-    dataset.download()
-    data = dataset.data()
-    print(data)
+dataset = es_data[0]
+dataset.download()
+data = dataset.data()
 
