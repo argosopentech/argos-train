@@ -7,10 +7,51 @@ import json
 import zipfile
 import codecs
 
-
 import requests
 
-class Dataset:
+class IDataset:
+    def data(self):
+        """Returns a tuple of source and target data.
+
+        Source and target data is collections.deque
+        """
+        raise NotImplementedError()
+
+class CompositeDataset(IDataset):
+    def __init__(self, child_dataset=None, weight=1):
+        """Creates a new CompositeDataset
+
+        Args:
+            child_dataset (IDataset): A child IDataset
+            weight (int): The weight for the child_dataset
+        """
+        # [(<IDataset>, int), (<IDataset>, int)]
+        # A list of tuples representing the child datasets and their weights
+        self.datasets = list()
+        if child_dataset != None:
+            self.add_dataset(child_dataset, weight)
+
+    def add_dataset(self, child_dataset, weight):
+        self.datasets.append((child_dataset, weight))
+
+    def __add__(self, other):
+        """Adds two CompositeDataset's
+
+        Args:
+            other (CompositeDataset): The CompositeDataset to add with
+        """
+        to_return = CompositeDataset(self)
+        to_return.add_dataset(other)
+
+    def __mul__(self, weight):
+        """Multiply a CompositeDataset by a weight
+
+        Args:
+            weight (int): The weight to multiply with
+        """
+        return CompositeDataset(self, weight)
+
+class Dataset(IDataset):
     CACHE_PATH = Path('cache')
 
     def load_metadata_from_json(self, metadata):
@@ -47,10 +88,6 @@ class Dataset:
         return filepath
 
     def data(self):
-        """Returns a tuple of source and target data.
-
-        Source and target data is collections.deque
-        """
         filepath = self.filepath()
         assert(Path(filepath).exists())
         assert(zipfile.is_zipfile(filepath))
