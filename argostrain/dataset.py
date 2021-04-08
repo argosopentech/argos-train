@@ -1,4 +1,4 @@
-from utils import *
+from argostrain.utils import *
 
 from pathlib import Path
 from collections import deque
