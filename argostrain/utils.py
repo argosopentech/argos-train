@@ -1,5 +1,8 @@
+import os
+
 def info(*args):
-    if settings.debug:
+    if 'DEBUG' in os.environ and \
+            os.environ['DEBUG'] in ['1', 'TRUE', 'True', 'true']:
         print(args)
 
 def warn(*args):

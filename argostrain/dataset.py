@@ -21,6 +21,30 @@ class IDataset:
         """
         raise NotImplementedError()
 
+    def __str__(self):
+        source, target = self.data()
+        to_return = ''
+        for i in range(len(source)):
+            to_return += source[i]
+            to_return += '\n'
+            to_return += target[i]
+            to_return += '\n\n'
+        return to_return
+
+class Dataset:
+    def __init__(self, source, target):
+        """Creates a Dataset.
+
+        Args:
+            source (collections.deque): Source data
+            target (collections.deque): Target data
+        """
+        self.source = source
+        self.target = target
+
+    def data(self, length=None):
+        return (self.source, self.target)
+
 class CompositeDataset(IDataset):
     def __init__(self, child_dataset=None, weight=1):
         """Creates a new CompositeDataset
@@ -35,7 +59,7 @@ class CompositeDataset(IDataset):
         if child_dataset != None:
             self.add_dataset(child_dataset, weight)
 
-    def add_dataset(self, child_dataset, weight):
+    def add_dataset(self, child_dataset, weight=1):
         self.datasets.append((child_dataset, weight))
 
     def __add__(self, other):
@@ -46,6 +70,7 @@ class CompositeDataset(IDataset):
         """
         to_return = CompositeDataset(self)
         to_return.add_dataset(other)
+        return to_return
 
     def __mul__(self, weight):
         """Multiply a CompositeDataset by a weight
@@ -146,5 +171,3 @@ class FileDataset(IDataset):
         source = self.source_file.readlines()
         target = self.target_file.readlines()
         return (source, target)
-
-
