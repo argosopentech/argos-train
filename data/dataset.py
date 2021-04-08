@@ -142,7 +142,7 @@ class FileDataset(IDataset):
         self.source_file = source_file
         self.target_file = target_file
 
-    def data(self):
+    def data(self, length=None):
         source = self.source_file.readlines()
         target = self.target_file.readlines()
         return (source, target)
