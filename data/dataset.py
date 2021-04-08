@@ -1,15 +1,21 @@
+from utils import *
+
 from pathlib import Path
 from collections import deque
 from random import randrange, random
 import json
+import random
 import zipfile
 import codecs
 
 import requests
 
 class IDataset:
-    def data(self):
+    def data(self, length=None):
         """Returns a tuple of source and target data.
+
+        Args:
+            length: Trim to length if not None
 
         Source and target data is collections.deque
         """
@@ -49,7 +55,27 @@ class CompositeDataset(IDataset):
         """
         return CompositeDataset(self, weight)
 
-class Dataset(IDataset):
+    def data(self, length=None):
+        source = []
+        target = []
+        sum_of_weights = sum([dataset_and_weight[1]
+                for dataset_and_weight in self.datasets])
+        for dataset, weight in self.datasets:
+            data = dataset.data(length)
+            if length == None:
+                for i in range(weight):
+                    source += data[0]
+                    target += data[1]
+            else:
+            # Randomly select data to take if over limit
+                limit = (weight / sum_of_weights) * length
+                if limit < len(data):
+                    random.shuffle(data)
+                source += data[0][:limit]
+                target += data[1][:limit]
+        return (source, target)
+
+class NetworkDataset(IDataset):
     CACHE_PATH = Path('cache')
 
     def load_metadata_from_json(self, metadata):
@@ -104,3 +130,21 @@ class Dataset(IDataset):
         assert(target != None)
         assert(len(source) == len(target))
         return (source, target)
+
+class FileDataset(IDataset):
+    def __init__(self, source_file, target_file):
+        """Creates a FileDataset
+
+        Args:
+            source_file (file): The file-like object containing source data
+            target_file (file): The file-like object containing target data
+        """
+        self.source_file = source_file
+        self.target_file = target_file
+
+    def data(self):
+        source = self.source_file.readlines()
+        target = self.target_file.readlines()
+        return (source, target)
+
+
