@@ -30,8 +30,8 @@ def generate_sbd_data(dataset):
         rand_sentences = rand_sentence + rand_sentence2
         sentence_fragment = rand_sentences[:randrange(len(rand_sentences)) + 1]
 
-        sbd_source.append('<detect-sentence-boundaries>' + sentence + sentence_fragment)
-        sbd_target.append(sentence + '<sentence-boundary>')
+        sbd_source.append('<detect-sentence-boundaries>' + sentence + sentence_fragment + '\n')
+        sbd_target.append(sentence + '<sentence-boundary>' + '\n')
 
         # Include a fraction of sentences that don't contain a sentence boundary.
         # When this happens the model should return the source without the

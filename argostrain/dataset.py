@@ -26,9 +26,8 @@ class IDataset:
         to_return = ''
         for i in range(len(source)):
             to_return += source[i]
-            to_return += '\n'
             to_return += target[i]
-            to_return += '\n\n'
+            to_return += '\n'
         return to_return
 
 class Dataset:
@@ -166,8 +165,11 @@ class FileDataset(IDataset):
         """
         self.source_file = source_file
         self.target_file = target_file
+        self.source = None
+        self.target = None
 
     def data(self, length=None):
-        source = self.source_file.readlines()
-        target = self.target_file.readlines()
-        return (source, target)
+        if self.source == None and self.target == None:
+            self.source = self.source_file.readlines()
+            self.target = self.target_file.readlines()
+        return (self.source, self.target)
