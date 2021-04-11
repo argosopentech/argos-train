@@ -15,7 +15,7 @@ class IDataset:
         """Returns a tuple of source and target data.
 
         Args:
-            length: Trim to length if not None
+            length (int): Trim to length if not None
 
         Source and target data is collections.deque
         """
@@ -30,6 +30,29 @@ class IDataset:
             to_return += '\n'
         return to_return
 
+def trim_to_length_random(source, target, length):
+    """Trim data to a max of length.
+
+    Data is shuffled in place if over limit.
+
+    Args:
+        source (collections.deque): Source data
+        target (collections.deque): Target data
+        length (int): Trim to length
+
+    Returns:
+        (collections.deque, collections.deque): Trimmed data
+    """
+    if length == None:
+        return (source, target)
+    else:
+        # Randomly select data to use if over length
+        if length < len(data):
+            random.shuffle(data)
+        source += data[0][:limit]
+        target += data[1][:limit]
+        return (source, target)
+
 class Dataset:
     def __init__(self, source, target):
         """Creates a Dataset.
@@ -42,7 +65,7 @@ class Dataset:
         self.target = target
 
     def data(self, length=None):
-        return (self.source, self.target)
+        return trim_to_length_random(self.source, self.target)
 
 class CompositeDataset(IDataset):
     def __init__(self, child_dataset=None, weight=1):
@@ -62,10 +85,10 @@ class CompositeDataset(IDataset):
         self.datasets.append((child_dataset, weight))
 
     def __add__(self, other):
-        """Adds two CompositeDataset's
+        """Adds two CompositeDatasets
 
         Args:
-            other (CompositeDataset): The CompositeDataset to add with
+            other (IDataset): The IDataset to add with
         """
         to_return = CompositeDataset(self)
         to_return.add_dataset(other)
@@ -104,6 +127,7 @@ class NetworkDataset(IDataset):
 
     def load_metadata_from_json(self, metadata):
         """Loads package metadata from a JSON object.
+
         Args:
             metadata: A json object from json.load
         """
