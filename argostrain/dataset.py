@@ -30,6 +30,9 @@ class IDataset:
             to_return += '\n'
         return to_return
 
+    def __len__(self):
+        raise NotImplementedError()
+
 def trim_to_length_random(source, target, length):
     """Trim data to a max of length.
 
@@ -47,10 +50,13 @@ def trim_to_length_random(source, target, length):
         return (source, target)
     else:
         # Randomly select data to use if over length
-        if length < len(data):
-            random.shuffle(data)
-        source += data[0][:limit]
-        target += data[1][:limit]
+        if length < len(source):
+            zipped_data = list(zip(source, target))
+            random.shuffle(zipped_data)
+            source = [x[0] for x in zipped_data]
+            target = [x[1] for x in zipped_data]
+        source += source[:length]
+        target += target[:length]
         return (source, target)
 
 class Dataset:
@@ -65,7 +71,10 @@ class Dataset:
         self.target = target
 
     def data(self, length=None):
-        return trim_to_length_random(self.source, self.target)
+        return trim_to_length_random(self.source, self.target, length)
+
+    def __len__(self):
+        return len(self.source)
 
 class CompositeDataset(IDataset):
     def __init__(self, child_dataset=None, weight=1):
@@ -121,6 +130,9 @@ class CompositeDataset(IDataset):
                 source += data[0][:limit]
                 target += data[1][:limit]
         return (source, target)
+
+    def __len__(self):
+        return sum([len(dataset) for dataset in self.datasets])
 
 class NetworkDataset(IDataset):
     CACHE_PATH = Path('cache')
@@ -179,6 +191,9 @@ class NetworkDataset(IDataset):
         assert(len(source) == len(target))
         return trim_to_length_random(source, target, length)
 
+    def __len__(self):
+        return len(self.data()[0])
+
 class FileDataset(IDataset):
     def __init__(self, source_file, target_file):
         """Creates a FileDataset
@@ -197,3 +212,6 @@ class FileDataset(IDataset):
             self.source = self.source_file.readlines()
             self.target = self.target_file.readlines()
         return trim_to_length_random(self.source, self.target, length)
+
+    def __len__(self):
+        return len(self.data()[0])
