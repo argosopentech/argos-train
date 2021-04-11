@@ -159,7 +159,7 @@ class NetworkDataset(IDataset):
             open(filepath, 'wb').write(r.content)
         return filepath
 
-    def data(self):
+    def data(self, length=None):
         filepath = self.filepath()
         assert(Path(filepath).exists())
         assert(zipfile.is_zipfile(filepath))
@@ -177,7 +177,7 @@ class NetworkDataset(IDataset):
         assert(source != None)
         assert(target != None)
         assert(len(source) == len(target))
-        return (source, target)
+        return trim_to_length_random(source, target, length)
 
 class FileDataset(IDataset):
     def __init__(self, source_file, target_file):
@@ -196,4 +196,4 @@ class FileDataset(IDataset):
         if self.source == None and self.target == None:
             self.source = self.source_file.readlines()
             self.target = self.target_file.readlines()
-        return (self.source, self.target)
+        return trim_to_length_random(self.source, self.target, length)
