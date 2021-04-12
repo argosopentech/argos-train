@@ -215,3 +215,60 @@ class FileDataset(IDataset):
 
     def __len__(self):
         return len(self.data()[0])
+
+class TrimmedDataset(IDataset):
+    """A dataset with max length"""
+    def __init__(self, dataset, length=None):
+        """Creates a TrimmedDataset.
+
+        Args:
+            dataset (IDataset): The dataset to be trimmed.
+            length (int): The length to trim to.
+        """
+        self.dataset = dataset
+        self.length = length
+
+    def data(self, length=None):
+        source, target = self.dataset.data(length)
+        return (source, target)
+
+    def __len__(self):
+        if length == None:
+            return len(self.dataset)
+        return min(len(self.dataset), length)
+
+class TransformedDataset(IDataset):
+    """A dataset with a tranformation applied to it."""
+    def __init__(self, dataset, transform, target_transform=None):
+        """Creates a TransformedDataset.
+
+        Args:
+            dataset (IDataset): The dataset to be transformed.
+            transform (str -> str): A lambda transformation to apply to data.
+            target_transform (str -> str): A transformation to apply to target data.
+                    transform is used if target_transform=None.
+        """
+        self.dataset = dataset
+        self.transform = transform
+        self.target_transform = transform if target_transform == None else target_transform
+
+    def data(self, length=None):
+        source, target = self.dataset.data(length)
+        source = [self.transform(x) for x in source]
+        target = [self.target_transform(x) for x in target]
+        return trim_to_length_random(source, target, length)
+
+    def __len__(self):
+        return len(self.dataset)
+
+def copy_dataset(dataset):
+    """Copies a dataset and returns the copy.
+
+    Args:
+        dataset (IDataset): The dataset to copy
+
+    Returns:
+        IDataset: A copy of the dataset
+    """
+    source, target = dataset.data()
+    return Dataset(source.copy(), target.copy())
