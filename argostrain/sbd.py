@@ -22,6 +22,8 @@ def generate_sbd_data(dataset):
     for i in range(len(source_lang_data)):
         # Take each sentence and add a fragment of two random sentences
         sentence = source_lang_data[i]
+        if len(sentence) == 0:
+            continue
         rand_sentence = source_lang_data[randrange(len(source_lang_data))]
         rand_sentence2 = source_lang_data[randrange(len(source_lang_data))]
         sentence = strip_tail_newline(sentence)

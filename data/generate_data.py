@@ -5,7 +5,7 @@ from argostrain.sbd import *
 
 import random
 
-DEBUG = True
+DEBUG = False
 
 # Load data
 if DEBUG:
@@ -21,9 +21,10 @@ else:
 input_data_length = len(input_dataset)
 
 # Generate SBD data
-sbd_dataset = generate_sbd_data(input_dataset)
+sbd_length = int(input_data_length * 0.1)
+sbd_dataset = generate_sbd_data(TrimmedDataset(input_dataset, sbd_length))
 # At most use 0.1 as much sbd data as input data
-trimmed_sbd_data = sbd_dataset.data(int(input_data_length * 0.1))
+trimmed_sbd_data = sbd_dataset.data(sbd_length)
 sbd_dataset = Dataset(trimmed_sbd_data[0], trimmed_sbd_data[1])
 
 # Combine datasets
@@ -54,4 +55,7 @@ all_caps_dataset = CompositeDataset(all_upper_dataset) + CompositeDataset(all_lo
         CompositeDataset(random_caps_dataset)
 dataset += all_caps_dataset
 
-print(dataset)
+if DEBUG:
+    print(dataset)
+else:
+    export_dataset(dataset)

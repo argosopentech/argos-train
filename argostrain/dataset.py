@@ -241,7 +241,7 @@ class FileDataset(IDataset):
         return len(self.data()[0])
 
 class TrimmedDataset(IDataset):
-    """A dataset with max length"""
+    """A dataset with a max length"""
     def __init__(self, dataset, length=None):
         """Creates a TrimmedDataset.
 
@@ -296,3 +296,15 @@ def copy_dataset(dataset):
     """
     source, target = dataset.data()
     return Dataset(source.copy(), target.copy())
+
+def export_dataset(dataset):
+    source_filepath = Path('source_export')
+    target_filepath = Path('target_export')
+    assert(not source_filepath.exists())
+    assert(not target_filepath.exists())
+    source, target = dataset.data()
+    with open(source_filepath) as f:
+        f.writelines(source)
+    with open(target_filepath) as f:
+        f.writelines(target)
+    
