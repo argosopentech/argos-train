@@ -123,7 +123,7 @@ class CompositeDataset(IDataset):
                     source += data[0]
                     target += data[1]
             else:
-            # Randomly select data to take if over limit
+                # Randomly select data to take if over limit
                 limit = (weight / sum_of_weights) * length
                 if limit < len(data):
                     random.shuffle(data)
@@ -136,6 +136,14 @@ class CompositeDataset(IDataset):
 
 class NetworkDataset(IDataset):
     CACHE_PATH = Path('cache')
+
+    def __init__(self, metadata):
+        """Creates a NetworkDataset.
+
+        Args:
+            metadata: A json object from json.load  
+        """
+        self.load_metadata_from_json(metadata)
 
     def load_metadata_from_json(self, metadata):
         """Loads package metadata from a JSON object.
@@ -159,7 +167,7 @@ class NetworkDataset(IDataset):
         return str(self) + '.argosmodel'
 
     def filepath(self):
-        return Path(Dataset.CACHE_PATH) / self.filename()
+        return Path(NetworkDataset.CACHE_PATH) / self.filename()
 
     def download(self):
         """Downloads the package and returns its path"""
@@ -173,7 +181,8 @@ class NetworkDataset(IDataset):
 
     def data(self, length=None):
         filepath = self.filepath()
-        assert(Path(filepath).exists())
+        if not Path(filepath).exists():
+            self.download()
         assert(zipfile.is_zipfile(filepath))
         source = None
         target = None
@@ -193,6 +202,21 @@ class NetworkDataset(IDataset):
 
     def __len__(self):
         return len(self.data()[0])
+
+def get_available_datasets():
+    """Returns a list of available NetworkDatasets
+
+    Returns:
+        [NetworkDataset]: The available datasets.
+    """
+    DATA_INDEX = Path('index.json')
+    available_datasets = []
+    with open(DATA_INDEX) as data_index:
+        index = json.load(data_index)
+        for metadata in index:
+            dataset = NetworkDataset(metadata)
+            available_datasets.append(dataset)
+    return available_datasets
 
 class FileDataset(IDataset):
     def __init__(self, source_file, target_file):

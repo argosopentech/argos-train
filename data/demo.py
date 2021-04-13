@@ -5,8 +5,19 @@ from argostrain.sbd import *
 
 import random
 
+DEBUG = True
+
 # Load data
-input_dataset = FileDataset(open('testdata_source'), open('testdata_target'))
+if DEBUG:
+    input_dataset = FileDataset(open('testdata_source'), open('testdata_target'))
+else:
+    available_datasets = get_available_datasets()
+    # Get Spanish data
+    es_data = list(filter(
+            lambda x: x.to_code == 'es',
+            available_datasets))
+    input_dataset = es_data[0]
+
 input_data_length = len(input_dataset)
 
 # Generate SBD data
