@@ -303,8 +303,8 @@ def export_dataset(dataset):
     assert(not source_filepath.exists())
     assert(not target_filepath.exists())
     source, target = dataset.data()
-    with open(source_filepath) as f:
+    with open(source_filepath, 'w') as f:
         f.writelines(source)
-    with open(target_filepath) as f:
+    with open(target_filepath, 'w') as f:
         f.writelines(target)
     
