@@ -4,12 +4,15 @@ from argostrain.dataset import *
 from argostrain.sbd import *
 
 import random
+from pathlib import Path
 
 DEBUG = False
 
 # Load data
 if DEBUG:
-    input_dataset = FileDataset(open('testdata_source'), open('testdata_target'))
+    testdata_source = Path('data') / 'testdata_source'
+    testdata_target = Path('data') / 'testdata_target'
+    input_dataset = FileDataset(open(testdata_source), open(testdata_target))
 else:
     available_datasets = get_available_datasets()
     # Get Spanish data
