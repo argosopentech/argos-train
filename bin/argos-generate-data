@@ -6,7 +6,7 @@ from argostrain.sbd import *
 import random
 from pathlib import Path
 
-DEBUG = False
+DEBUG = True
 
 # Load data
 if DEBUG:
@@ -22,16 +22,16 @@ else:
     input_dataset = es_data[0]
 
 input_data_length = len(input_dataset)
+dataset = CompositeDataset(input_dataset)
 
 # Generate SBD data
+"""
 sbd_length = int(input_data_length * 0.1)
 sbd_dataset = generate_sbd_data(TrimmedDataset(input_dataset, sbd_length))
 # At most use 0.1 as much sbd data as input data
 trimmed_sbd_data = sbd_dataset.data(sbd_length)
 sbd_dataset = Dataset(trimmed_sbd_data[0], trimmed_sbd_data[1])
-
-# Combine datasets
-dataset = CompositeDataset(input_dataset) + CompositeDataset(sbd_dataset)
+"""
 
 # Generate capitalization data
 CAPITAL_RATIO = 0.01
