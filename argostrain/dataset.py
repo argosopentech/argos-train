@@ -285,6 +285,23 @@ class TransformedDataset(IDataset):
     def __len__(self):
         return len(self.dataset)
 
+class InvertedDataset(IDataset):
+    """A Dataset with source and target flipped"""
+    def __init__(self, dataset):
+        self.non_inverted_dataset = dataset
+        self.inverted_source = None
+        self.inverted_target = None
+
+    def data(self, length=None):
+        if self.inverted_source == None:
+            source, target = self.non_inverted_dataset.data(length)
+            self.inverted_source = target
+            self.inverted_target = source
+        return (self.inverted_source, self.inverted_target)
+
+    def __len__(self):
+        return len(self.non_inverted_dataset)
+
 def copy_dataset(dataset):
     """Copies a dataset and returns the copy.
 
