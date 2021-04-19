@@ -2,6 +2,7 @@
 
 from argostrain.dataset import *
 from argostrain.sbd import *
+from argostrain.multilang import *
 
 import random
 from pathlib import Path
@@ -32,6 +33,11 @@ sbd_dataset = generate_sbd_data(TrimmedDataset(input_dataset, sbd_length))
 trimmed_sbd_data = sbd_dataset.data(sbd_length)
 sbd_dataset = Dataset(trimmed_sbd_data[0], trimmed_sbd_data[1])
 """
+
+# Generate multi-lang
+langs_data = [(dataset, 'en'), (dataset, 'es')] 
+multilang_dataset = generate_multilang_data(langs_data)
+dataset += CompositeDataset(multilang_dataset)
 
 # Generate capitalization data
 CAPITAL_RATIO = 0.01

@@ -9,6 +9,9 @@ def generate_sbd_data(dataset):
 
     Args:
         dataset (IDataset): Dataset of language data
+    
+    Returns:
+        IDataset: Sbd dataset
     """
     source_lang_data = dataset.data()[0]
 
