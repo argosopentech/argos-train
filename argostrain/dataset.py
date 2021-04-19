@@ -55,8 +55,8 @@ def trim_to_length_random(source, target, length):
             random.shuffle(zipped_data)
             source = [x[0] for x in zipped_data]
             target = [x[1] for x in zipped_data]
-        source += source[:length]
-        target += target[:length]
+        source = source[:length]
+        target = target[:length]
         return (source, target)
 
 class Dataset:
@@ -253,13 +253,13 @@ class TrimmedDataset(IDataset):
         self.length = length
 
     def data(self, length=None):
-        source, target = self.dataset.data(length)
-        return (source, target)
+        source, target = self.dataset.data(self.length)
+        return trim_to_length_random(source, target, length)
 
     def __len__(self):
-        if length == None:
+        if self.length == None:
             return len(self.dataset)
-        return min(len(self.dataset), length)
+        return min(len(self.dataset), self.length)
 
 class TransformedDataset(IDataset):
     """A dataset with a tranformation applied to it."""
