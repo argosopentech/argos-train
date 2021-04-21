@@ -135,7 +135,8 @@ class CompositeDataset(IDataset):
         return sum([len(dataset) for dataset in self.datasets])
 
 class NetworkDataset(IDataset):
-    CACHE_PATH = Path('cache')
+    # Only runs in project root
+    CACHE_PATH = Path('data') / Path('cache')
 
     def __init__(self, metadata):
         """Creates a NetworkDataset.
