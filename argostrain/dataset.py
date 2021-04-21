@@ -209,7 +209,8 @@ def get_available_datasets():
     Returns:
         [NetworkDataset]: The available datasets.
     """
-    DATA_INDEX = Path('index.json')
+    # Needs to be run from project root
+    DATA_INDEX = Path('data') / Path('index.json')
     available_datasets = []
     with open(DATA_INDEX) as data_index:
         index = json.load(data_index)
