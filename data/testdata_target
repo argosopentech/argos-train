@@ -7,3 +7,6 @@ Target line 6
 Target line 7
 Target line 8
 Target line 9
+<somecrazytag>
+<sometag>With some text in the middle</sometag>
+Text at the beginning <sometag>With some text in the middle</sometag> and end.

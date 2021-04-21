@@ -3,6 +3,7 @@
 from argostrain.dataset import *
 from argostrain.sbd import *
 from argostrain.multilang import *
+import argostrain.xml
 
 import random
 from pathlib import Path
@@ -23,10 +24,9 @@ else:
     input_dataset = es_data[0]
 
 input_data_length = len(input_dataset)
-langs_data = [(input_dataset, 'es'), (InvertedDataset(input_dataset), 'en')] 
 
 # The dataset to use for training
-dataset = CompositeDataset()
+dataset = CompositeDataset(copy_dataset(input_dataset))
 
 # Generate SBD data
 """
@@ -38,8 +38,25 @@ sbd_dataset = Dataset(trimmed_sbd_data[0], trimmed_sbd_data[1])
 """
 
 # Generate multi-lang
+"""
+langs_data = [(input_dataset, 'es'), (InvertedDataset(input_dataset), 'en')] 
 multilang_dataset = generate_multilang_data(langs_data)
 dataset += CompositeDataset(multilang_dataset)
+"""
+
+# Generate tag data
+source, target = input_dataset.data()
+tag_source = deque()
+tag_target = deque()
+for i in range(len(source)):
+    normalized_tags = argostrain.xml.normalize_tags(source[i], target[i])
+    if normalized_tags == None:
+        continue
+    tag_source.append(normalized_tags[0])
+    tag_target.append(normalized_tags[1])
+    info(f'Generating normalized tags {normalized_tags}')
+tag_dataset = Dataset(tag_source, tag_target)
+dataset += tag_dataset
 
 # Generate capitalization data
 CAPITAL_RATIO = 0.01

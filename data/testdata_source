@@ -7,3 +7,6 @@ Source line 6
 Source line 7
 Source line 8
 Source line 9
+<somecrazytag>
+<sometag>With some text in the middle</sometag>
+Text at the beginning <sometag>With some text in the middle</sometag> and end.
