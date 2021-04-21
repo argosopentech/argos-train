@@ -8,7 +8,9 @@ import argostrain.xml
 import random
 from pathlib import Path
 
-DEBUG = True
+debug = False
+if 'DEBUG' in os.environ:
+    debug = os.environ['DEBUG'] in ['1', 'TRUE', 'True', 'true']
 
 # Load data
 if DEBUG:
