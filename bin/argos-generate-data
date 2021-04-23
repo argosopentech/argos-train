@@ -8,9 +8,7 @@ import argostrain.xml
 import random
 from pathlib import Path
 
-DEBUG = False
-if 'DEBUG' in os.environ:
-    DEBUG = os.environ['DEBUG'] in ['1', 'TRUE', 'True', 'true']
+DEBUG = True
 
 # Load data
 if DEBUG:
@@ -30,15 +28,6 @@ input_data_length = len(input_dataset)
 # The dataset to use for training
 dataset = CompositeDataset(copy_dataset(input_dataset))
 
-# Generate SBD data
-"""
-sbd_length = int(input_data_length * 0.1)
-sbd_dataset = generate_sbd_data(TrimmedDataset(input_dataset, sbd_length))
-# At most use 0.1 as much sbd data as input data
-trimmed_sbd_data = sbd_dataset.data(sbd_length)
-sbd_dataset = Dataset(trimmed_sbd_data[0], trimmed_sbd_data[1])
-"""
-
 # Generate multi-lang
 """
 langs_data = [(input_dataset, 'es'), (InvertedDataset(input_dataset), 'en')] 
@@ -47,6 +36,7 @@ dataset += CompositeDataset(multilang_dataset)
 """
 
 # Generate tag data
+"""
 source, target = input_dataset.data()
 tag_source = deque()
 tag_target = deque()
@@ -59,6 +49,7 @@ for i in range(len(source)):
     info(f'Generating normalized tags {normalized_tags}')
 tag_dataset = Dataset(tag_source, tag_target)
 dataset += tag_dataset
+"""
 
 # Generate capitalization data
 CAPITAL_RATIO = 0.01
@@ -85,7 +76,10 @@ all_caps_dataset = CompositeDataset(all_upper_dataset) + CompositeDataset(all_lo
         CompositeDataset(random_caps_dataset)
 dataset += all_caps_dataset
 
+# Generate SBD data
+dataset = generate_sbd_data(dataset)
+
 if DEBUG:
-    print(dataset)
+    print(str(dataset))
 else:
     export_dataset(dataset)
