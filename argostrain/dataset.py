@@ -59,7 +59,7 @@ def trim_to_length_random(source, target, length):
         target = target[:length]
         return (source, target)
 
-class Dataset:
+class Dataset(IDataset):
     def __init__(self, source, target):
         """Creates a Dataset.
 
