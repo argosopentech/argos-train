@@ -23,6 +23,15 @@ sudo reboot
 ```
 Using the nvidia/cuda Docker container should also work.
 
+## Install training dependencies
+```
+cd
+git clone https://github.com/argosopentech/onmt-models.git
+cd ~/onmt-models
+sudo ./setup.sh
+
+```
+
 ## Install OpenNMT-py from source with optional dependencies
 ```
 cd
@@ -36,8 +45,6 @@ PATH=~/.local/bin:$PATH
 
 ## Download data
 ```
-cd
-git clone https://github.com/argosopentech/onmt-models.git
 cd ~/onmt-models/raw_data
 wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
 unzip en-es.txt.zip
@@ -54,13 +61,6 @@ sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo swapon --show
-
-```
-
-## Install training dependencies
-```
-cd ~/onmt-models
-sudo ./setup.sh
 
 ```
 
