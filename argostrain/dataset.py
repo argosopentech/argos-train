@@ -134,6 +134,61 @@ class CompositeDataset(IDataset):
     def __len__(self):
         return sum([len(dataset) for dataset in self.datasets])
 
+class LocalDataset(IDataset):
+    def __init__(self, filepath):
+        """Creates a LocalDataset.
+
+        Args:
+            filepath (pathlib.Path): A path to an argos data package with a .argosdata extension.
+        """
+        source = None
+        target = None
+        with zipfile.ZipFile(filepath, 'r') as zip_cache:
+            dir_names = [info.filename for info in zip_cache.infolist() if info.is_dir()]
+            assert(len(dir_names) > 0)
+            dir_name = dir_names[0]
+            with zip_cache.open(dir_name + 'metadata.json') as metadata_file:
+                metadata = json.load(metadata_file)
+                self.load_metadata_from_json(metadata)
+            with zip_cache.open(dir_name + 'source', 'r') as source_file:
+                source = deque()
+                for line in codecs.iterdecode(source_file, 'utf8'):
+                    source.append(line)
+            with zip_cache.open(dir_name + 'target', 'r') as target_file:
+                target = deque()
+                for line in codecs.iterdecode(target_file, 'utf8'):
+                    target.append(line)
+        assert(source != None)
+        assert(target != None)
+        assert(len(source) == len(target))
+        self.source = source
+        self.target = target
+        filepath = Path(filepath)
+
+    def __str__(self):
+        return str(self.name).lower() + '-' + \
+                str(self.from_code) + '_' + \
+                str(self.to_code)
+
+    def load_metadata_from_json(self, metadata):
+        """Loads package metadata from a JSON object.
+
+        Args:
+            metadata: A json object from json.load
+        """
+        self.name = metadata.get('name')
+        self.type = metadata.get('type')
+        self.from_code = metadata.get('from_code')
+        self.to_code = metadata.get('to_code')
+        self.size = metadata.get('size')
+        self.links = metadata.get('links')
+
+    def data(self, length=None):
+        return trim_to_length_random(self.source, self.target, length)
+
+    def __len__(self):
+        return len(self.source)
+
 class NetworkDataset(IDataset):
     # Only runs in project root
     CACHE_PATH = Path('data') / Path('cache')
@@ -145,6 +200,7 @@ class NetworkDataset(IDataset):
             metadata: A json object from json.load  
         """
         self.load_metadata_from_json(metadata)
+        self.local_dataset = None
 
     def load_metadata_from_json(self, metadata):
         """Loads package metadata from a JSON object.
@@ -165,7 +221,7 @@ class NetworkDataset(IDataset):
                 str(self.to_code)
 
     def filename(self):
-        return str(self) + '.argosmodel'
+        return str(self) + '.argosdata'
 
     def filepath(self):
         return Path(NetworkDataset.CACHE_PATH) / self.filename()
@@ -185,21 +241,9 @@ class NetworkDataset(IDataset):
         if not Path(filepath).exists():
             self.download()
         assert(zipfile.is_zipfile(filepath))
-        source = None
-        target = None
-        with zipfile.ZipFile(filepath, 'r') as zip_cache:
-            with zip_cache.open(str(self) + '/source', 'r') as source_file:
-                source = deque()
-                for line in codecs.iterdecode(source_file, 'utf8'):
-                    source.append(line)
-            with zip_cache.open(str(self) + '/target', 'r') as target_file:
-                target = deque()
-                for line in codecs.iterdecode(target_file, 'utf8'):
-                    target.append(line)
-        assert(source != None)
-        assert(target != None)
-        assert(len(source) == len(target))
-        return trim_to_length_random(source, target, length)
+        if self.local_dataset == None:
+            self.local_dataset = LocalDataset(filepath)
+        return self.local_dataset.data(length)
 
     def __len__(self):
         return len(self.data()[0])
