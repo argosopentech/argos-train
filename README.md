@@ -49,8 +49,8 @@ PATH=~/.local/bin:$PATH
 cd ~/onmt-models/raw_data
 wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
 unzip en-es.txt.zip
-cat *.en >> source.en
-cat *.es >> source.es
+cat *.en >> source
+cat *.es >> target
 
 ```
 
@@ -127,7 +127,7 @@ screen -r
     -  [https://kaikki.org/dictionary/](https://kaikki.org/dictionary/)
     -  `source config.sh && ./generate_wiktionary_data.py kaikki.org-dictionary-Irish.json kaikki.org-dictionary-English.json`
  - Combine datasets
-     - `cd raw_data && cat *.zh >> source.zh && cat *.en >> source.zh`
+     - `cd raw_data && cat *.zh >> source && cat *.en >> target`
 
 
 ## License

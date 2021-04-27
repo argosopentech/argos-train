@@ -1,7 +1,7 @@
 source config.sh
 
 echo "Splitting train and valid data"
-./split_train_and_valid.py raw_data/source.$sl raw_data/source.$tl
+./split_train_and_valid.py raw_data/source raw_data/target
 
 cat split_data/*train.txt >> split_data/all.txt
 
