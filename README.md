@@ -16,9 +16,13 @@ This is the setup currently used to train models:
 
 ## Install CUDA
 Tested on Ubuntu 20.04 with [this script](https://github.com/PJ-Finlay/cuda-setup):
-** Warning: This uninstalls XOrg and should only be run on a headless server **
+
+
+**Warning: This uninstalls XOrg and should only be run on a headless server**
+
+
 ```
-curl https://raw.githubusercontent.com/PJ-Finlay/cuda-setup/main/setup.sh | sh
+curl https://raw.githubusercontent.com/PJ-Finlay/cuda-setup/main/setup_cuda.sh | sh
 sudo reboot
 
 ```
