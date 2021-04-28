@@ -8,6 +8,9 @@ import argparse
 from pathlib import Path
 
 # Configure
+if 'sl' not in os.environ:
+    print('$sl not in environment, run `source config.sh`')
+    exit(1)
 sl = os.environ['sl']
 tl = os.environ['tl']
 
