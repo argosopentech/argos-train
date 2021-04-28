@@ -73,7 +73,7 @@ screen
 
 ## Run training
 ```
-train
+argos-train
 
 ```
 
