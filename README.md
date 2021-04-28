@@ -37,17 +37,6 @@ sudo ./setup.sh
 
 ```
 
-## Install OpenNMT-py from source with optional dependencies
-```
-cd
-git clone https://github.com/OpenNMT/OpenNMT-py.git
-cd OpenNMT-py
-pip3 install -e .
-pip3 install -r requirements.opt.txt
-PATH=~/.local/bin:$PATH
-
-```
-
 ## Download data
 ```
 cd ~/onmt-models/raw_data
