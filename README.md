@@ -73,7 +73,7 @@ screen
 
 ## Run training
 ```
-./train.sh
+./train
 
 ```
 
@@ -125,7 +125,7 @@ screen -r
  - Download Wikimedia data
     -  Download pre extraced dictionaries from: [https://github.com/tatuylonen/wiktextract](https://github.com/tatuylonen/wiktextract)   
     -  [https://kaikki.org/dictionary/](https://kaikki.org/dictionary/)
-    -  `source config.sh && ./generate_wiktionary_data.py kaikki.org-dictionary-Irish.json kaikki.org-dictionary-English.json`
+    -  `source config.sh && generate-wiktionary-data kaikki.org-dictionary-Irish.json kaikki.org-dictionary-English.json`
  - Combine datasets
      - `cd raw_data && cat *.zh >> source && cat *.en >> target`
 
