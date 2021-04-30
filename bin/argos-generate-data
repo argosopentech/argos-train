@@ -3,7 +3,7 @@
 from argostrain.dataset import *
 from argostrain.sbd import *
 from argostrain.multilang import *
-import argostrain.xml
+from argostrain.xml import *
 
 import random
 from pathlib import Path
@@ -35,21 +35,9 @@ multilang_dataset = generate_multilang_data(langs_data)
 dataset += CompositeDataset(multilang_dataset)
 """
 
-# Generate tag data
-"""
-source, target = input_dataset.data()
-tag_source = deque()
-tag_target = deque()
-for i in range(len(source)):
-    normalized_tags = argostrain.xml.normalize_tags(source[i], target[i])
-    if normalized_tags == None:
-        continue
-    tag_source.append(normalized_tags[0])
-    tag_target.append(normalized_tags[1])
-    info(f'Generating normalized tags {normalized_tags}')
-tag_dataset = Dataset(tag_source, tag_target)
+# Generate xml data
+tag_dataset = generate_xml_data(dataset, 'en', 'es')
 dataset += tag_dataset
-"""
 
 # Generate capitalization data
 CAPITAL_RATIO = 0.01
@@ -77,7 +65,7 @@ all_caps_dataset = CompositeDataset(all_upper_dataset) + CompositeDataset(all_lo
 dataset += all_caps_dataset
 
 # Generate SBD data
-dataset = generate_sbd_data(dataset)
+# dataset = generate_sbd_data(dataset)
 
 if DEBUG:
     print(str(dataset))

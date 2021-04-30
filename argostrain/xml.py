@@ -2,96 +2,45 @@ from argostrain.dataset import *
 from argostrain.utils import *
 
 from collections import deque
-import random
 
-OPEN_TAG = '<x>'
-CLOSE_TAG = '</x>'
+from argostranslate import package, translate
 
-# Returns the index after end of tag if start of open tag
-# -1 otherwise
-def is_start_of_open_tag(index, line):
-    # First character is a '<'
-    if line[index] != '<':
-        return -1
+MIN_TAG_TEXT_LENGTH = 10
 
-    # Second isn't /
-    if len(line) >= 2 and line[index + 1] == '/':
-        return -1
-
-    # Look for '>'
-    i = index + 1
-    while i < len(line):
-        if line[i] == '<':
-            return -1
-        if line[i] == '>':
-            return i + 1
-        i += 1
-    return -1
-
-# Returns the index after end of tag if start of close tag
-# -1 otherwise
-def is_start_of_close_tag(index, line):
-    if len(line) < 2:
-        return -1
-
-    # First two characters are '</'
-    if line[index:index + 2] != '</':
-        return -1
-
-    # Look for '>'
-    i = index + 2
-    while i < len(line):
-        if line[i] == '<':
-            return -1
-        if line[i] == '>':
-            return i + 1
-        i += 1
-    return -1
-
-# Returns tuple of source and target line normalized if possible
-# None otherwise
-def normalize_tags(source_line, target_line):
-    tag_count_of_source = -1
-    candidate_line_of_source = None
-    for source_or_target_index, line in enumerate([source_line, target_line]):
-        candidate_line = ''
-        tag_depth = 0
-        tag_count = 0
-        i = 0
-        while i < len(line):
-            is_open = is_start_of_open_tag(i, line)
-            is_close = is_start_of_close_tag(i, line)
-            if is_open != -1:
-                tag_depth += 1
-                tag_count += 1
-                candidate_line += OPEN_TAG
-                i = is_open - 1
-            elif is_close != -1:
-                tag_depth -= 1
-                tag_count += 1
-                candidate_line += CLOSE_TAG
-                i = is_close - 1
-            else:
-                candidate_line += line[i]
-
-            if tag_depth < 0:
-                break
-
-            i += 1
-        if tag_depth != 0:
-            # Invalid tags
-            return None
-
-        if source_or_target_index == 0:
-            tag_count_of_source = tag_count
-            candidate_line_of_source = candidate_line
-        elif source_or_target_index == 1:
-            if tag_count_of_source == tag_count and tag_count > 0:
-                return (candidate_line_of_source, candidate_line)
-            else:
-                return None
-
-
-        
+def generate_xml_data(dataset, source_code, target_code):
+    xml_source = deque()
+    xml_target = deque()
+    source, target = dataset.data()
+    installed_languages = translate.get_installed_languages()
+    source_translation = list(filter(
+            lambda x: x.code == source_code,
+            installed_languages))[0]
+    target_translation = list(filter(
+            lambda x: x.code == target_code,
+            installed_languages))[0]
+    source_translation = source_translation.get_translation(target_translation)
+    for i in range(len(source)):
+        source_line = source[i]
+        target_line = target[i]
+        best_source_start_index = None
+        best_source_end_index = None
+        best_score = None
+        for source_start_index in range(len(source_line) - 1):
+            for source_end_index in range(source_start_index, len(source_line) + 1):
+                source_sub_string = source_line[source_start_index:source_end_index]
+                if len(source_sub_string) < MIN_TAG_TEXT_LENGTH:
+                    continue
+                translation_hypothesis = source_translation.hypotheses(source_sub_string, 1)[0]
+                translated_sub_string = translation_hypothesis.value
+                score = translation_hypothesis.score
+                if translated_sub_string not in target_line:
+                    continue
+                if best_score == None or score > best_score:
+                    best_source_start_index = source_start_index
+                    best_source_end_index = source_end_index
+                    best_score = score
+                    print(source_sub_string)
+                    print(translated_sub_string)
+    return Dataset(['Hello\n'], ['World\n'])
 
     

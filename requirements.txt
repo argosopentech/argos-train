@@ -1,4 +1,5 @@
-ctranslate2==1.14.0
-emoji==1.2.0
+argostranslate>=1.3.0
+ctranslate2==1.17.1
+emoji>=1.2.0
 stanza==1.1.1
-requests==2.25.1
+requests>=2.25.1
