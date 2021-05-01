@@ -9,7 +9,7 @@ import random
 from pathlib import Path
 
 DEBUG = True
-COUNT = 1
+COUNT = 1000
 
 # Load data
 if DEBUG:
@@ -20,7 +20,7 @@ else:
     available_datasets = get_available_datasets()
     # Get Spanish data
     es_data = list(filter(
-            lambda x: x.to_code == 'es',
+            lambda x: x.to_code == 'es' && x.from_code == 'en',
             available_datasets))
     input_dataset = es_data[0]
 

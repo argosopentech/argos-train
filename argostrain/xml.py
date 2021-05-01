@@ -22,6 +22,8 @@ def generate_xml_data(dataset, source_code, target_code, num):
             installed_languages))[0]
     source_translation = source_translation.get_translation(target_translation)
     for i in range(len(source)):
+        if num <= 0:
+            break
         source_line = source[i]
         target_line = target[i]
         info(f'Processing xml line {i} ' + \
@@ -52,6 +54,7 @@ def generate_xml_data(dataset, source_code, target_code, num):
                     best_score = score
         if best_score == None:
             continue
+        num -= 1
         xml_source.append(
                 source_line[:best_source_start_index] + \
                 OPEN_TOKEN + \
