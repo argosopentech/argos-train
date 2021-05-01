@@ -27,9 +27,9 @@ def generate_xml_data(dataset, source_code, target_code, num):
         source_line = source[i]
         target_line = target[i]
         info(f'Processing xml line {i} ' + \
-                'num={num} ' + \
-                'source_line={source_line} ' + \
-                'target_line={target_line}')
+                f'num={num} ' + \
+                f'source_line={source_line} ' + \
+                f'target_line={target_line}')
         best_source_start_index = None
         best_source_end_index = None
         best_matching_index = None
