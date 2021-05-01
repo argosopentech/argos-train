@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+from argostrain.dataset import *
+from argostrain.sbd import *
+from argostrain.multilang import *
+from argostrain.xml import *
+
+import random
+from pathlib import Path
+
+DEBUG = True
+COUNT = 1
+
+# Load data
+if DEBUG:
+    testdata_source = Path('data') / 'testdata_source'
+    testdata_target = Path('data') / 'testdata_target'
+    input_dataset = FileDataset(open(testdata_source), open(testdata_target))
+else:
+    available_datasets = get_available_datasets()
+    # Get Spanish data
+    es_data = list(filter(
+            lambda x: x.to_code == 'es',
+            available_datasets))
+    input_dataset = es_data[0]
+
+input_data_length = len(input_dataset)
+
+# The dataset to use for training
+dataset = CompositeDataset()
+
+# Generate xml data
+tag_dataset = generate_xml_data(input_dataset, 'en', 'es', COUNT)
+dataset += tag_dataset
+
+if DEBUG:
+    print(str(dataset))
+else:
+    export_dataset(dataset)
