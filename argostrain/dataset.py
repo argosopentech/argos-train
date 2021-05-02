@@ -345,7 +345,8 @@ class TransformedDatasetNew(IDataset):
         self.transform = transform
 
     def data(self, length=None):
-        data = self.dataset.data(length)
+        source, target = self.dataset.data(length)
+        data = list(zip(source, target))
 
         # Split over multiple processes
         procs_pool = Pool()
