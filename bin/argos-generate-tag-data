@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+
+from argostrain.dataset import *
+from argostrain.sbd import *
+from argostrain.multilang import *
+from argostrain.xml import *
+
+import os
+from pathlib import Path
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--source-file')
+parser.add_argument('--target-file')
+parser.add_argument('--num-procs')
+args = parser.parse_args()
+source_file = Path(args.source_file)
+target_file = Path(args.target_file)
+
+DEBUG = True
+
+# Load data
+if DEBUG:
+    testdata_source = Path('data') / 'testdata_source'
+    testdata_target = Path('data') / 'testdata_target'
+    input_dataset = FileDataset(open(testdata_source), open(testdata_target))
+else:
+    available_datasets = get_available_datasets()
+    # Get Spanish data
+    es_data = list(filter(
+            lambda x: x.to_code == 'es' and x.from_code == 'en',
+            available_datasets))
+    input_dataset = es_data[0]
+
+# Save input_dataset into memory before forking
+source, target = input_dataset.data()
+input_dataset = Dataset(source, target)
+    
+# Fork into num_procs proccesses
+num_procs = int(args.num_procs)
+while num_procs > 0:
+    pid = os.fork()
+    print(f'Forked with pid={pid}')
+    if pid != 0:
+        # Parent process
+        break
+    num_procs -= 1
+
+input_dataset = ShuffledDataset(input_dataset)
+input_data_length = len(input_dataset)
+
+# Generate xml data
+BATCH_SIZE = 1
+source, target = input_dataset.data()
+print('source and target extracted')
+for i in range(0, len(source), BATCH_SIZE):
+    print(f'Batch {i}')
+    source_batch = source[i:i+BATCH_SIZE]
+    target_batch = target[i:i+BATCH_SIZE]
+    tag_dataset = generate_xml_data(
+            Dataset(source_batch, target_batch),
+            'en', 'es', BATCH_SIZE)
+    tag_source, tag_target = tag_dataset.data()
+    # Append to same file from multiple processes, hopefully safe?
+    with open(source_file, 'a') as f:
+        for tag_source_line in tag_source:
+            f.write(tag_source_line)
+    with open(target_file, 'a') as f:
+        for tag_target_line in tag_target:
+            f.write(tag_target_line)
+
+print('Done')
+

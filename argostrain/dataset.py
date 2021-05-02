@@ -348,6 +348,25 @@ class InvertedDataset(IDataset):
     def __len__(self):
         return len(self.non_inverted_dataset)
 
+class ShuffledDataset(IDataset):
+    """A dataset with elements in a randomized order."""
+    def __init__(self, dataset):
+        self.dataset = dataset
+        self.shuffled_dataset = None
+
+    def data(self, length=None):
+        if self.shuffled_dataset == None:
+            source, target = self.dataset.data()
+            zipped_data = list(zip(source, target))
+            random.shuffle(zipped_data)
+            shuffled_source = [x[0] for x in zipped_data]
+            shuffled_target = [x[1] for x in zipped_data]
+            self.shuffled_dataset = Dataset(shuffled_source, shuffled_target)
+        return self.shuffled_dataset.data()
+
+    def __len__(self):
+        return len(self.dataset)
+
 def copy_dataset(dataset):
     """Copies a dataset and returns the copy.
 
