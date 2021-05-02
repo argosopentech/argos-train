@@ -7,6 +7,7 @@ import json
 import random
 import zipfile
 import codecs
+from multiprocessing import Pool
 
 import requests
 
@@ -326,6 +327,31 @@ class TransformedDataset(IDataset):
         source, target = self.dataset.data(length)
         source = [self.transform(x) for x in source]
         target = [self.target_transform(x) for x in target]
+        return trim_to_length_random(source, target, length)
+
+    def __len__(self):
+        return len(self.dataset)
+
+class TransformedDatasetNew(IDataset):
+    """A dataset with a tranformation applied to it."""
+    def __init__(self, dataset, transform):
+        """Creates a TransformedDataset.
+
+        Args:
+            dataset (IDataset): The dataset to be transformed.
+            transform ((str, str) -> (str, str)): A lambda transformation to apply to data.
+        """
+        self.dataset = dataset
+        self.transform = transform
+
+    def data(self, length=None):
+        data = self.dataset.data(length)
+
+        # Split over multiple processes
+        procs_pool = Pool()
+        transformed_data = procs_pool.map(self.transform, data)
+
+        source, target = transformed_data
         return trim_to_length_random(source, target, length)
 
     def __len__(self):
