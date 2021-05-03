@@ -352,7 +352,8 @@ class TransformedDatasetNew(IDataset):
         procs_pool = Pool()
         transformed_data = procs_pool.map(self.transform, data)
 
-        source, target = transformed_data
+        source = [source_line for source_line, target_line in transformed_data]
+        target = [target_line for source_line, target_line in transformed_data]
         return trim_to_length_random(source, target, length)
 
     def __len__(self):
