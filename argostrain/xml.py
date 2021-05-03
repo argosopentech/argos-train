@@ -48,7 +48,6 @@ def generate_xml_data(source_code, target_code, source_and_target_line):
                 best_score = score
     if best_score == None:
         return None
-    num -= 1
     xml_source.append(
             source_line[:best_source_start_index] + \
             OPEN_TOKEN + \
