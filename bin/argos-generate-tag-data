@@ -33,8 +33,10 @@ else:
     input_dataset = es_data[0]
  
 # Generate xml data
-BATCH_SIZE = 1
+BATCH_SIZE = 10
 source, target = input_dataset.data()
+source = list(source)
+target = list(target)
 print('source and target extracted')
 for i in range(0, len(source), BATCH_SIZE):
     print(f'Batch {i}')
