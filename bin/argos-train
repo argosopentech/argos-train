@@ -1,7 +1,5 @@
 #!/bin/sh
 
-source config.sh
-
 echo "Splitting train and valid data"
 ./split_train_and_valid.py raw_data/source raw_data/target
 
