@@ -50,12 +50,12 @@ def generate_xml_data(source_code, target_code, source_and_target_line):
             OPEN_TOKEN + \
             source_line[best_source_start_index:best_source_end_index] + \
             CLOSE_TOKEN + \
-            source_line[best_source_end_index - 1:]
+            source_line[best_source_end_index:]
     generated_target_line = target_line[:best_matching_index] + \
             OPEN_TOKEN + \
             target_line[best_matching_index:best_target_end_index] + \
             CLOSE_TOKEN + \
-            target_line[best_target_end_index - 1:]
+            target_line[best_target_end_index:]
     info(f'Generated tag data ' + \
             f'generated_source_line={generated_source_line} ' + \
             f'generated_target_line={generated_target_line} ')
