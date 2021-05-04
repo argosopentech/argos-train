@@ -33,7 +33,7 @@ Using the nvidia/cuda Docker container should also work.
 cd
 git clone https://github.com/argosopentech/onmt-models.git
 cd ~/onmt-models
-sudo ./setup.sh
+./setup.sh
 
 ```
 
