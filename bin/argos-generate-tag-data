@@ -31,6 +31,8 @@ else:
             lambda x: x.to_code == 'es' and x.from_code == 'en',
             available_datasets))
     input_dataset = es_data[0]
+
+input_dataset = ShuffledDataset(input_dataset)
  
 # Generate xml data
 BATCH_SIZE = 10
