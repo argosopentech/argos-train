@@ -34,6 +34,7 @@ cd
 git clone https://github.com/argosopentech/onmt-models.git
 cd ~/onmt-models
 ./setup.sh
+PATH=$PATH:~/.local/bin/
 
 ```
 
