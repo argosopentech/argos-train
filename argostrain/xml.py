@@ -10,8 +10,6 @@ OPEN_TOKEN = '<x>'
 CLOSE_TOKEN = '</x>'
 
 def generate_xml_data(source_code, target_code, source_and_target_line):
-    xml_source = deque()
-    xml_target = deque()
     installed_languages = translate.get_installed_languages()
     source_translation = list(filter(
             lambda x: x.code == source_code,
@@ -48,19 +46,19 @@ def generate_xml_data(source_code, target_code, source_and_target_line):
                 best_score = score
     if best_score == None:
         return None
-    xml_source.append(
-            source_line[:best_source_start_index] + \
+    generated_source_line = source_line[:best_source_start_index] + \
             OPEN_TOKEN + \
             source_line[best_source_start_index:best_source_end_index] + \
             CLOSE_TOKEN + \
-            source_line[best_source_end_index - 1:])
-    xml_target.append(
-            target_line[:best_matching_index] + \
+            source_line[best_source_end_index - 1:]
+    generated_target_line = target_line[:best_matching_index] + \
             OPEN_TOKEN + \
             target_line[best_matching_index:best_target_end_index] + \
             CLOSE_TOKEN + \
-            target_line[best_target_end_index - 1:])
-
-    return Dataset(xml_source, xml_target)
+            target_line[best_target_end_index - 1:]
+    info(f'Generated tag data ' + \
+            f'generated_source_line={generated_source_line} ' + \
+            f'generated_target_line={generated_target_line} ')
+    return (generated_source_line, generated_target_line)
 
     
