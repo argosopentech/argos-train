@@ -348,18 +348,18 @@ class TransformedDatasetNew(IDataset):
         source, target = self.dataset.data(length)
         data = list(zip(source, target))
 
-        # Split over multiple processes
-        transformed_data = None
-        with Pool() as procs_pool:
-            transformed_data = procs_pool.map(self.transform, data)
+        try:
+            # Split over multiple processes
+            transformed_data = None
+            with Pool() as procs_pool:
+                transformed_data = procs_pool.map(self.transform, data)
 
-        if transformed_data != None:
-            source = [source_line for source_line, target_line in transformed_data]
-            target = [target_line for source_line, target_line in transformed_data]
-            return trim_to_length_random(source, target, length)
-
-        warning('Failed to transform data')
-        return (deque(), deque())
+                source = [source_line for source_line, target_line in transformed_data]
+                target = [target_line for source_line, target_line in transformed_data]
+                return trim_to_length_random(source, target, length)
+        except Exception as e:
+            warning(f'Failed to transform data with exception {str(e)}')
+            return (deque(), deque())
 
     def __len__(self):
         return len(self.dataset)
