@@ -18,5 +18,6 @@ setup(
     packages=find_packages(),
     install_requires=required_packages,
     include_package_data=True,
-    scripts=['bin/argos-generate-data', 'bin/argos-train', 'bin/generate-wiktionary-data', 'bin/argos-generate-tag-data'],
+    scripts=['bin/argos-generate-data', 'bin/argos-train', 'bin/generate-wiktionary-data',
+        'bin/argos-generate-tag-data', 'bin/argos-generate-sbd-data'],
 )
