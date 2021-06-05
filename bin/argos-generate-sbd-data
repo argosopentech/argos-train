@@ -22,7 +22,10 @@ else:
     datasets = list(filter(
             lambda x: x.to_code in langs,
             available_datasets))
-    input_dataset = sum([CompositeDataset(dataset, 1) for dataset in datasets)
+    datasets = [CompositeDataset(dataset, 1) for dataset in datasets]
+    input_dataset = CompositeDataset()
+    for dataset in datasets:
+        input_dataset = input_dataset + dataset
 
 input_data_length = len(input_dataset)
 
