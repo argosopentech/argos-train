@@ -10,6 +10,8 @@ from pathlib import Path
 
 DEBUG = True
 
+langs = ['en', 'de', 'es', 'fr', 'pt', 'ru']
+
 # Load data
 if DEBUG:
     testdata_source = Path('data') / 'testdata_source'
@@ -17,11 +19,10 @@ if DEBUG:
     input_dataset = FileDataset(open(testdata_source), open(testdata_target))
 else:
     available_datasets = get_available_datasets()
-    # Get Spanish data
-    es_data = list(filter(
-            lambda x: x.to_code == 'es',
+    datasets = list(filter(
+            lambda x: x.to_code in langs,
             available_datasets))
-    input_dataset = es_data[0]
+    input_dataset = sum([CompositeDataset(dataset, 1) for dataset in datasets)
 
 input_data_length = len(input_dataset)
 
