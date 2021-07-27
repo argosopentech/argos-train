@@ -4,7 +4,7 @@
         "type": "data",
         "from_code": "en",
         "to_code": "de",
-        "size": "1573438",
+        "size": 1573438,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
             "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_de.argosdata",
