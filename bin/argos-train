@@ -1,18 +1,21 @@
 #!/bin/sh
 
-echo "Splitting train and valid data"
-./split_train_and_valid.py raw_data/source raw_data/target
+echo "Preparing Data"
 
-cat split_data/*train.txt >> split_data/all.txt
+./prepare_data.py raw_data/source raw_data/target
 
-spm_train --input=split_data/all.txt --model_prefix=sentencepiece \
+echo "Training tokenizer"
+
+cat run/split_data/*train.txt >> run/split_data/all.txt
+
+spm_train --input=run/split_data/all.txt --model_prefix=sentencepiece \
            --vocab_size=$vocab_size --character_coverage=$character_coverage \
 	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
 	   --user_defined_symbols=$special_tokens
 
 onmt_build_vocab -config config.yml -n_sample -1
 
-rm split_data/all.txt
+rm run/split_data/all.txt
 
 echo "Done with tokenization"
 

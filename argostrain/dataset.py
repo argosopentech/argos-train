@@ -334,6 +334,7 @@ class TransformedDataset(IDataset):
 
 class TransformedDatasetNew(IDataset):
     """A dataset with a tranformation applied to it."""
+    """Lambdas must be defined at top level of file: https://stackoverflow.com/questions/8804830/python-multiprocessing-picklingerror-cant-pickle-type-function"""
     def __init__(self, dataset, transform):
         """Creates a TransformedDataset.
 
@@ -352,6 +353,7 @@ class TransformedDatasetNew(IDataset):
             # Split over multiple processes
             transformed_data = None
             with Pool() as procs_pool:
+                print(self.transform, type(data))
                 transformed_data = procs_pool.map(self.transform, data)
 
                 source = [source_line for source_line, target_line in transformed_data]
@@ -359,10 +361,44 @@ class TransformedDatasetNew(IDataset):
                 return trim_to_length_random(source, target, length)
         except Exception as e:
             warning(f'Failed to transform data with exception {str(e)}')
-            return (deque(), deque())
+            return None
 
     def __len__(self):
         return len(self.dataset)
+
+# Does not work
+class FilteredDataset(IDataset):
+    """A dataset with a filter lambda applied to it"""
+    def __init__(self, dataset, filter_lambda):
+        """Creates a FilteredDataset.
+
+        Args:
+            dataset (IDataset): The dataset to be transformed.
+            filter_lambda ((str, str) -> bool): A lambda filter to apply to data.
+        """
+        self.dataset = dataset
+        self.filter_lambda = filter_lambda
+        self.filtered = None
+
+    def data(self, length=None):
+        if self.filtered is not None:
+            return self.filtered
+        transform_lambda = lambda x: x if self.filter_lambda(x) else (None, None)
+        transformed_dataset = TransformedDatasetNew(self.dataset, transform_lambda)
+        transformed_data = transformed_dataset.data()
+        source = deque()
+        target = deque()
+        for source_line, target_line in transformed_data:
+            if source_line is not None and target_line is not None:
+                source.append(source_line)
+                target.append(target_line)
+        self.filtered = trim_to_length_random(source, target, length)
+        return self.filtered
+
+    def __len__(self):
+        if self.filtered is None:
+            self.data()
+        return len(self.filtered[0])
 
 class InvertedDataset(IDataset):
     """A Dataset with source and target flipped"""
@@ -422,4 +458,8 @@ def export_dataset(dataset):
         f.writelines(source)
     with open(target_filepath, 'w') as f:
         f.writelines(target)
-    
+
+def assert_eql_src_tgt_len(dataset):
+    data = dataset.data()
+    assert(len(data[0]) == len(data[1]))
+
