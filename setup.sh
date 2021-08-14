@@ -1,11 +1,10 @@
 # Install Debian packages
 sudo apt-get update && apt-get upgrade -y
-sudo apt-get install python3 python3-pip zip -y
+sudo apt-get install python3 python3-pip python3-virtualenv zip -y
 
 # Install Python
-python3 -m pip install --upgrade pip
 cd ~/onmt-models
-python3 -m pip install .
+python3 -m pip install -e .
 
 # Compile SentencePiece
 cd
