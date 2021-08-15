@@ -42,12 +42,12 @@ dataset = Dataset(source, target)
 print("Done filtering data")
 
 # Split and write data
-VALID_SIZE = 2000
-assert(len(source_data) > VALID_SIZE)
-
 source_data, target_data = dataset.data()
 source_data = list(source_data)
 target_data = list(target_data)
+
+VALID_SIZE = 2000
+assert(len(source_data) > VALID_SIZE)
 
 os.mkdir('run/split_data')
 
