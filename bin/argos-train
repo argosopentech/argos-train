@@ -2,6 +2,7 @@
 
 echo "Preparing Data"
 
+mkdir run
 ./prepare_data.py raw_data/source raw_data/target
 
 echo "Training tokenizer"
