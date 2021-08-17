@@ -32,9 +32,7 @@ target = deque()
 for i in range(len(unfiltered_source)):
     source_line = unfiltered_source[i]
     target_line = unfiltered_target[i]
-    for n in naughty_strings:
-        if n in source_line or n in target_line:
-            continue
+    if len([s for s in naughty_strings if s in source_line or s in target_line]) == 0:
         source.append(source_line)
         target.append(target_line)
 dataset = Dataset(source, target)
