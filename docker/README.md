@@ -29,3 +29,9 @@ sudo docker container stop argos_train && sudo docker container rm argos_train &
 
 ```
 
+#### Debug run
+```
+sudo docker build -t argos_train . && sudo docker create --name argos_train argos_train && sudo docker start argos_train && sudo docker exec -it argos_train /bin/bash
+
+```
+
