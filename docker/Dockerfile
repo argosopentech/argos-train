@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+RUN echo "export DEBIAN_FRONTEND=noninteractive" >> /etc/profile
+
 RUN apt-get update
 RUN apt-get install -y sudo
 
