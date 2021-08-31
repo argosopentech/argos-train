@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.4.1-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.3.0-devel-ubuntu20.04
 
 RUN echo "export DEBIAN_FRONTEND=noninteractive" >> /etc/profile
 
@@ -12,6 +12,4 @@ USER argosopentech
 WORKDIR /home/argosopentech
 
 COPY docker-init.sh /home/argosopentech/
-
-ENTRYPOINT ["tail", "-f", "/dev/null"]
 
