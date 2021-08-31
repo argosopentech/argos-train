@@ -1,37 +1,44 @@
 #### Building container
 ```
-sudo docker build -t argos_train .
+sudo docker build -t argosopentech/argos-train .
 
 ```
 
-#### Create `argos_train` container from `argos_train` image
+#### Create `argosopentech/argos-train` container from `argosopentech/argos-train` image
 ```
-sudo docker create --name argos_train argos_train
+sudo docker create --name argosopentech/argos-train argosopentech/argos-train
 
 
 ```
 
 #### Start container
 ```
-sudo docker start argos_train
+sudo docker start argosopentech/argos-train
 
 ```
 
 #### Exec shell in container
 ```
-sudo docker exec -it argos_train /bin/bash
+sudo docker exec -it argosopentech/argos-train /bin/bash
+
+```
+
+#### Push to Docker Hub
+```
+sudo docker login
+sudo docker push argosopentech/argos-train
 
 ```
 
 #### Reset
 ```
-sudo docker container stop argos_train && sudo docker container rm argos_train && sudo docker image rm argos_train
+sudo docker container stop argosopentech/argos-train && sudo docker container rm argosopentech/argos-train && sudo docker image rm argosopentech/argos-train
 
 ```
 
 #### Debug run
 ```
-sudo docker build -t argos_train . && sudo docker create --name argos_train argos_train && sudo docker start argos_train && sudo docker exec -it argos_train /bin/bash
+sudo docker build -t argosopentech/argos-train . && sudo docker create --name argosopentech/argos-train argosopentech/argos-train && sudo docker start argosopentech/argos-train && sudo docker exec -it argosopentech/argos-train /bin/bash
 
 ```
 

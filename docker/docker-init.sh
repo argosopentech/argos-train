@@ -3,8 +3,8 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3 python3-pip python3-virtualenv zip git -y
 
 # Setup env
-echo "DEBIAN_FRONTEND=noninteractive" >> ~/.profile
-echo 'PATH=$PATH:~/.local/bin:~/env/bin' >> ~/.profile
+echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.profile
+echo 'export PATH=$PATH:~/.local/bin:~/env/bin' >> ~/.profile
 source ~/.profile
 
 # Setup Python environment
