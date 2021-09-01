@@ -8,8 +8,7 @@ RUN apt-get install -y sudo
 RUN useradd -ms /bin/bash argosopentech
 RUN passwd -d argosopentech
 RUN usermod -aG sudo argosopentech
-USER argosopentech
-WORKDIR /home/argosopentech
 
-COPY docker-init.sh /home/argosopentech/
+COPY argostrain-init.sh /home/argosopentech/
+RUN chown argosopentech:argosopentech /home/argosopentech/argostrain-init.sh
 
