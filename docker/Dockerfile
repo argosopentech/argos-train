@@ -15,4 +15,5 @@ RUN usermod -aG sudo argosopentech
 
 COPY argostrain-init.sh /home/argosopentech/
 RUN chown argosopentech:argosopentech /home/argosopentech/argostrain-init.sh
+RUN chmod 774 /home/argosopentech/argostrain-init.sh
 
