@@ -1,10 +1,10 @@
 # Based on https://opennmt.net/OpenNMT-py/examples/Translation.html
 
 ## Where the samples will be written
-save_data: opennmt_data
+save_data: run/opennmt_data
 ## Where the vocab(s) will be written
-src_vocab: opennmt_data/openmt.vocab
-tgt_vocab: opennmt_data/openmt.vocab
+src_vocab: run/opennmt_data/openmt.vocab
+tgt_vocab: run/opennmt_data/openmt.vocab
 
 
 # Should match the vocab size for SentencePiece
@@ -29,8 +29,8 @@ data:
 ### Transform related opts:
 #### https://opennmt.net/OpenNMT-py/FAQ.html#how-do-i-use-the-transformer-model
 #### Subword
-src_subword_model: sentencepiece.model
-tgt_subword_model: sentencepiece.model
+src_subword_model: run/sentencepiece.model
+tgt_subword_model: run/sentencepiece.model
 src_subword_nbest: 1
 src_subword_alpha: 0.0
 tgt_subword_nbest: 1
@@ -43,7 +43,7 @@ tgt_seq_length: 150
 skip_empty_level: silent
 
 # General opts
-save_model: openmt.model
+save_model: run/openmt.model
 save_checkpoint_steps: 1000
 valid_steps: 5000
 train_steps: 50000

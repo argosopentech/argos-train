@@ -9,7 +9,7 @@ echo "Training tokenizer"
 
 cat run/split_data/*train.txt >> run/split_data/all.txt
 
-spm_train --input=run/split_data/all.txt --model_prefix=sentencepiece \
+spm_train --input=run/split_data/all.txt --model_prefix=run/sentencepiece \
            --vocab_size=$vocab_size --character_coverage=$character_coverage \
 	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
 	   --user_defined_symbols=$special_tokens
