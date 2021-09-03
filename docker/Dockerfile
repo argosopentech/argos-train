@@ -1,6 +1,10 @@
 FROM nvidia/cuda:11.3.0-devel-ubuntu20.04
 
+# Disable interactive commands
 RUN echo "export DEBIAN_FRONTEND=noninteractive" >> /etc/profile
+
+# Disable tmux for vast.ai
+RUN touch /root/.no_auto_tmux
 
 RUN apt-get update
 RUN apt-get install -y sudo
