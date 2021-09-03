@@ -1,8 +1,6 @@
 raw_data/
 data/cache/*
-*.argosjob
-*.argosdata
-*.argosmodel
+run/
 
 
 # https://github.com/github/gitignore
