@@ -1,5 +1,5 @@
 source config.sh
-./reset_packaging.sh
+rm -rf run/averaged.pt run/stanza run/ctranslate_model run/packaged_model
 
 echo "Averaging checkpoints"
 ./../OpenNMT-py/tools/average_models.py -m \
