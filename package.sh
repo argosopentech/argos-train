@@ -1,4 +1,6 @@
 source config.sh
+
+# Remove old package runs
 rm -rf run/averaged.pt run/stanza run/ctranslate_model run/packaged_model
 
 echo "Averaging checkpoints"
@@ -10,7 +12,7 @@ echo "Averaging checkpoints"
 #cp openmt.model_step_50000.pt averaged.pt
 
 echo "Converting to CTranslate"
-ct2-opennmt-py-converter --model_path run/averaged.pt --model_spec TransformerBase --output_dir run/ctranslate_model --quantization int8
+ct2-opennmt-py-converter --model_path run/averaged.pt --output_dir run/ctranslate_model --quantization int8
 
 echo "Create model package"
 mkdir run/packaged_model
