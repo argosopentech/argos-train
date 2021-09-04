@@ -31,5 +31,5 @@ cp MODEL_README.md run/packaged_model/README.md
 
 echo "Zip packaged model into Argos Translate model"
 mv run/packaged_model "run/${sl}_${tl}"
-zip -r "run/${sl}_${tl}.argosmodel" "${sl}_${tl}"
+zip -r "run/${sl}_${tl}.argosmodel" "run/${sl}_${tl}"
 
