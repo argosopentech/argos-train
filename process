@@ -1,8 +1,4 @@
 onmt_build_vocab -config config.yml -n_sample -1
 
-rm run/split_data/all.txt
-
-echo "Done with tokenization"
-
 onmt_train -config config.yml
 

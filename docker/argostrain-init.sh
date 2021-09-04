@@ -14,6 +14,8 @@ git clone https://github.com/argosopentech/onmt-models.git ~/onmt-models
 ~/env/bin/pip install -e ~/onmt-models
 
 # Install OpenNMT-py
+# https://forum.opennmt.net/t/cuda-error-no-kernel-image-is-available-for-execution-on-the-device/4644/3
+pip install torch==1.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
 ~/env/bin/pip install -e ~/OpenNMT-py
 ~/env/bin/pip install -r ~/OpenNMT-py/requirements.opt.txt

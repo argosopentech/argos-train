@@ -14,9 +14,9 @@ spm_train --input=run/split_data/all.txt --model_prefix=run/sentencepiece \
 	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
 	   --user_defined_symbols=$special_tokens
 
-onmt_build_vocab -config config.yml -n_sample -1
-
 rm run/split_data/all.txt
+
+onmt_build_vocab -config config.yml -n_sample -1
 
 echo "Done with tokenization"
 
