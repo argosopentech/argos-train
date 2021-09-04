@@ -1,7 +1,7 @@
 source config.sh
 
 # Remove old package runs
-rm -rf run/averaged.pt run/stanza run/ctranslate_model run/packaged_model
+rm -rf run/averaged.pt run/stanza run/ctranslate_model run/packaged_model "run/${sl}_${tl}" run/*.argosmodel
 
 echo "Averaging checkpoints"
 ./../OpenNMT-py/tools/average_models.py -m \
