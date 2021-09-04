@@ -1,2 +1,2 @@
-zip job.argosjob process
+zip -r job.argosjob process run/ raw_data/
 
