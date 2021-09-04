@@ -2,16 +2,13 @@
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3 python3-pip python3-virtualenv zip git wget curl screen -y
 
-# Setup env
-echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.profile
-echo 'export PATH=$PATH:~/.local/bin:~/env/bin' >> ~/.profile
-source ~/.profile
-
 # Setup Python environment
 virtualenv ~/env
 source env/bin/activate
 git clone https://github.com/argosopentech/onmt-models.git ~/onmt-models
 ~/env/bin/pip install -e ~/onmt-models
+echo "source ~/env/bin/activate" >> ~/.profile
+source ~/.profile
 
 # Install OpenNMT-py
 # https://forum.opennmt.net/t/cuda-error-no-kernel-image-is-available-for-execution-on-the-device/4644/3
