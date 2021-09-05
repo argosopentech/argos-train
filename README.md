@@ -42,7 +42,7 @@ PATH=$PATH:~/.local/bin/
 ```
 cd ~/onmt-models/raw_data
 wget https://object.pouta.csc.fi/OPUS-Wikipedia/v1.0/moses/en-es.txt.zip
-unzip en-es.txt.zip
+unzip -o "*.zip*"
 cat *.en >> source
 cat *.es >> target
 
