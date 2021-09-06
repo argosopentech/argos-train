@@ -16,7 +16,7 @@ git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
 ~/env/bin/pip install -r ~/OpenNMT-py/requirements.opt.txt
 
 # https://forum.opennmt.net/t/cuda-error-no-kernel-image-is-available-for-execution-on-the-device/4644/3
-pip uninstall torch
+pip uninstall -y torch
 pip install torch==1.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
 # Compile SentencePiece
