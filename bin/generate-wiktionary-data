@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('wikidata', help=
         'path to JSON file from wiktextract for source lang')
 parser.add_argument('wikidata2', help=
-        'path to JSON file from wiktextract for source lang')
+        'path to JSON file from wiktextract for target lang')
 args = parser.parse_args()
 
 # Read JSON
@@ -51,8 +51,6 @@ source_data = []
 target_data = []
 for data in wikidata:
     if data.get('lang_code') != sl:
-        print('Skipping data not in source lang: ' +
-                str(data.get('lang_code')))
         continue
     senses = data.get('senses')
     if not senses:
@@ -74,6 +72,7 @@ for data in wikidata:
                 target_data.append(translation_value)
 
 # Special token <define>
+"""
 DEFINE_TOKEN = '<define>'
 for data in wikidata:
     if data.get('lang_code') not in [sl, tl]:
@@ -94,6 +93,7 @@ for data in wikidata:
             for form in forms:
                 source_data.append(DEFINE_TOKEN + ' ' + form)
                 target_data.append(gloss)
+"""
 
 # Write to file
 for filename, data in [

@@ -1,5 +1,5 @@
 export sl="en"
-export tl="zh"
+export tl="de"
 export stanza_lang_code=$sl
 
 ############

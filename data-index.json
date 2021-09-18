@@ -12,6 +12,61 @@
         ]
     },
     {
+        "name": "EUbookshop",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 9333066,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-eubookshop-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 261114531,
+        "reference": "ParaCrawl project at http://paracrawl.eu",
+        "links": [
+            "http://data.argosopentech.com/data-paracrawl-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 4250876,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
+        "links": [
+            "http://data.argosopentech.com/data-tildemodel-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "Wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 114942,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "Wikipedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 2459662,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikipedia-en_de.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
