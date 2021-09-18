@@ -4,7 +4,7 @@ sudo apt-get install python3 python3-pip python3-virtualenv zip git wget curl sc
 
 # Setup Python environment
 virtualenv ~/env
-source env/bin/activate
+source ~env/bin/activate
 git clone https://github.com/argosopentech/onmt-models.git ~/onmt-models
 ~/env/bin/pip install -e ~/onmt-models
 echo "source ~/env/bin/activate" >> ~/.profile

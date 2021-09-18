@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+from argostrain.dataset import *
+
+available_datasets = get_available_datasets()
+
+de_datasets = list(filter(
+        lambda x: x.to_code == 'de' and x.from_code == 'en',
+        available_datasets))
+
+datasets = CompositeDataset()
+for de_dataset in de_datasets:
+    datasets += de_dataset
+
+source, target = datasets.data()
+
+print('Writing to file')
+
+with open('raw_data/source', 'w') as s:
+    s.writelines(source)
+
+print('Wrote raw_data/source')
+
+with open('raw_data/target', 'w') as t:
+    t.writelines(target)
+
+print('Wrote raw_data/target')
+

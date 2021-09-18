@@ -192,7 +192,7 @@ class LocalDataset(IDataset):
 
 class NetworkDataset(IDataset):
     # Only runs in project root
-    CACHE_PATH = Path('data') / Path('cache')
+    CACHE_PATH = Path('raw_data')
 
     def __init__(self, metadata):
         """Creates a NetworkDataset.
@@ -256,7 +256,7 @@ def get_available_datasets():
         [NetworkDataset]: The available datasets.
     """
     # Needs to be run from project root
-    DATA_INDEX = Path('data') / Path('index.json')
+    DATA_INDEX = Path('data-index.json')
     available_datasets = []
     with open(DATA_INDEX) as data_index:
         index = json.load(data_index)
