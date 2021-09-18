@@ -1,28 +1,29 @@
 #!/usr/bin/env python3
 
+from pathlib import Path
+
 from argostrain.dataset import *
+
+SOURCE_PATH = Path('raw_data') / 'source'
+TARGET_PATH = Path('raw_data') / 'target'
+
+assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
 available_datasets = get_available_datasets()
 
-de_datasets = list(filter(
+datasets = list(filter(
         lambda x: x.to_code == 'de' and x.from_code == 'en',
         available_datasets))
 
-datasets = CompositeDataset()
-for de_dataset in de_datasets:
-    datasets += de_dataset
+for dataset in datasets:
+    print(str(dataset))
+    source, target = dataset.data()
 
-source, target = datasets.data()
+    with open(SOURCE_PATH, 'a') as s:
+        s.writelines(source)
 
-print('Writing to file')
+    with open(TARGET_PATH, 'a') as t:
+        t.writelines(target)
 
-with open('raw_data/source', 'w') as s:
-    s.writelines(source)
-
-print('Wrote raw_data/source')
-
-with open('raw_data/target', 'w') as t:
-    t.writelines(target)
-
-print('Wrote raw_data/target')
+print('Done')
 
