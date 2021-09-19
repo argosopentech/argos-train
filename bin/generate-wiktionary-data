@@ -16,9 +16,9 @@ tl = os.environ['tl']
 
 parser = argparse.ArgumentParser()
 parser.add_argument('wikidata', help=
-        'path to JSON file from wiktextract for source lang')
+        'path to Wiktionary JSON file')
 parser.add_argument('wikidata2', help=
-        'path to JSON file from wiktextract for target lang')
+        'path to second Wiktionary JSON file (optional)')
 args = parser.parse_args()
 
 # Read JSON
@@ -26,14 +26,37 @@ wikidata = []
 with open(args.wikidata) as f:
     for line in f:
         wikidata.append(json.loads(line))
-with open(args.wikidata2) as f:
-    for line in f:
-        wikidata.append(json.loads(line))
+if args.wikidata2:
+    with open(args.wikidata2) as f:
+        for line in f:
+            wikidata.append(json.loads(line))
 print('Read JSON into memory')
 
-# Helper methods
+source_data = []
+target_data = []
+for data in wikidata:
+    word = data.get('word')
+    translations = data.get('translations')
+    lang_code = data.get('lang_code')
+    if not word or not translations: continue
+    if lang_code == sl:
+        target_translations = list(filter(lambda x: x.get('code') == tl, translations))
+        if len(target_translations) < 1: continue
+        target_translation = target_translations[0].get('word')
+        if not target_translation: continue
+        source_data.append(word)
+        target_data.append(target_translation)
+    elif lang_code == tl:
+        target_translations = list(filter(lambda x: x.get('code') == sl, translations))
+        if len(target_translations) < 1: continue
+        target_translation = target_translations[0].get('word')
+        if not target_translation: continue
+        target_data.append(word)
+        source_data.append(target_translation)
+
+# Extract single word translation data
+"""
 def get_forms(data):
-    """Takes a JSON data object and returns a list of its forms"""
     to_return = []
     forms = data.get('forms')
     if forms:
@@ -45,10 +68,9 @@ def get_forms(data):
     if word:
         to_return.append(word)
     return to_return
+"""
 
-# Extract single word translation data
-source_data = []
-target_data = []
+"""
 for data in wikidata:
     if data.get('lang_code') != sl:
         continue
@@ -70,6 +92,7 @@ for data in wikidata:
             for form in forms:
                 source_data.append(form)
                 target_data.append(translation_value)
+"""
 
 # Special token <define>
 """
