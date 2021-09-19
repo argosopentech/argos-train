@@ -8,8 +8,7 @@ import random
 import zipfile
 import codecs
 from multiprocessing import Pool
-
-import requests
+from urllib import request, parse
 
 class IDataset:
     def data(self, length=None):
@@ -233,8 +232,9 @@ class NetworkDataset(IDataset):
         filepath = self.filepath()
         if not filepath.exists():
             print(f'Downloading {filepath}')
-            r = requests.get(url, allow_redirects=True)
-            open(filepath, 'wb').write(r.content)
+            response = request.urlopen(url)
+            data = response.read()
+            open(filepath, 'wb').write(data)
         return filepath
 
     def data(self, length=None):
