@@ -67,6 +67,17 @@
         ]
     },
     {
+        "name": "Wiktionary",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 57544,
+        "reference": "Wikiextract - https://github.com/tatuylonen/wiktextract (GitHub), https://kaikki.org/",
+        "links": [
+            "http://data.argosopentech.com/data-wiktionary-en_de.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
