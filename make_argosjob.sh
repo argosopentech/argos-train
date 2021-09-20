@@ -1,2 +1,4 @@
-zip -r job.argosjob run/ raw_data/source raw_data/target metadata.json MODEL_README.md config.sh
+# Zips job after tokenizer run to run on different (GPU) server
+
+zip -r job.argosjob run/ metadata.json MODEL_README.md config.sh
 
