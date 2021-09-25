@@ -1,5 +1,93 @@
 [
     {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 15250347,
+        "reference": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020) - l-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philip",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "EUbookshop",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 5215515,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-eubookshop-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "EuroPat",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 44063941,
+        "reference": "EuroPat project at https://europat.net/",
+        "links": [
+            "http://data.argosopentech.com/data-europat-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "MultiUN",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 11350967,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-multiun-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 396509112,
+        "reference": "ParaCrawl project",
+        "links": [
+            "http://data.argosopentech.com/data-paracrawl-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 3775496,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
+        "links": [
+            "http://data.argosopentech.com/data-tildemodel-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "UNPC",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 25227004,
+        "reference": "Ziemski, M., Junczys-Dowmunt, M., and Pouliquen, B., (2016), The United Nations Parallel Corpus, Language Resources and Evaluation (LREC\u201916), Portoro\u017e, Slovenia, May 2016.",
+        "links": [
+            "http://data.argosopentech.com/data-unpc-en_es.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 1275297,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_es.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
