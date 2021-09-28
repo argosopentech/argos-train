@@ -1,3 +1,8 @@
+# Set timezone to avoid interactive session
+echo "Australia/Adelaide" | sudo tee /etc/timezone
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+
+
 # Install Debian packages
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3 python3-pip python3-virtualenv zip git wget curl screen htop -y
