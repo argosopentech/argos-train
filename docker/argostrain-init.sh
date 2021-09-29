@@ -12,7 +12,7 @@ sudo apt-get install python3 python3-pip python3-virtualenv zip git wget curl sc
 
 # Setup Python environment
 virtualenv ~/env
-source ~env/bin/activate
+source ~/env/bin/activate
 git clone https://github.com/argosopentech/onmt-models.git ~/onmt-models
 ~/env/bin/pip install -e ~/onmt-models
 echo "source ~/env/bin/activate" >> ~/.profile
@@ -25,7 +25,7 @@ git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
 
 # https://forum.opennmt.net/t/cuda-error-no-kernel-image-is-available-for-execution-on-the-device/4644/3
 pip uninstall -y torch
-pip install -y torch==1.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
 # Compile SentencePiece
 cd
