@@ -19,26 +19,6 @@ args = parser.parse_args()
 dataset = FileDataset(open(args.source_data), open(args.target_data))
 print("Read data from file")
 
-# Check source and target same length
-assert_eql_src_tgt_len(dataset)
-
-# Filter out bad data
-html_entities = ['&apos;', '&nbsp;', '&lt;', '&gt;', '&quot;']
-html_tags = ['<a>', '<p>', '<h1>', '<i>']
-naughty_strings = html_entities + html_tags
-unfiltered_source, unfiltered_target = dataset.data()
-source = deque()
-target = deque()
-for i in range(len(unfiltered_source)):
-    source_line = unfiltered_source[i]
-    target_line = unfiltered_target[i]
-    if len([s for s in naughty_strings if s in source_line or s in target_line]) == 0:
-        source.append(source_line)
-        target.append(target_line)
-dataset = Dataset(source, target)
-
-print("Done filtering data")
-
 # Split and write data
 source_data, target_data = dataset.data()
 source_data = list(source_data)
