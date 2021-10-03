@@ -1,5 +1,3 @@
-from argostrain.utils import *
-
 from pathlib import Path
 from collections import deque
 from random import randrange, random
@@ -9,6 +7,9 @@ import zipfile
 import codecs
 from multiprocessing import Pool
 from urllib import request, parse
+
+from argostrain import utils
+from argostrain.utils import info, error, warning
 
 class IDataset:
     def data(self, length=None):
@@ -232,9 +233,7 @@ class NetworkDataset(IDataset):
         filepath = self.filepath()
         if not filepath.exists():
             print(f'Downloading {filepath}')
-            response = request.urlopen(url)
-            data = response.read()
-            open(filepath, 'wb').write(data)
+            utils.download(url, filepath)
         return filepath
 
     def data(self, length=None):
