@@ -12,10 +12,12 @@ assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 available_datasets = get_available_datasets()
 
 datasets = list(filter(
-        lambda x: x.to_code == 'de' and x.from_code == 'en',
+        lambda x: x.to_code == 'es' and x.from_code == 'en',
         available_datasets))
 
-for dataset in datasets:
+while True:
+    dataset = datasets.pop()
+    if not dataset: break
     print(str(dataset))
     source, target = dataset.data()
 
@@ -24,6 +26,8 @@ for dataset in datasets:
 
     with open(TARGET_PATH, 'a') as t:
         t.writelines(target)
+
+    del(dataset)
 
 print('Done')
 
