@@ -15,9 +15,8 @@ datasets = list(filter(
         lambda x: x.to_code == 'es' and x.from_code == 'en',
         available_datasets))
 
-while True:
+while len(datasets) > 0:
     dataset = datasets.pop()
-    if not dataset: break
     print(str(dataset))
     source, target = dataset.data()
 
