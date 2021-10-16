@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
-import sys
+import json
 
 from argostrain.dataset import *
 
@@ -17,6 +17,8 @@ from_code = input("From code (ISO 639): ")
 to_code = input("To code (ISO 639): ")
 from_name = input("From name: ")
 to_name = input("To name: ")
+package_version = input("Package version: ")
+argos_version = input("Argos version: ")
 
 available_datasets = get_available_datasets()
 
@@ -32,6 +34,19 @@ with open(Path('MODEL_README.md')) as readme_template:
         readme += dataset.reference + '\n\n'
 with open(RUN_PATH / 'README.md', 'w') as readme_file:
     readme_file.write(readme)
+
+# Generate metadata.json
+metadata = {
+        'package_version': package_version,
+        'argos_version': argos_version,
+        'from_code': from_code,
+        'from_name': from_name,
+        'to_code': to_code,
+        'to_name': to_name
+    }
+metadata_json = json.dumps(metadata, indent=4)
+with open(RUN_PATH / 'metadata.json', 'w') as metadata_file:
+    metadata_file.write(metadata_json)
 
 while len(datasets) > 0:
     dataset = datasets.pop()
