@@ -11,6 +11,7 @@ from urllib import request, parse
 from argostrain import utils
 from argostrain.utils import info, error, warning
 
+
 class IDataset:
     def data(self, length=None):
         """Returns a tuple of source and target data.
@@ -24,15 +25,16 @@ class IDataset:
 
     def __str__(self):
         source, target = self.data()
-        to_return = ''
+        to_return = ""
         for i in range(len(source)):
             to_return += source[i]
             to_return += target[i]
-            to_return += '\n'
+            to_return += "\n"
         return to_return
 
     def __len__(self):
         raise NotImplementedError()
+
 
 def trim_to_length_random(source, target, length):
     """Trim data to a max of length.
@@ -60,6 +62,7 @@ def trim_to_length_random(source, target, length):
         target = target[:length]
         return (source, target)
 
+
 class Dataset(IDataset):
     def __init__(self, source, target):
         """Creates a Dataset.
@@ -76,6 +79,7 @@ class Dataset(IDataset):
 
     def __len__(self):
         return len(self.source)
+
 
 class CompositeDataset(IDataset):
     def __init__(self, child_dataset=None, weight=1):
@@ -115,8 +119,9 @@ class CompositeDataset(IDataset):
     def data(self, length=None):
         source = []
         target = []
-        sum_of_weights = sum([dataset_and_weight[1]
-                for dataset_and_weight in self.datasets])
+        sum_of_weights = sum(
+            [dataset_and_weight[1] for dataset_and_weight in self.datasets]
+        )
         for dataset, weight in self.datasets:
             data = dataset.data(length)
             if length == None:
@@ -135,6 +140,7 @@ class CompositeDataset(IDataset):
     def __len__(self):
         return sum([len(dataset) for dataset in self.datasets])
 
+
 class LocalDataset(IDataset):
     def __init__(self, filepath):
         """Creates a LocalDataset.
@@ -144,32 +150,34 @@ class LocalDataset(IDataset):
         """
         source = None
         target = None
-        with zipfile.ZipFile(filepath, 'r') as zip_cache:
-            dir_names = [info.filename for info in zip_cache.infolist() if info.is_dir()]
-            assert(len(dir_names) > 0)
+        with zipfile.ZipFile(filepath, "r") as zip_cache:
+            dir_names = [
+                info.filename for info in zip_cache.infolist() if info.is_dir()
+            ]
+            assert len(dir_names) > 0
             dir_name = dir_names[0]
-            with zip_cache.open(dir_name + 'metadata.json') as metadata_file:
+            with zip_cache.open(dir_name + "metadata.json") as metadata_file:
                 metadata = json.load(metadata_file)
                 self.load_metadata_from_json(metadata)
-            with zip_cache.open(dir_name + 'source', 'r') as source_file:
+            with zip_cache.open(dir_name + "source", "r") as source_file:
                 source = deque()
-                for line in codecs.iterdecode(source_file, 'utf8'):
+                for line in codecs.iterdecode(source_file, "utf8"):
                     source.append(line)
-            with zip_cache.open(dir_name + 'target', 'r') as target_file:
+            with zip_cache.open(dir_name + "target", "r") as target_file:
                 target = deque()
-                for line in codecs.iterdecode(target_file, 'utf8'):
+                for line in codecs.iterdecode(target_file, "utf8"):
                     target.append(line)
-        assert(source != None)
-        assert(target != None)
-        assert(len(source) == len(target))
+        assert source != None
+        assert target != None
+        assert len(source) == len(target)
         self.source = source
         self.target = target
         filepath = Path(filepath)
 
     def __str__(self):
-        return str(self.name).lower() + '-' + \
-                str(self.from_code) + '_' + \
-                str(self.to_code)
+        return (
+            str(self.name).lower() + "-" + str(self.from_code) + "_" + str(self.to_code)
+        )
 
     def load_metadata_from_json(self, metadata):
         """Loads package metadata from a JSON object.
@@ -177,12 +185,12 @@ class LocalDataset(IDataset):
         Args:
             metadata: A json object from json.load
         """
-        self.name = metadata.get('name')
-        self.type = metadata.get('type')
-        self.from_code = metadata.get('from_code')
-        self.to_code = metadata.get('to_code')
-        self.size = metadata.get('size')
-        self.links = metadata.get('links')
+        self.name = metadata.get("name")
+        self.type = metadata.get("type")
+        self.from_code = metadata.get("from_code")
+        self.to_code = metadata.get("to_code")
+        self.size = metadata.get("size")
+        self.links = metadata.get("links")
 
     def data(self, length=None):
         return trim_to_length_random(self.source, self.target, length)
@@ -190,15 +198,16 @@ class LocalDataset(IDataset):
     def __len__(self):
         return len(self.source)
 
+
 class NetworkDataset(IDataset):
     # Only runs in project root
-    CACHE_PATH = Path('raw_data')
+    CACHE_PATH = Path("raw_data")
 
     def __init__(self, metadata):
         """Creates a NetworkDataset.
 
         Args:
-            metadata: A json object from json.load  
+            metadata: A json object from json.load
         """
         self.load_metadata_from_json(metadata)
         self.local_dataset = None
@@ -209,21 +218,21 @@ class NetworkDataset(IDataset):
         Args:
             metadata: A json object from json.load
         """
-        self.name = metadata.get('name')
-        self.type = metadata.get('type')
-        self.from_code = metadata.get('from_code')
-        self.to_code = metadata.get('to_code')
-        self.size = metadata.get('size')
-        self.links = metadata.get('links')
-        self.reference = metadata.get('reference')
+        self.name = metadata.get("name")
+        self.type = metadata.get("type")
+        self.from_code = metadata.get("from_code")
+        self.to_code = metadata.get("to_code")
+        self.size = metadata.get("size")
+        self.links = metadata.get("links")
+        self.reference = metadata.get("reference")
 
     def __str__(self):
-        return str(self.name).lower() + '-' + \
-                str(self.from_code) + '_' + \
-                str(self.to_code)
+        return (
+            str(self.name).lower() + "-" + str(self.from_code) + "_" + str(self.to_code)
+        )
 
     def filename(self):
-        return str(self) + '.argosdata'
+        return str(self) + ".argosdata"
 
     def filepath(self):
         return Path(NetworkDataset.CACHE_PATH) / self.filename()
@@ -233,7 +242,7 @@ class NetworkDataset(IDataset):
         url = self.links[0]
         filepath = self.filepath()
         if not filepath.exists():
-            print(f'Downloading {filepath}')
+            print(f"Downloading {filepath}")
             utils.download(url, filepath)
         return filepath
 
@@ -241,13 +250,14 @@ class NetworkDataset(IDataset):
         filepath = self.filepath()
         if not Path(filepath).exists():
             self.download()
-        assert(zipfile.is_zipfile(filepath))
+        assert zipfile.is_zipfile(filepath)
         if self.local_dataset == None:
             self.local_dataset = LocalDataset(filepath)
         return self.local_dataset.data(length)
 
     def __len__(self):
         return len(self.data()[0])
+
 
 def get_available_datasets():
     """Returns a list of available NetworkDatasets
@@ -256,7 +266,7 @@ def get_available_datasets():
         [NetworkDataset]: The available datasets.
     """
     # Needs to be run from project root
-    DATA_INDEX = Path('data-index.json')
+    DATA_INDEX = Path("data-index.json")
     available_datasets = []
     with open(DATA_INDEX) as data_index:
         index = json.load(data_index)
@@ -264,6 +274,7 @@ def get_available_datasets():
             dataset = NetworkDataset(metadata)
             available_datasets.append(dataset)
     return available_datasets
+
 
 class FileDataset(IDataset):
     def __init__(self, source_file, target_file):
@@ -287,8 +298,10 @@ class FileDataset(IDataset):
     def __len__(self):
         return len(self.data()[0])
 
+
 class TrimmedDataset(IDataset):
     """A dataset with a max length"""
+
     def __init__(self, dataset, length=None):
         """Creates a TrimmedDataset.
 
@@ -308,8 +321,10 @@ class TrimmedDataset(IDataset):
             return len(self.dataset)
         return min(len(self.dataset), self.length)
 
+
 class TransformedDataset(IDataset):
     """A dataset with a tranformation applied to it."""
+
     def __init__(self, dataset, transform, target_transform=None):
         """Creates a TransformedDataset.
 
@@ -321,7 +336,9 @@ class TransformedDataset(IDataset):
         """
         self.dataset = dataset
         self.transform = transform
-        self.target_transform = transform if target_transform == None else target_transform
+        self.target_transform = (
+            transform if target_transform == None else target_transform
+        )
 
     def data(self, length=None):
         source, target = self.dataset.data(length)
@@ -332,9 +349,12 @@ class TransformedDataset(IDataset):
     def __len__(self):
         return len(self.dataset)
 
+
 class TransformedDatasetNew(IDataset):
     """A dataset with a tranformation applied to it."""
+
     """Lambdas must be defined at top level of file: https://stackoverflow.com/questions/8804830/python-multiprocessing-picklingerror-cant-pickle-type-function"""
+
     def __init__(self, dataset, transform):
         """Creates a TransformedDataset.
 
@@ -360,15 +380,17 @@ class TransformedDatasetNew(IDataset):
                 target = [target_line for source_line, target_line in transformed_data]
                 return trim_to_length_random(source, target, length)
         except Exception as e:
-            warning(f'Failed to transform data with exception {str(e)}')
+            warning(f"Failed to transform data with exception {str(e)}")
             return None
 
     def __len__(self):
         return len(self.dataset)
 
+
 # Does not work
 class FilteredDataset(IDataset):
     """A dataset with a filter lambda applied to it"""
+
     def __init__(self, dataset, filter_lambda):
         """Creates a FilteredDataset.
 
@@ -400,8 +422,10 @@ class FilteredDataset(IDataset):
             self.data()
         return len(self.filtered[0])
 
+
 class InvertedDataset(IDataset):
     """A Dataset with source and target flipped"""
+
     def __init__(self, dataset):
         self.non_inverted_dataset = dataset
         self.inverted_source = None
@@ -417,8 +441,10 @@ class InvertedDataset(IDataset):
     def __len__(self):
         return len(self.non_inverted_dataset)
 
+
 class ShuffledDataset(IDataset):
     """A dataset with elements in a randomized order."""
+
     def __init__(self, dataset):
         self.dataset = dataset
         self.shuffled_dataset = None
@@ -436,6 +462,7 @@ class ShuffledDataset(IDataset):
     def __len__(self):
         return len(self.dataset)
 
+
 def copy_dataset(dataset):
     """Copies a dataset and returns the copy.
 
@@ -448,18 +475,19 @@ def copy_dataset(dataset):
     source, target = dataset.data()
     return Dataset(source.copy(), target.copy())
 
+
 def export_dataset(dataset):
-    source_filepath = Path('source_export')
-    target_filepath = Path('target_export')
-    assert(not source_filepath.exists())
-    assert(not target_filepath.exists())
+    source_filepath = Path("source_export")
+    target_filepath = Path("target_export")
+    assert not source_filepath.exists()
+    assert not target_filepath.exists()
     source, target = dataset.data()
-    with open(source_filepath, 'w') as f:
+    with open(source_filepath, "w") as f:
         f.writelines(source)
-    with open(target_filepath, 'w') as f:
+    with open(target_filepath, "w") as f:
         f.writelines(target)
+
 
 def assert_eql_src_tgt_len(dataset):
     data = dataset.data()
-    assert(len(data[0]) == len(data[1]))
-
+    assert len(data[0]) == len(data[1])

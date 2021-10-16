@@ -8,17 +8,15 @@ import argparse
 from pathlib import Path
 
 # Configure
-if 'sl' not in os.environ:
-    print('$sl not in environment, run `source config.sh`')
+if "sl" not in os.environ:
+    print("$sl not in environment, run `source config.sh`")
     exit(1)
-sl = os.environ['sl']
-tl = os.environ['tl']
+sl = os.environ["sl"]
+tl = os.environ["tl"]
 
 parser = argparse.ArgumentParser()
-parser.add_argument('wikidata', help=
-        'path to Wiktionary JSON file')
-parser.add_argument('wikidata2', help=
-        'path to second Wiktionary JSON file (optional)')
+parser.add_argument("wikidata", help="path to Wiktionary JSON file")
+parser.add_argument("wikidata2", help="path to second Wiktionary JSON file (optional)")
 args = parser.parse_args()
 
 # Read JSON
@@ -30,27 +28,32 @@ if args.wikidata2:
     with open(args.wikidata2) as f:
         for line in f:
             wikidata.append(json.loads(line))
-print('Read JSON into memory')
+print("Read JSON into memory")
 
 source_data = []
 target_data = []
 for data in wikidata:
-    word = data.get('word')
-    translations = data.get('translations')
-    lang_code = data.get('lang_code')
-    if not word or not translations: continue
+    word = data.get("word")
+    translations = data.get("translations")
+    lang_code = data.get("lang_code")
+    if not word or not translations:
+        continue
     if lang_code == sl:
-        target_translations = list(filter(lambda x: x.get('code') == tl, translations))
-        if len(target_translations) < 1: continue
-        target_translation = target_translations[0].get('word')
-        if not target_translation: continue
+        target_translations = list(filter(lambda x: x.get("code") == tl, translations))
+        if len(target_translations) < 1:
+            continue
+        target_translation = target_translations[0].get("word")
+        if not target_translation:
+            continue
         source_data.append(word)
         target_data.append(target_translation)
     elif lang_code == tl:
-        target_translations = list(filter(lambda x: x.get('code') == sl, translations))
-        if len(target_translations) < 1: continue
-        target_translation = target_translations[0].get('word')
-        if not target_translation: continue
+        target_translations = list(filter(lambda x: x.get("code") == sl, translations))
+        if len(target_translations) < 1:
+            continue
+        target_translation = target_translations[0].get("word")
+        if not target_translation:
+            continue
         target_data.append(word)
         source_data.append(target_translation)
 
@@ -120,12 +123,12 @@ for data in wikidata:
 
 # Write to file
 for filename, data in [
-        ('raw_data/wiktionary.' + sl, source_data),
-        ('raw_data/wiktionary.' + tl, target_data)]:
+    ("raw_data/wiktionary." + sl, source_data),
+    ("raw_data/wiktionary." + tl, target_data),
+]:
     filename = Path(filename)
-    assert(not filename.exists())
-    data_file = open(filename, 'w')
-    data_file.write('\n'.join(data))
+    assert not filename.exists()
+    data_file = open(filename, "w")
+    data_file.write("\n".join(data))
     data_file.close()
-print('Wrote to raw_data/wiktionary.*')
-
+print("Wrote to raw_data/wiktionary.*")

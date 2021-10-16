@@ -12,15 +12,13 @@ DEBUG = True
 
 # Load data
 if DEBUG:
-    testdata_source = Path('data') / 'testdata_source'
-    testdata_target = Path('data') / 'testdata_target'
+    testdata_source = Path("data") / "testdata_source"
+    testdata_target = Path("data") / "testdata_target"
     input_dataset = FileDataset(open(testdata_source), open(testdata_target))
 else:
     available_datasets = get_available_datasets()
     # Get Spanish data
-    es_data = list(filter(
-            lambda x: x.to_code == 'es',
-            available_datasets))
+    es_data = list(filter(lambda x: x.to_code == "es", available_datasets))
     input_dataset = es_data[0]
 
 input_data_length = len(input_dataset)
@@ -36,7 +34,7 @@ dataset += CompositeDataset(multilang_dataset)
 """
 
 # Generate xml data
-tag_dataset = generate_xml_data(dataset, 'en', 'es')
+tag_dataset = generate_xml_data(dataset, "en", "es")
 dataset += tag_dataset
 
 # Generate capitalization data
@@ -47,8 +45,10 @@ all_upper_dataset = TrimmedDataset(input_copy, capital_length)
 all_upper_dataset = TransformedDataset(all_upper_dataset, str.upper)
 all_lower_dataset = TrimmedDataset(input_copy, capital_length)
 all_lower_dataset = TransformedDataset(all_lower_dataset, str.lower)
+
+
 def random_caps(s):
-    to_return = ''
+    to_return = ""
     for c in s:
         caps = random.choice(range(3))
         if caps == 0:
@@ -58,10 +58,15 @@ def random_caps(s):
         else:
             to_return += c.upper()
     return to_return
+
+
 random_caps_dataset = TrimmedDataset(input_copy, capital_length)
 random_caps_dataset = TransformedDataset(random_caps_dataset, random_caps)
-all_caps_dataset = CompositeDataset(all_upper_dataset) + CompositeDataset(all_lower_dataset) + \
-        CompositeDataset(random_caps_dataset)
+all_caps_dataset = (
+    CompositeDataset(all_upper_dataset)
+    + CompositeDataset(all_lower_dataset)
+    + CompositeDataset(random_caps_dataset)
+)
 dataset += all_caps_dataset
 
 # Generate SBD data

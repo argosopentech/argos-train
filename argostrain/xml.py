@@ -6,22 +6,25 @@ from collections import deque
 from argostranslate import package, translate
 
 MIN_TAG_TEXT_LENGTH = 10
-OPEN_TOKEN = '<x>'
-CLOSE_TOKEN = '</x>'
+OPEN_TOKEN = "<x>"
+CLOSE_TOKEN = "</x>"
+
 
 def generate_xml_data(source_code, target_code, source_and_target_line):
     installed_languages = translate.get_installed_languages()
-    source_translation = list(filter(
-            lambda x: x.code == source_code,
-            installed_languages))[0]
-    target_translation = list(filter(
-            lambda x: x.code == target_code,
-            installed_languages))[0]
+    source_translation = list(
+        filter(lambda x: x.code == source_code, installed_languages)
+    )[0]
+    target_translation = list(
+        filter(lambda x: x.code == target_code, installed_languages)
+    )[0]
     source_translation = source_translation.get_translation(target_translation)
     source_line, target_line = source_and_target_line
-    info(f'Processing xml ' + \
-            f'source_line={source_line} ' + \
-            f'target_line={target_line} ')
+    info(
+        f"Processing xml "
+        + f"source_line={source_line} "
+        + f"target_line={target_line} "
+    )
     best_source_start_index = None
     best_source_end_index = None
     best_matching_index = None
@@ -32,7 +35,9 @@ def generate_xml_data(source_code, target_code, source_and_target_line):
             source_sub_string = source_line[source_start_index:source_end_index]
             if len(source_sub_string) < MIN_TAG_TEXT_LENGTH:
                 continue
-            translation_hypothesis = source_translation.hypotheses(source_sub_string, 1)[0]
+            translation_hypothesis = source_translation.hypotheses(
+                source_sub_string, 1
+            )[0]
             translated_sub_string = translation_hypothesis.value
             score = translation_hypothesis.score
             matching_index = target_line.find(translated_sub_string)
@@ -46,19 +51,23 @@ def generate_xml_data(source_code, target_code, source_and_target_line):
                 best_score = score
     if best_score == None:
         return None
-    generated_source_line = source_line[:best_source_start_index] + \
-            OPEN_TOKEN + \
-            source_line[best_source_start_index:best_source_end_index] + \
-            CLOSE_TOKEN + \
-            source_line[best_source_end_index:]
-    generated_target_line = target_line[:best_matching_index] + \
-            OPEN_TOKEN + \
-            target_line[best_matching_index:best_target_end_index] + \
-            CLOSE_TOKEN + \
-            target_line[best_target_end_index:]
-    info(f'Generated tag data ' + \
-            f'generated_source_line={generated_source_line} ' + \
-            f'generated_target_line={generated_target_line} ')
+    generated_source_line = (
+        source_line[:best_source_start_index]
+        + OPEN_TOKEN
+        + source_line[best_source_start_index:best_source_end_index]
+        + CLOSE_TOKEN
+        + source_line[best_source_end_index:]
+    )
+    generated_target_line = (
+        target_line[:best_matching_index]
+        + OPEN_TOKEN
+        + target_line[best_matching_index:best_target_end_index]
+        + CLOSE_TOKEN
+        + target_line[best_target_end_index:]
+    )
+    info(
+        f"Generated tag data "
+        + f"generated_source_line={generated_source_line} "
+        + f"generated_target_line={generated_target_line} "
+    )
     return (generated_source_line, generated_target_line)
-
-    

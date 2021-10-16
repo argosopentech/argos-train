@@ -11,8 +11,8 @@ import argparse
 from functools import partial
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--source-file')
-parser.add_argument('--target-file')
+parser.add_argument("--source-file")
+parser.add_argument("--target-file")
 args = parser.parse_args()
 source_file = Path(args.source_file)
 target_file = Path(args.target_file)
@@ -21,38 +21,37 @@ DEBUG = True
 
 # Load data
 if DEBUG:
-    testdata_source = Path('data') / 'testdata_source'
-    testdata_target = Path('data') / 'testdata_target'
+    testdata_source = Path("data") / "testdata_source"
+    testdata_target = Path("data") / "testdata_target"
     input_dataset = FileDataset(open(testdata_source), open(testdata_target))
 else:
     available_datasets = get_available_datasets()
     # Get Spanish data
-    es_data = list(filter(
-            lambda x: x.to_code == 'es' and x.from_code == 'en',
-            available_datasets))
+    es_data = list(
+        filter(lambda x: x.to_code == "es" and x.from_code == "en", available_datasets)
+    )
     input_dataset = es_data[0]
 
 input_dataset = ShuffledDataset(input_dataset)
- 
+
 # Generate xml data
 BATCH_SIZE = 10
 source, target = input_dataset.data()
 source = list(source)
 target = list(target)
-print('source and target extracted')
+print("source and target extracted")
 for i in range(0, len(source), BATCH_SIZE):
-    print(f'Batch {i}')
-    source_batch = source[i:i+BATCH_SIZE]
-    target_batch = target[i:i+BATCH_SIZE]
+    print(f"Batch {i}")
+    source_batch = source[i : i + BATCH_SIZE]
+    target_batch = target[i : i + BATCH_SIZE]
     input_dataset = Dataset(source_batch, target_batch)
-    tag_dataset = TransformedDatasetNew(input_dataset, partial(generate_xml_data,
-            'en', 'es'))
+    tag_dataset = TransformedDatasetNew(
+        input_dataset, partial(generate_xml_data, "en", "es")
+    )
     tag_source, tag_target = tag_dataset.data()
-    with open(source_file, 'a') as f:
+    with open(source_file, "a") as f:
         for tag_source_line in tag_source:
             f.write(tag_source_line)
-    with open(target_file, 'a') as f:
+    with open(target_file, "a") as f:
         for tag_target_line in tag_target:
             f.write(tag_target_line)
-
-

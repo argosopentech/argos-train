@@ -5,12 +5,12 @@ import json
 
 from argostrain.dataset import *
 
-SOURCE_PATH = Path('raw_data') / 'source'
-TARGET_PATH = Path('raw_data') / 'target'
+SOURCE_PATH = Path("raw_data") / "source"
+TARGET_PATH = Path("raw_data") / "target"
 
 assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
-RUN_PATH = Path('run')
+RUN_PATH = Path("run")
 RUN_PATH.mkdir(exist_ok=True)
 
 from_code = input("From code (ISO 639): ")
@@ -22,30 +22,32 @@ argos_version = input("Argos version: ")
 
 available_datasets = get_available_datasets()
 
-datasets = list(filter(
-        lambda x: x.from_code == from_code and x.to_code == to_code,
-        available_datasets))
+datasets = list(
+    filter(
+        lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
+    )
+)
 
 # Generate README.md
-readme = f'# {from_name}-{to_name}'
-with open(Path('MODEL_README.md')) as readme_template:
-    readme += ''.join(readme_template.readlines())
+readme = f"# {from_name}-{to_name}"
+with open(Path("MODEL_README.md")) as readme_template:
+    readme += "".join(readme_template.readlines())
     for dataset in datasets:
-        readme += dataset.reference + '\n\n'
-with open(RUN_PATH / 'README.md', 'w') as readme_file:
+        readme += dataset.reference + "\n\n"
+with open(RUN_PATH / "README.md", "w") as readme_file:
     readme_file.write(readme)
 
 # Generate metadata.json
 metadata = {
-        'package_version': package_version,
-        'argos_version': argos_version,
-        'from_code': from_code,
-        'from_name': from_name,
-        'to_code': to_code,
-        'to_name': to_name
-    }
+    "package_version": package_version,
+    "argos_version": argos_version,
+    "from_code": from_code,
+    "from_name": from_name,
+    "to_code": to_code,
+    "to_name": to_name,
+}
 metadata_json = json.dumps(metadata, indent=4)
-with open(RUN_PATH / 'metadata.json', 'w') as metadata_file:
+with open(RUN_PATH / "metadata.json", "w") as metadata_file:
     metadata_file.write(metadata_json)
 
 while len(datasets) > 0:
@@ -53,13 +55,12 @@ while len(datasets) > 0:
     print(str(dataset))
     source, target = dataset.data()
 
-    with open(SOURCE_PATH, 'a') as s:
+    with open(SOURCE_PATH, "a") as s:
         s.writelines(source)
 
-    with open(TARGET_PATH, 'a') as t:
+    with open(TARGET_PATH, "a") as t:
         t.writelines(target)
 
-    del(dataset)
+    del dataset
 
-print('Done')
-
+print("Done")

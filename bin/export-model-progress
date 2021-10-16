@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+
 # from zipfile import ZipFile
 
-zip_path = Path('job')
-run_path = Path('run')
+zip_path = Path("job")
+run_path = Path("run")
 
 # with ZipFile(zip_path, mode='x') as zip:
 
 
 import shutil
 
-shutil.make_archive(zip_path, 'zip', run_path)
-
-
-
+shutil.make_archive(zip_path, "zip", run_path)
