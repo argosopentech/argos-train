@@ -215,6 +215,7 @@ class NetworkDataset(IDataset):
         self.to_code = metadata.get('to_code')
         self.size = metadata.get('size')
         self.links = metadata.get('links')
+        self.reference = metadata.get('reference')
 
     def __str__(self):
         return str(self.name).lower() + '-' + \

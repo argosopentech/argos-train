@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+import sys
 
 from argostrain.dataset import *
 
@@ -9,11 +10,28 @@ TARGET_PATH = Path('raw_data') / 'target'
 
 assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
+RUN_PATH = Path('run')
+RUN_PATH.mkdir(exist_ok=True)
+
+from_code = input("From code (ISO 639): ")
+to_code = input("To code (ISO 639): ")
+from_name = input("From name: ")
+to_name = input("To name: ")
+
 available_datasets = get_available_datasets()
 
 datasets = list(filter(
-        lambda x: x.to_code == 'es' and x.from_code == 'en',
+        lambda x: x.from_code == from_code and x.to_code == to_code,
         available_datasets))
+
+# Generate README.md
+readme = f'# {from_name}-{to_name}'
+with open(Path('MODEL_README.md')) as readme_template:
+    readme += ''.join(readme_template.readlines())
+    for dataset in datasets:
+        readme += dataset.reference + '\n\n'
+with open(RUN_PATH / 'README.md', 'w') as readme_file:
+    readme_file.write(readme)
 
 while len(datasets) > 0:
     dataset = datasets.pop()
