@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import json
+import subprocess
 
 from argostrain.dataset import *
 
@@ -50,6 +51,7 @@ metadata_json = json.dumps(metadata, indent=4)
 with open(RUN_PATH / "metadata.json", "w") as metadata_file:
     metadata_file.write(metadata_json)
 
+# Download and write data to raw_data/
 while len(datasets) > 0:
     dataset = datasets.pop()
     print(str(dataset))
@@ -62,5 +64,29 @@ while len(datasets) > 0:
         t.writelines(target)
 
     del dataset
+
+
+subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
+
+subprocess.run(["cat," "run/split_data/*train.txt", ">>", "run/split_data/all.txt"])
+
+# TODO: Don't hardcode vocab_size and set user_defined_symbols
+subprocess.run(
+    [
+        "spm_train",
+        "--input=run/split_data/all.txt",
+        "--model_prefix=run/sentencepiece",
+        "--vocab_size=50000",
+        "--character_coverage=0.9995",
+        "--input_sentence_size=1000000",
+        "--shuffle_input_sentence=true",
+    ]
+)
+
+subprocess.run(["rm", "run/split_data/all.txt"])
+
+subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
+
+subprocess.run(["onmt_train", "-config", "config.yml"])
 
 print("Done")
