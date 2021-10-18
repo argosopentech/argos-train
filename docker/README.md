@@ -6,20 +6,20 @@ sudo docker build -t argosopentech/argostrain .
 
 #### Create `argosopentech/argostrain` container from `argosopentech/argostrain` image
 ```
-sudo docker create --name argosopentech/argostrain argosopentech/argostrain
+sudo docker create --name argostrain argosopentech/argostrain
 
 
 ```
 
 #### Start container
 ```
-sudo docker start argosopentech/argostrain
+sudo docker start argostrain
 
 ```
 
 #### Exec shell in container
 ```
-sudo docker exec -it argosopentech/argostrain /bin/bash
+sudo docker exec -it argostrain /bin/bash
 
 ```
 
