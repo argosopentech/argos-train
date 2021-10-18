@@ -32,13 +32,13 @@ sudo docker push argosopentech/argostrain
 
 #### Reset
 ```
-sudo docker container stop argosopentech/argostrain && sudo docker container rm argosopentech/argostrain && sudo docker image rm argosopentech/argostrain
+sudo docker container stop argostrain && sudo docker container rm argostrain && sudo docker image rm argosopentech/argostrain
 
 ```
 
 #### Debug run
 ```
-sudo docker build -t argosopentech/argostrain . && sudo docker create --name argosopentech/argostrain argosopentech/argostrain && sudo docker start argosopentech/argostrain && sudo docker exec -it argosopentech/argostrain /bin/bash
+sudo docker build -t argosopentech/argostrain . && sudo docker create --name argostrain argosopentech/argostrain && sudo docker start argostrain && sudo docker exec -it argostrain /bin/bash
 
 ```
 
