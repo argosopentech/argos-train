@@ -4,22 +4,10 @@ sudo docker build -t argosopentech/argostrain .
 
 ```
 
-#### Create `argosopentech/argostrain` container from `argosopentech/argostrain` image
+#### Run `argostrain` container from `argosopentech/argostrain` image
 ```
-sudo docker create --name argostrain argosopentech/argostrain
+sudo docker run -it --name argostrain argosopentech/argostrain /bin/bash
 
-
-```
-
-#### Start container
-```
-sudo docker start argostrain
-
-```
-
-#### Exec shell in container
-```
-sudo docker exec -it argostrain /bin/bash
 
 ```
 
@@ -33,12 +21,6 @@ sudo docker push argosopentech/argostrain
 #### Reset
 ```
 sudo docker container stop argostrain && sudo docker container rm argostrain && sudo docker image rm argosopentech/argostrain
-
-```
-
-#### Debug run
-```
-sudo docker build -t argosopentech/argostrain . && sudo docker create --name argostrain argosopentech/argostrain && sudo docker start argostrain && sudo docker exec -it argostrain /bin/bash
 
 ```
 
