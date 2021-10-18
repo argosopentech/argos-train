@@ -30,7 +30,7 @@ datasets = list(
 )
 
 # Only use first dataset by default so it's easy to run
-datasets = datasets[0]
+datasets = datasets[0:1]
 
 # Generate README.md
 readme = f"# {from_name}-{to_name}"
