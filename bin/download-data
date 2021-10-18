@@ -29,6 +29,9 @@ datasets = list(
     )
 )
 
+# Only use first dataset by default so it's easy to run
+datasets = datasets[0]
+
 # Generate README.md
 readme = f"# {from_name}-{to_name}"
 with open(Path("MODEL_README.md")) as readme_template:
