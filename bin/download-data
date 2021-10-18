@@ -89,4 +89,29 @@ subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
 
 subprocess.run(["onmt_train", "-config", "config.yml"])
 
+
+# Package
+subprocess.run(["./../OpenNMT-py/tools/average_models.py", "-m", "run/openmt.model_step_9000.pt", "run/openmt.model_step_10000.pt", "-o", "run/averaged.pt"])
+
+subprocess.run(["ct2-opennmt-py-converter", "--model_path", "run/averaged.pt", "--output_dir", "run/ctranslate_model", "--quantization", "int8"])
+
+subprocess.run(["mkdir", "run/packaged_model", "cp", "-r", "run/ctranslate_model", "run/packaged_model/model"])
+
+subprocess.run(["cp", "run/sentencepiece.model", "run/packaged_model/"])
+
+import stanza
+stanza.download('$stanza_lang_code', dir='run/stanza', processors='tokenize')
+
+subprocess.run(["cp","-r", "run/stanza", "run/packaged_model/"])
+
+subprocess.run(["cp", "metadata.json", "run/packaged_model/"])
+subprocess.run(["cp", "MODEL_README.md", "run/packaged_model/README.md"])
+
+subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
+
+
+# cd run
+# zip -r "${sl}_${tl}.argosmodel" "${sl}_${tl}"
+# cd ..
+
 print("Done")
