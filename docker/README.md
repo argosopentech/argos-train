@@ -20,7 +20,7 @@ sudo docker push argosopentech/argostrain
 
 #### Reset
 ```
-sudo docker container stop argostrain && sudo docker container rm argostrain && sudo docker image rm argosopentech/argostrain
+sudo docker container stop argostrain && sudo docker container rm argostrain && sudo docker image rm -f argosopentech/argostrain
 
 ```
 

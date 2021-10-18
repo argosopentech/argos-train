@@ -1,7 +1,10 @@
 sudo apt-get update
 
 # Set timezone to avoid interactive session
+ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+echo "Australia/Adelaide" | sudo tee /etc/timezone
+dpkg-reconfigure --frontend noninteractive tzdata
 
 # Install Debian packages
 sudo apt-get upgrade -y
