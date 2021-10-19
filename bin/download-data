@@ -71,7 +71,6 @@ while len(datasets) > 0:
 
 subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
 
-# subprocess.run(["cat", "run/split_data/src-train.txt","run/split_data/tgt-train.txt", ">>", "run/split_data/all.txt"])
 with open(Path("run/split_data/all.txt"), "w") as combined:
     with open(Path("run/split_data/src-train.txt")) as src:
         for line in src:
@@ -145,5 +144,10 @@ subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
 # cd run
 # zip -r "${sl}_${tl}.argosmodel" "${sl}_${tl}"
 # cd ..
+shutil.make_archive(
+    Path("run") / f"{from_code}_{to_code}.argosmodel",
+    "zip",
+    Path("run") / f"{from_code}_${to_code}",
+)
 
 print("Done")
