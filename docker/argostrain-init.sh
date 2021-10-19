@@ -1,8 +1,9 @@
 sudo apt-get update
 
 # Install Debian packages
+export DEBIAN_FRONTEND=noninteractive
 sudo apt-get upgrade -y
-sudo apt-get install python3 python3-pip python3-virtualenv zip git wget curl screen htop -y
+sudo -E apt-get install python3 python3-pip python3-virtualenv zip git wget curl screen htop tzdata -y
 
 # Setup Python environment
 virtualenv ~/env
