@@ -1,8 +1,8 @@
-# Argos Translate training script
+# Argos Train
 
 Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
 
-Argos Translate packages available for download [here](https://drive.google.com/drive/folders/11wxM3Ze7NCgOk_tdtRjwet10DmtvFu3i).
+Argos Translate packages are available for [download](https://www.argosopentech.com/argospm/index/).
 
 ## Data
 Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
