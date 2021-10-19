@@ -71,7 +71,8 @@ while len(datasets) > 0:
 
 subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
 
-subprocess.run(["cat", "run/split_data/*train.txt", ">>", "run/split_data/all.txt"])
+subprocess.run(["cat", "run/split_data/src-train.txt","run/split_data/tgt-train.txt", ">>", "run/split_data/all.txt"])
+
 
 # TODO: Don't hardcode vocab_size and set user_defined_symbols
 subprocess.run(
