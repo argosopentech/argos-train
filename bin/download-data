@@ -3,6 +3,7 @@
 from pathlib import Path
 import json
 import subprocess
+import shutil
 
 from argostrain.dataset import *
 
@@ -147,7 +148,7 @@ subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
 shutil.make_archive(
     Path("run") / f"{from_code}_{to_code}.argosmodel",
     "zip",
-    Path("run") / f"{from_code}_${to_code}",
+    Path("run") / f"{from_code}_{to_code}",
 )
 
 print("Done")
