@@ -71,15 +71,14 @@ while len(datasets) > 0:
 
 subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
 
-#subprocess.run(["cat", "run/split_data/src-train.txt","run/split_data/tgt-train.txt", ">>", "run/split_data/all.txt"])
-with open(Path("run/split_data/all.txt"), 'w') as combined:
+# subprocess.run(["cat", "run/split_data/src-train.txt","run/split_data/tgt-train.txt", ">>", "run/split_data/all.txt"])
+with open(Path("run/split_data/all.txt"), "w") as combined:
     with open(Path("run/split_data/src-train.txt")) as src:
         for line in src:
             combined.write(line)
     with open(Path("run/split_data/tgt-train.txt")) as tgt:
         for line in tgt:
             combined.write(line)
-    
 
 
 # TODO: Don't hardcode vocab_size and set user_defined_symbols
@@ -103,18 +102,39 @@ subprocess.run(["onmt_train", "-config", "config.yml"])
 
 
 # Package
-subprocess.run(["./../OpenNMT-py/tools/average_models.py", "-m", "run/openmt.model_step_9000.pt", "run/openmt.model_step_10000.pt", "-o", "run/averaged.pt"])
+subprocess.run(
+    [
+        "./../OpenNMT-py/tools/average_models.py",
+        "-m",
+        "run/openmt.model_step_9000.pt",
+        "run/openmt.model_step_10000.pt",
+        "-o",
+        "run/averaged.pt",
+    ]
+)
 
-subprocess.run(["ct2-opennmt-py-converter", "--model_path", "run/averaged.pt", "--output_dir", "run/ctranslate_model", "--quantization", "int8"])
+subprocess.run(
+    [
+        "ct2-opennmt-py-converter",
+        "--model_path",
+        "run/averaged.pt",
+        "--output_dir",
+        "run/ctranslate_model",
+        "--quantization",
+        "int8",
+    ]
+)
 
-subprocess.run(["mkdir", "run/packaged_model", "cp", "-r", "run/ctranslate_model", "run/packaged_model/model"])
+subprocess.run(["mkdir", "run/packaged_model"])
+subprocess.run(["cp", "-r", "run/ctranslate_model", "run/packaged_model/model"])
 
 subprocess.run(["cp", "run/sentencepiece.model", "run/packaged_model/"])
 
 import stanza
-stanza.download('$stanza_lang_code', dir='run/stanza', processors='tokenize')
 
-subprocess.run(["cp","-r", "run/stanza", "run/packaged_model/"])
+stanza.download(from_code, dir="run/stanza", processors="tokenize")
+
+subprocess.run(["cp", "-r", "run/stanza", "run/packaged_model/"])
 
 subprocess.run(["cp", "metadata.json", "run/packaged_model/"])
 subprocess.run(["cp", "MODEL_README.md", "run/packaged_model/README.md"])
