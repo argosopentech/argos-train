@@ -7,11 +7,9 @@ sudo -E apt-get install python3 python3-pip python3-virtualenv zip git wget curl
 
 # Setup Python environment
 virtualenv ~/env
-source ~/env/bin/activate
 git clone https://github.com/argosopentech/onmt-models.git ~/onmt-models
 ~/env/bin/pip install -e ~/onmt-models
 echo "source ~/env/bin/activate" >> ~/.profile
-source ~/.profile
 
 # Install OpenNMT-py
 git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
@@ -34,4 +32,6 @@ make -j $(nproc)
 sudo make install
 sudo ldconfig -v
 
+# Setup .bashrc
+echo 'source ~/env/bin/activate' >> ~/.bashrc
 
