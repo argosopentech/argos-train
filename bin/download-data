@@ -136,8 +136,8 @@ stanza.download(from_code, dir="run/stanza", processors="tokenize")
 
 subprocess.run(["cp", "-r", "run/stanza", "run/packaged_model/"])
 
-subprocess.run(["cp", "metadata.json", "run/packaged_model/"])
-subprocess.run(["cp", "MODEL_README.md", "run/packaged_model/README.md"])
+subprocess.run(["cp", "run/metadata.json", "run/packaged_model/"])
+subprocess.run(["cp", "run/MODEL_README.md", "run/packaged_model/README.md"])
 
 subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
 
