@@ -5,6 +5,7 @@ import json
 import subprocess
 import shutil
 
+import argostrain
 from argostrain.dataset import *
 
 SOURCE_PATH = Path("raw_data") / "source"
@@ -70,7 +71,7 @@ while len(datasets) > 0:
     del dataset
 
 
-subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
+argostrain.data.prepare_data("raw_data/source", "raw_data/target")
 
 with open(Path("run/split_data/all.txt"), "w") as combined:
     with open(Path("run/split_data/src-train.txt")) as src:
