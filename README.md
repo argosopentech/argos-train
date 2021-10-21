@@ -1,8 +1,8 @@
 # Argos Train
 
-Trains an OpenNMT model and a SentencePiece parser then packages them with a Stanza model for use with [Argos Translate](https://github.com/argosopentech/argos-translate). 
+Trains an [OpenNMT](https://opennmt.net/) [PyTorch](https://pytorch.org/) model and [SentencePiece](https://github.com/google/sentencepiece) tokenizer. Designed for use with [Argos Translate](https://github.com/argosopentech/argos-translate) and [LibreTranslate](https://libretranslate.com). 
 
-Argos Translate packages are available for [download](https://www.argosopentech.com/argospm/index/).
+Argos Translate packages are also available for [download](https://www.argosopentech.com/argospm/index/).
 
 ## Training example
 ```
