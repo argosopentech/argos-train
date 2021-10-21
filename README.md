@@ -44,25 +44,6 @@ docker run -it argosopentech/argostrain /bin/bash
 
 ```
 
-## Using screen (helpful for keeping a terminal open)
-Start screen:
-```
-screen
-
-```
-Detaching:
-```
-Ctrl-a d
-
-```
-Reattaching:
-```
-screen -r
-
-```
-
-[Scrolling](https://unix.stackexchange.com/questions/40242/scroll-inside-screen-or-pause-output)
-
 ## Troubleshooting
 - If you're running out of GPU memory reduce `batch_size` and `valid_batch_size` in `config.yml`.
 
