@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 import subprocess
 import shutil
+import sys
 
 import argostrain
 from argostrain.dataset import *
@@ -31,6 +32,10 @@ datasets = list(
         lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
     )
 )
+
+if len(datasets) == 0:
+    print("No data available for this language pair, check data-index.json")
+    sys.exit(1)
 
 # Only use first dataset by default so it's easy to run
 datasets = datasets[0:1]
