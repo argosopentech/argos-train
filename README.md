@@ -30,17 +30,17 @@ Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format stor
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
 
-## Run training
-```
-argos-train
-
-```
-
 ## Docker
 Docker image available at [argosopentech/argostrain](https://hub.docker.com/repository/docker/argosopentech/argostrain).
 
 ```
 docker run -it argosopentech/argostrain /bin/bash
+
+```
+
+## Run training
+```
+argos-train
 
 ```
 
