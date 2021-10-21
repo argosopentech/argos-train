@@ -7,6 +7,7 @@ import shutil
 
 import argostrain
 from argostrain.dataset import *
+from argostrain import data
 
 SOURCE_PATH = Path("raw_data") / "source"
 TARGET_PATH = Path("raw_data") / "target"
