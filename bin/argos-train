@@ -157,6 +157,6 @@ shutil.make_archive(
     Path("run") / f"{from_code}_{to_code}",
 )
 
-subprocess.run(['mv', str(package_path) + '.zip', package_path])
+subprocess.run(["mv", str(package_path) + ".zip", package_path])
 
-print(f'Package saved to {str(package_path)}')
+print(f"Package saved to {str(package_path)}")
