@@ -7,7 +7,7 @@ sudo -E apt-get install python3 python3-pip python3-virtualenv zip git wget curl
 
 # Setup Python environment
 virtualenv ~/env
-git clone https://github.com/argosopentech/argos-train.git ~/onmt-models
+git clone https://github.com/argosopentech/argos-train.git ~/argos-train
 ~/env/bin/pip install -e ~/onmt-models
 echo "source ~/env/bin/activate" >> ~/.profile
 
@@ -35,4 +35,5 @@ sudo ldconfig -v
 # Setup .bashrc
 echo 'source ~/env/bin/activate' >> ~/.bashrc
 source ~/env/bin/activate
+cd ~/argos-train
 
