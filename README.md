@@ -25,7 +25,7 @@ Package saved to /home/argosopentech/en_es.argosmodel
 ```
 
 ## Data
-Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format.
+Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format stored in [data index](/data-index.json).
 
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
