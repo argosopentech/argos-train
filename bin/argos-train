@@ -1,24 +1,154 @@
-#!/bin/sh
+#!/usr/bin/env python3
 
-echo "Preparing Data"
+from pathlib import Path
+import json
+import subprocess
+import shutil
 
-mkdir run
-./prepare_data.py raw_data/source raw_data/target
+from argostrain.dataset import *
 
-echo "Training tokenizer"
+SOURCE_PATH = Path("raw_data") / "source"
+TARGET_PATH = Path("raw_data") / "target"
 
-cat run/split_data/*train.txt >> run/split_data/all.txt
+assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
-spm_train --input=run/split_data/all.txt --model_prefix=run/sentencepiece \
-           --vocab_size=$vocab_size --character_coverage=$character_coverage \
-	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
-	   --user_defined_symbols=$special_tokens
+RUN_PATH = Path("run")
+RUN_PATH.mkdir(exist_ok=True)
 
-rm run/split_data/all.txt
+from_code = input("From code (ISO 639): ")
+to_code = input("To code (ISO 639): ")
+from_name = input("From name: ")
+to_name = input("To name: ")
+package_version = input("Package version: ")
+argos_version = input("Argos version: ")
 
-onmt_build_vocab -config config.yml -n_sample -1
+available_datasets = get_available_datasets()
 
-echo "Done with tokenization"
+datasets = list(
+    filter(
+        lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
+    )
+)
 
-onmt_train -config config.yml
+# Only use first dataset by default so it's easy to run
+datasets = datasets[0:1]
 
+# Generate README.md
+readme = f"# {from_name}-{to_name}"
+with open(Path("MODEL_README.md")) as readme_template:
+    readme += "".join(readme_template.readlines())
+    for dataset in datasets:
+        readme += dataset.reference + "\n\n"
+with open(RUN_PATH / "README.md", "w") as readme_file:
+    readme_file.write(readme)
+
+# Generate metadata.json
+metadata = {
+    "package_version": package_version,
+    "argos_version": argos_version,
+    "from_code": from_code,
+    "from_name": from_name,
+    "to_code": to_code,
+    "to_name": to_name,
+}
+metadata_json = json.dumps(metadata, indent=4)
+with open(RUN_PATH / "metadata.json", "w") as metadata_file:
+    metadata_file.write(metadata_json)
+
+# Download and write data to raw_data/
+while len(datasets) > 0:
+    dataset = datasets.pop()
+    print(str(dataset))
+    source, target = dataset.data()
+
+    with open(SOURCE_PATH, "a") as s:
+        s.writelines(source)
+
+    with open(TARGET_PATH, "a") as t:
+        t.writelines(target)
+
+    del dataset
+
+
+subprocess.run(["./prepare_data.py", "raw_data/source", "raw_data/target"])
+
+with open(Path("run/split_data/all.txt"), "w") as combined:
+    with open(Path("run/split_data/src-train.txt")) as src:
+        for line in src:
+            combined.write(line)
+    with open(Path("run/split_data/tgt-train.txt")) as tgt:
+        for line in tgt:
+            combined.write(line)
+
+
+# TODO: Don't hardcode vocab_size and set user_defined_symbols
+subprocess.run(
+    [
+        "spm_train",
+        "--input=run/split_data/all.txt",
+        "--model_prefix=run/sentencepiece",
+        "--vocab_size=50000",
+        "--character_coverage=0.9995",
+        "--input_sentence_size=1000000",
+        "--shuffle_input_sentence=true",
+    ]
+)
+
+subprocess.run(["rm", "run/split_data/all.txt"])
+
+subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
+
+subprocess.run(["onmt_train", "-config", "config.yml"])
+
+
+# Package
+subprocess.run(
+    [
+        "./../OpenNMT-py/tools/average_models.py",
+        "-m",
+        "run/openmt.model_step_9000.pt",
+        "run/openmt.model_step_10000.pt",
+        "-o",
+        "run/averaged.pt",
+    ]
+)
+
+subprocess.run(
+    [
+        "ct2-opennmt-py-converter",
+        "--model_path",
+        "run/averaged.pt",
+        "--output_dir",
+        "run/ctranslate_model",
+        "--quantization",
+        "int8",
+    ]
+)
+
+subprocess.run(["mkdir", "run/packaged_model"])
+subprocess.run(["cp", "-r", "run/ctranslate_model", "run/packaged_model/model"])
+
+subprocess.run(["cp", "run/sentencepiece.model", "run/packaged_model/"])
+
+import stanza
+
+stanza.download(from_code, dir="run/stanza", processors="tokenize")
+
+subprocess.run(["cp", "-r", "run/stanza", "run/packaged_model/"])
+
+subprocess.run(["cp", "run/metadata.json", "run/packaged_model/"])
+subprocess.run(["cp", "run/MODEL_README.md", "run/packaged_model/README.md"])
+
+subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
+
+
+# cd run
+# zip -r "${sl}_${tl}.argosmodel" "${sl}_${tl}"
+# cd ..
+shutil.make_archive(
+    Path("run") / f"{from_code}_{to_code}.argosmodel",
+    "zip",
+    Path("run") / f"{from_code}_{to_code}",
+)
+
+print("Done")

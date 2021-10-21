@@ -1,4 +1,0 @@
-onmt_build_vocab -config config.yml -n_sample -1
-
-onmt_train -config config.yml
-

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+echo "Preparing Data"
+
+mkdir run
+./prepare_data.py raw_data/source raw_data/target
+
+echo "Training tokenizer"
+
+cat run/split_data/*train.txt >> run/split_data/all.txt
+
+spm_train --input=run/split_data/all.txt --model_prefix=run/sentencepiece \
+           --vocab_size=$vocab_size --character_coverage=$character_coverage \
+	   --input_sentence_size=1000000 --shuffle_input_sentence=true \
+	   --user_defined_symbols=$special_tokens
+
+rm run/split_data/all.txt
+
+onmt_build_vocab -config config.yml -n_sample -1
+
+echo "Done with tokenization"
+
+onmt_train -config config.yml
+
