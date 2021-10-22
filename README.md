@@ -21,7 +21,7 @@ Argos version: 1.0
 
 ...
 
-Package saved to /home/argosopentech/en_es.argosmodel
+Package saved to /home/argosopentech/argos-train/run/en_es.argosmodel
 ```
 
 ## Data
