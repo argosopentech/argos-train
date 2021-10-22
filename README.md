@@ -6,6 +6,7 @@ Argos Translate packages are also available for [download](https://www.argosopen
 
 ## Training example
 ```
+$ su argosopentech
 $ source ~/argos-train-init
 
 ...
