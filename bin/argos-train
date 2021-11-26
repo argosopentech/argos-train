@@ -34,8 +34,21 @@ datasets = list(
 )
 
 if len(datasets) == 0:
-    print("No data available for this language pair, check data-index.json")
-    sys.exit(1)
+    # Try to use reverse data
+    reverse_datasets = list(
+        filter(
+            lambda x: x.to_code == from_code and x.from_code == to_code,
+            available_datasets,
+        )
+    )
+    if len(reverse_datasets) > 0:
+        datasets = [
+            Dataset(dataset.data()[1], dataset.data()[0])
+            for dataset in reverse_datasets
+        ]
+    else:
+        print("No data available for this language pair, check data-index.json")
+        sys.exit(1)
 
 # Only use first dataset by default so it's easy to run
 datasets = datasets[0:1]
@@ -151,11 +164,7 @@ subprocess.run(["mv", "run/packaged_model", f"run/{from_code}_{to_code}"])
 
 package_path = Path("run") / f"{from_code}_{to_code}.argosmodel"
 
-shutil.make_archive(
-    package_path,
-    "zip",
-    Path("run") / f"{from_code}_{to_code}",
-)
+shutil.make_archive(package_path, "zip", Path("run") / f"{from_code}_{to_code}")
 
 subprocess.run(["mv", str(package_path) + ".zip", package_path])
 
