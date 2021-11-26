@@ -212,5 +212,115 @@
             "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_pt.argosdata",
             "ipfs://QmVbsJvHWx1MZUzgZuXfMQSaToUfSvB7DZWiKSJ7QFSumk"
         ]
+    },
+    {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 13650311,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmn, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 47045956,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "GoURMET",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 1308307,
+        "reference": "gourmet project at https://gourmet-project.eu",
+        "links": [
+            "http://data.argosopentech.com/data-gourmet-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "SETIMES",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 207678,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-setimes-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 672230,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-tatoeba-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "TED2020",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 378033,
+        "reference": "Reimers, Nils and Gurevych, Iryna - Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation",
+        "links": [
+            "http://data.argosopentech.com/data-ted2020-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 477736,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 304699,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "Wikipedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 159979,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikpedia-en_tr.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "tr",
+        "size": 3809464,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzmn, Francisco and Koehn, Philipp - {XLEnt}: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_tr.argosdata"
+        ]
     }
 ]
