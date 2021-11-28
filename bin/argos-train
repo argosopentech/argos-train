@@ -42,10 +42,13 @@ if len(datasets) == 0:
         )
     )
     if len(reverse_datasets) > 0:
-        datasets = [
-            Dataset(dataset.data()[1], dataset.data()[0])
-            for dataset in reverse_datasets
-        ]
+        for reverse_dataset in reverse_datasets:
+            dataset = Dataset(reverse_dataset.data()[1], reverse_dataset.data()[0])
+
+            # Hack to preserve reference metadata
+            dataset.reference = reverse_dataset.reference
+
+            datasets.append(dataset)
     else:
         print("No data available for this language pair, check data-index.json")
         sys.exit(1)
