@@ -13,6 +13,8 @@ from argostrain import data
 SOURCE_PATH = Path("raw_data") / "source"
 TARGET_PATH = Path("raw_data") / "target"
 
+MAX_DATA_SIZE = 10 ** 7
+
 assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
 RUN_PATH = Path("run")
@@ -53,8 +55,14 @@ if len(datasets) == 0:
         print("No data available for this language pair, check data-index.json")
         sys.exit(1)
 
-# Only use first dataset by default so it's easy to run
-datasets = datasets[0:1]
+# Limit max amount of data used
+limited_datasets = list()
+limited_datasets_size = 0
+for dataset in datasets:
+    limited_datasets_size += dataset.size
+    if limited_datasets_size < MAX_DATA_SIZE:
+        limited_datasets.append(dataset)
+datasets = limited_datasets
 
 # Generate README.md
 readme = f"# {from_name}-{to_name}"
