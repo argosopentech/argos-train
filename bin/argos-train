@@ -178,6 +178,6 @@ package_path = (
     Path("run") / f"translate-{from_code}_{to_code}-{package_version_code}.argosmodel"
 )
 
-shutil.make_archive(package_path, "zip", Path(model_dir))
+subprocess.run(["zip", "-r", package_path, model_dir])
 
 print(f"Package saved to {str(package_path.resolve())}")
