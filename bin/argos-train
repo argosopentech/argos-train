@@ -49,6 +49,7 @@ if len(datasets) == 0:
 
             # Hack to preserve reference metadata
             dataset.reference = reverse_dataset.reference
+            dataset.size = reverse_dataset.size
 
             datasets.append(dataset)
     else:
