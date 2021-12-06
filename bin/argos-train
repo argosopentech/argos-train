@@ -58,10 +58,11 @@ if len(datasets) == 0:
 # Limit max amount of data used
 limited_datasets = list()
 limited_datasets_size = 0
+datasets = datasets.sorted(key=lambda x: x.size)
 for dataset in datasets:
-    limited_datasets_size += dataset.size
     if limited_datasets_size < MAX_DATA_SIZE:
         limited_datasets.append(dataset)
+        limited_datasets_size += dataset.size
 datasets = limited_datasets
 
 # Generate README.md
