@@ -58,7 +58,7 @@ if len(datasets) == 0:
 # Limit max amount of data used
 limited_datasets = list()
 limited_datasets_size = 0
-datasets = datasets.sorted(key=lambda x: x.size)
+datasets = datasets.sort(key=lambda x: x.size)
 for dataset in datasets:
     if limited_datasets_size < MAX_DATA_SIZE:
         limited_datasets.append(dataset)
