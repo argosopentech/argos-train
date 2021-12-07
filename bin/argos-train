@@ -160,26 +160,29 @@ subprocess.run(
 
 
 package_version_code = package_version.replace(".", "_")
-model_dir = f"run/translate-{from_code}_{to_code}-{package_version_code}/"
-subprocess.run(["mkdir", model_dir])
+model_dir = f"translate-{from_code}_{to_code}-{package_version_code}"
+model_path = Path("run") / model_dir
 
-subprocess.run(["cp", "-r", "run/model", model_dir])
+subprocess.run(["mkdir", model_path])
 
-subprocess.run(["cp", "run/sentencepiece.model", model_dir])
+subprocess.run(["cp", "-r", "run/model", model_path])
+
+subprocess.run(["cp", "run/sentencepiece.model", model_path])
 
 import stanza
 
 stanza.download(from_code, dir="run/stanza", processors="tokenize")
 
-subprocess.run(["cp", "-r", "run/stanza", model_dir])
+subprocess.run(["cp", "-r", "run/stanza", model_path])
 
-subprocess.run(["cp", "run/metadata.json", model_dir])
-subprocess.run(["cp", "run/README.md", model_dir])
+subprocess.run(["cp", "run/metadata.json", model_path])
+subprocess.run(["cp", "run/README.md", model_path])
 
 package_path = (
     Path("run") / f"translate-{from_code}_{to_code}-{package_version_code}.argosmodel"
 )
 
-subprocess.run(["zip", "-r", package_path, model_dir])
+shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
+subprocess.run(["mv", model_dir + ".zip", package_path])
 
 print(f"Package saved to {str(package_path.resolve())}")
