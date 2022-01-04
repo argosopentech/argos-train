@@ -4,10 +4,10 @@ working_dir = Path.cwd()
 run_dir = working_dir / "run"
 
 
-opennmt_checkpoint_prefix = "openmt.model_step_"
+OPENNMT_CHECKPOINT_PREFIX = "openmt.model_step_"
 
 
-class OpenNMTCheckpoint:
+class Checkpoint:
     def __init__(self, f):
         """
         Args:
@@ -18,10 +18,10 @@ class OpenNMTCheckpoint:
 
         # Get checkpoint num
         file_type_postfix = ".pt"
-        prefix_found = self.name.find(opennmt_checkpoint_prefix)
+        prefix_found = self.name.find(OPENNMT_CHECKPOINT_PREFIX)
         pt_found = self.name.find(file_type_postfix)
         if prefix_found == 0 and pt_found > prefix_found:
-            self.num = int(self.name[len(opennmt_checkpoint_prefix) : pt_found])
+            self.num = int(self.name[len(OPENNMT_CHECKPOINT_PREFIX) : pt_found])
         else:
             self.num = 0
 
@@ -32,8 +32,12 @@ class OpenNMTCheckpoint:
         return self.name
 
 
-opennmt_checkpoints = [
-    OpenNMTCheckpoint(f) for f in list(run_dir.glob(opennmt_checkpoint_prefix + "*"))
-]
+def get_checkpoints():
+    opennmt_checkpoints = [
+        OpenNMTCheckpoint(f)
+        for f in list(run_dir.glob(OPENNMT_CHECKPOINT_PREFIX + "*"))
+    ]
 
-opennmt_checkpoints.sort()
+    opennmt_checkpoints.sort()
+
+    return opennmt_checkpoints

@@ -9,6 +9,7 @@ import sys
 import argostrain
 from argostrain.dataset import *
 from argostrain import data
+from argostrain import opennmtutils
 
 SOURCE_PATH = Path("raw_data") / "source"
 TARGET_PATH = Path("raw_data") / "target"
@@ -186,9 +187,8 @@ shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
 subprocess.run(["mv", model_dir + ".zip", package_path])
 
 # Make .argoscheckpoint zip
-from argostrain import opennmtutils
 
-latest_checkpoint = opennmtutils.opennmt_checkpoints[-1:]
+latest_checkpoint = opennmtutils.get_checkpoints()[-1]
 print(latest_checkpoint)
 print(latest_checkpoint.name)
 print(latest_checkpoint.num)
