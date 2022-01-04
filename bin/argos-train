@@ -185,4 +185,12 @@ package_path = (
 shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
 subprocess.run(["mv", model_dir + ".zip", package_path])
 
+# Make .argoscheckpoint zip
+from argostrain import opennmtutils
+
+latest_checkpoint = opennmtutils.opennmt_checkpoints[-1:]
+print(latest_checkpoint)
+print(latest_checkpoint.name)
+print(latest_checkpoint.num)
+
 print(f"Package saved to {str(package_path.resolve())}")
