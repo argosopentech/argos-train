@@ -20,24 +20,24 @@ def prepare_data(source_data, target_data):
     target_data = list(target_data)
 
     VALID_SIZE = 2000
-    assert(len(source_data) > VALID_SIZE)
+    assert len(source_data) > VALID_SIZE
 
-    os.mkdir('run/split_data')
+    os.mkdir("run/split_data")
 
-    source_valid_file = open('run/split_data/src-val.txt', 'w')
+    source_valid_file = open("run/split_data/src-val.txt", "w")
     source_valid_file.writelines(source_data[0:VALID_SIZE])
     source_valid_file.close()
 
-    source_train_file = open('run/split_data/src-train.txt', 'w')
+    source_train_file = open("run/split_data/src-train.txt", "w")
     source_train_file.writelines(source_data[VALID_SIZE:])
     source_train_file.close()
 
-    target_valid_file = open('run/split_data/tgt-val.txt', 'w')
+    target_valid_file = open("run/split_data/tgt-val.txt", "w")
     target_valid_file.writelines(target_data[0:VALID_SIZE])
     target_valid_file.close()
 
-    target_train_file = open('run/split_data/tgt-train.txt', 'w')
+    target_train_file = open("run/split_data/tgt-train.txt", "w")
     target_train_file.writelines(target_data[VALID_SIZE:])
     target_train_file.close()
 
-    print('Done splitting data')
+    print("Done splitting data")
