@@ -11,6 +11,9 @@ from argostrain.dataset import *
 from argostrain import data
 from argostrain import opennmtutils
 
+import stanza
+
+
 SOURCE_PATH = Path("raw_data") / "source"
 TARGET_PATH = Path("raw_data") / "target"
 
@@ -175,8 +178,6 @@ stanza_model_located = False
 stanza_lang_code = from_code
 while not stanza_model_located:
     try:
-        import stanza
-
         stanza.download(stanza_lang_code, dir="run/stanza", processors="tokenize")
         stanza_model_located = True
     except:
