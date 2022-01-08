@@ -68,6 +68,8 @@ for dataset in datasets:
     if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
         limited_datasets.append(dataset)
         limited_datasets_size += dataset.size
+    else:
+        print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
 datasets = limited_datasets
 
 # Generate README.md
