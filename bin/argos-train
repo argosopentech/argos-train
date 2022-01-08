@@ -170,9 +170,25 @@ subprocess.run(["cp", "-r", "run/model", model_path])
 
 subprocess.run(["cp", "run/sentencepiece.model", model_path])
 
-import stanza
+# Include a Stanza sentence boundary detection model
+stanza_model_located = False
+stanza_lang_code = from_code
+while not stanza_model_located:
+    try:
+        import stanza
 
-stanza.download(from_code, dir="run/stanza", processors="tokenize")
+        stanza.download(stanza_lang_code, dir="run/stanza", processors="tokenize")
+        stanza_model_located = True
+    except:
+        print(f"Could not locate stanza model for lang {stanza_lang_code}")
+        print(
+            "Enter the code of a different language to attempt to use its stanza model."
+        )
+        print(
+            "This will work best for with a similar language to the one you are attempting to translate."
+        )
+        stanza_lang_code = input("Stanza language code (ISO 639): ")
+
 
 subprocess.run(["cp", "-r", "run/stanza", model_path])
 
