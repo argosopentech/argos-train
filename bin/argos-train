@@ -62,7 +62,7 @@ limited_datasets = list()
 limited_datasets_size = 0
 datasets.sort(key=lambda x: x.size)
 for dataset in datasets:
-    if limited_datasets_size < MAX_DATA_SIZE:
+    if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
         limited_datasets.append(dataset)
         limited_datasets_size += dataset.size
 datasets = limited_datasets
