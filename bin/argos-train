@@ -17,7 +17,7 @@ import stanza
 SOURCE_PATH = Path("raw_data") / "source"
 TARGET_PATH = Path("raw_data") / "target"
 
-MAX_DATA_SIZE = 10 ** 7
+MAX_DATA_SIZE = 10 ** 9
 
 assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
 
