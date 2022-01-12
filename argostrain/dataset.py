@@ -24,13 +24,7 @@ class IDataset:
         raise NotImplementedError()
 
     def __str__(self):
-        source, target = self.data()
-        to_return = ""
-        for i in range(len(source)):
-            to_return += source[i]
-            to_return += target[i]
-            to_return += "\n"
-        return to_return
+        return "Dataset"
 
     def __len__(self):
         raise NotImplementedError()
