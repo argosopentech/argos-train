@@ -190,6 +190,9 @@ while not stanza_model_located:
         print(
             "This will work best for with a similar language to the one you are attempting to translate."
         )
+        print(
+            "This will require manually editing the Stanza package in the finished model to change its code"
+        )
         stanza_lang_code = input("Stanza language code (ISO 639): ")
 
 
