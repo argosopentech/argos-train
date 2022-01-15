@@ -7,7 +7,7 @@
         "size": 15418393,
         "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_el.argosdata"
+            "http://data.argosopentech.com/data-ccmatrix-en_eo.argosdata"
         ]
     },
     {
@@ -18,7 +18,7 @@
         "size": 64485,
         "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_el.argosdata"
+            "http://data.argosopentech.com/data-opensubtitles-en_eo.argosdata"
         ]
     },
     {
@@ -29,7 +29,7 @@
         "size": 298201,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_el.argosdata"
+            "http://data.argosopentech.com/data-wikimatrix-en_eo.argosdata"
         ]
     },
     {
@@ -40,7 +40,7 @@
         "size": 13452,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_el.argosdata"
+            "http://data.argosopentech.com/data-wikimedia-en_eo.argosdata"
         ]
     },
     {
@@ -51,7 +51,7 @@
         "size": 2458403,
         "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_el.argosdata"
+            "http://data.argosopentech.com/data-xlent-en_eo.argosdata"
         ]
     },
     {
