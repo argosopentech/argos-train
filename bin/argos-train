@@ -30,7 +30,7 @@ from_name = input("From name: ")
 to_name = input("To name: ")
 version = input("Version: ")
 package_version = version
-argos_version = version
+argos_version = "1.5"
 
 available_datasets = get_available_datasets()
 
