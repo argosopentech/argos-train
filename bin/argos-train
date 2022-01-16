@@ -28,8 +28,7 @@ from_code = input("From code (ISO 639): ")
 to_code = input("To code (ISO 639): ")
 from_name = input("From name: ")
 to_name = input("To name: ")
-package_version = input("Package version: ")
-argos_version = input("Argos version: ")
+packge_version, argos_version = input("Version: ")
 
 available_datasets = get_available_datasets()
 
