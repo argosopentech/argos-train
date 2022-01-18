@@ -1,5 +1,71 @@
 [
     {
+        "name": "bible-eudin",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 60570,
+        "reference": "Christos Christodoulopoulos and Mark Steedman",
+        "links": [
+            "http://data.argosopentech.com/data-bibleeudin-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 1114190,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 24358,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-tatoeba-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 32281,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 1525,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 197696,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_la.argosdata"
+        ]
+    },
+    {
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
