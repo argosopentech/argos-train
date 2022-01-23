@@ -19,8 +19,7 @@ From code (ISO 639): en
 To code (ISO 639): es
 From name: English
 To name: Spanish
-Package version: 1.0
-Argos version: 1.0
+Version: 1.0
 
 ...
 
