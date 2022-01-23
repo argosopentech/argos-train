@@ -4,7 +4,7 @@
 
 Trains an [OpenNMT](https://opennmt.net/) PyTorch model and [SentencePiece](https://github.com/google/sentencepiece) tokenizer. Designed for use with [Argos Translate](https://github.com/argosopentech/argos-translate) and [LibreTranslate](https://libretranslate.com). 
 
-Pre-trianed Argos Translate packages are available for [download](https://www.argosopentech.com/argospm/index/). If you have trained models you're willing to share please reach out and I can add them to the [package index](https://github.com/argosopentech/argospm-index).
+Pre-trained Argos Translate packages are available for [download](https://www.argosopentech.com/argospm/index/). If you have trained models you're willing to share please reach out and I can add them to the [package index](https://github.com/argosopentech/argospm-index).
 
 ## Training example
 ```
