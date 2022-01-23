@@ -1,5 +1,7 @@
 # Argos Train
 
+[Argos Translate](https://github.com/argosopentech/argos-translate) | [Video tutorial](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw)
+
 Trains an [OpenNMT](https://opennmt.net/) PyTorch model and [SentencePiece](https://github.com/google/sentencepiece) tokenizer. Designed for use with [Argos Translate](https://github.com/argosopentech/argos-translate) and [LibreTranslate](https://libretranslate.com). 
 
 Argos Translate packages are also available for [download](https://www.argosopentech.com/argospm/index/).
