@@ -14,8 +14,8 @@ from argostrain import settings
 
 import stanza
 
-
 settings.RUN_PATH.mkdir(exist_ok=True)
+settings.CACHE_PATH.mkdir(exist_ok=True)
 
 MAX_DATA_SIZE = 5 * (10 ** 7)
 
