@@ -1,3 +1,5 @@
+from pathlib import Path
+
 # Only runs in project root
 
 RUN_PATH = Path("run")
