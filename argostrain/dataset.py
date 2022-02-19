@@ -10,6 +10,7 @@ from urllib import request, parse
 
 from argostrain import utils
 from argostrain.utils import info, error, warning
+from argostrain import settings
 
 
 class IDataset:
@@ -194,9 +195,6 @@ class LocalDataset(IDataset):
 
 
 class NetworkDataset(IDataset):
-    # Only runs in project root
-    CACHE_PATH = Path("raw_data")
-
     def __init__(self, metadata):
         """Creates a NetworkDataset.
 
@@ -229,7 +227,7 @@ class NetworkDataset(IDataset):
         return str(self) + ".argosdata"
 
     def filepath(self):
-        return Path(NetworkDataset.CACHE_PATH) / self.filename()
+        return settings.CACHE_PATH / self.filename()
 
     def download(self):
         """Downloads the package and returns its path"""

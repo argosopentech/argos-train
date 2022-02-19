@@ -10,15 +10,12 @@ import argostrain
 from argostrain.dataset import *
 from argostrain import data
 from argostrain import opennmtutils
+from argostrain import settings
 
 import stanza
 
 
-RUN_PATH = Path("run")
-RUN_PATH.mkdir(exist_ok=True)
-
-SOURCE_PATH = RUN_PATH / "source"
-TARGET_PATH = RUN_PATH / "target"
+settings.RUN_PATH.mkdir(exist_ok=True)
 
 MAX_DATA_SIZE = 5 * (10 ** 7)
 
@@ -79,7 +76,7 @@ with open(Path("MODEL_README.md")) as readme_template:
     readme += "".join(readme_template.readlines())
     for dataset in datasets:
         readme += dataset.reference + "\n\n"
-with open(RUN_PATH / "README.md", "w") as readme_file:
+with open(settings.RUN_PATH / "README.md", "w") as readme_file:
     readme_file.write(readme)
 
 # Generate metadata.json
@@ -101,10 +98,10 @@ while len(datasets) > 0:
     print(str(dataset))
     source, target = dataset.data()
 
-    with open(SOURCE_PATH, "a") as s:
+    with open(settings.SOURCE_PATH, "a") as s:
         s.writelines(source)
 
-    with open(TARGET_PATH, "a") as t:
+    with open(settings.TARGET_PATH, "a") as t:
         t.writelines(target)
 
     del dataset
