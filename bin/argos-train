@@ -14,15 +14,15 @@ from argostrain import opennmtutils
 import stanza
 
 
-SOURCE_PATH = Path("raw_data") / "source"
-TARGET_PATH = Path("raw_data") / "target"
+RUN_PATH = Path("run")
+RUN_PATH.mkdir(exist_ok=True)
+
+SOURCE_PATH = RUN_PATH / "source"
+TARGET_PATH = RUN_PATH / "target"
 
 MAX_DATA_SIZE = 5 * (10 ** 7)
 
 assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
-
-RUN_PATH = Path("run")
-RUN_PATH.mkdir(exist_ok=True)
 
 from_code = input("From code (ISO 639): ")
 to_code = input("To code (ISO 639): ")
@@ -95,7 +95,7 @@ metadata_json = json.dumps(metadata, indent=4)
 with open(RUN_PATH / "metadata.json", "w") as metadata_file:
     metadata_file.write(metadata_json)
 
-# Download and write data to raw_data/
+# Download and write data source and target
 while len(datasets) > 0:
     dataset = datasets.pop()
     print(str(dataset))
@@ -110,7 +110,7 @@ while len(datasets) > 0:
     del dataset
 
 
-argostrain.data.prepare_data("raw_data/source", "raw_data/target")
+argostrain.data.prepare_data(SOURCE_PATH, TARGET_PATH)
 
 with open(Path("run/split_data/all.txt"), "w") as combined:
     with open(Path("run/split_data/src-train.txt")) as src:
