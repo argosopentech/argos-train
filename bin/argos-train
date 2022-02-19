@@ -19,7 +19,7 @@ settings.RUN_PATH.mkdir(exist_ok=True)
 
 MAX_DATA_SIZE = 5 * (10 ** 7)
 
-assert not SOURCE_PATH.is_file() and not TARGET_PATH.is_file()
+assert not settings.SOURCE_PATH.is_file() and not settings.TARGET_PATH.is_file()
 
 from_code = input("From code (ISO 639): ")
 to_code = input("To code (ISO 639): ")
@@ -89,7 +89,7 @@ metadata = {
     "to_name": to_name,
 }
 metadata_json = json.dumps(metadata, indent=4)
-with open(RUN_PATH / "metadata.json", "w") as metadata_file:
+with open(settings.RUN_PATH / "metadata.json", "w") as metadata_file:
     metadata_file.write(metadata_json)
 
 # Download and write data source and target
@@ -107,7 +107,7 @@ while len(datasets) > 0:
     del dataset
 
 
-argostrain.data.prepare_data(SOURCE_PATH, TARGET_PATH)
+argostrain.data.prepare_data(settings.SOURCE_PATH, settings.TARGET_PATH)
 
 with open(Path("run/split_data/all.txt"), "w") as combined:
     with open(Path("run/split_data/src-train.txt")) as src:
