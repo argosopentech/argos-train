@@ -27,7 +27,9 @@ Package saved to /home/argosopentech/argos-train/run/en_es.argosmodel
 ```
 
 ## Data
-Uses data from the [Opus project](http://opus.nlpl.eu/) in the Moses format stored in [data index](/data-index.json).
+Data from [data-index.json](/data-index.json) is used for training. Argos Translate primarily uses data from the [Opus project](http://opus.nlpl.eu/). 
+
+To train a model with custom data add your data to `data-index.json` after running `argos-train-init` with a link to download a data package. Data packages are [zip archives with a .argosdata extension](http://data.argosopentech.com/data-wikimedia-en_sk.argosdata).
 
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
