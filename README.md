@@ -48,9 +48,6 @@ argos-train
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
 
-## Troubleshooting
-- If you're running out of GPU memory reduce `batch_size` and `valid_batch_size` in `config.yml`.
-
 ## License
 Licensed under either the MIT or CC0 License (same as [Argos Translate](https://www.argosopentech.com/)).
 
