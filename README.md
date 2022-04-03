@@ -31,9 +31,6 @@ Data from [data-index.json](/data-index.json) is used for training. Argos Transl
 
 To train a model with custom data add your data to `data-index.json` after running `argos-train-init` with a link to download a data package. Data packages are [zip archives with a .argosdata extension](http://data.argosopentech.com/data-wikimedia-en_sk.argosdata).
 
-## Environment
-CUDA required, tested on [vast.ai](https://vast.ai/).
-
 ## Docker
 Docker image available at [argosopentech/argostrain](https://hub.docker.com/repository/docker/argosopentech/argostrain).
 
@@ -47,6 +44,9 @@ docker run -it argosopentech/argostrain /bin/bash
 argos-train
 
 ```
+
+## Environment
+CUDA required, tested on [vast.ai](https://vast.ai/).
 
 ## Troubleshooting
 - If you're running out of GPU memory reduce `batch_size` and `valid_batch_size` in `config.yml`.
