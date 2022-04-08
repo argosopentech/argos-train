@@ -7,12 +7,12 @@ sudo -E apt-get install python3 python3-pip python3-virtualenv zip git wget curl
 
 # Setup Python environment
 virtualenv ~/env
-git clone https://github.com/argosopentech/argos-train.git ~/argos-train
+git clone https://github.com/argosopentech/argos-train.git --depth 1 ~/argos-train
 ~/env/bin/pip install -e ~/argos-train
 echo "source ~/env/bin/activate" >> ~/.profile
 
 # Install OpenNMT-py
-git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
+git clone https://github.com/OpenNMT/OpenNMT-py.git --depth 1 ~/OpenNMT-py
 ~/env/bin/pip install -e ~/OpenNMT-py
 ~/env/bin/pip install -r ~/OpenNMT-py/requirements.opt.txt
 
@@ -23,7 +23,7 @@ git clone https://github.com/OpenNMT/OpenNMT-py.git ~/OpenNMT-py
 # Compile SentencePiece
 cd
 sudo apt-get install cmake build-essential pkg-config libgoogle-perftools-dev vim git -y
-git clone https://github.com/google/sentencepiece.git ~/sentencepiece
+git clone https://github.com/google/sentencepiece.git --depth 1 ~/sentencepiece
 cd sentencepiece
 mkdir build
 cd build
