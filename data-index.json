@@ -873,4 +873,81 @@
             "http://data.argosopentech.com/data-wikimedia-en_cs.argosdata"
         ]
     }
+    {
+      "name": "CCAligned",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 5331608,
+      "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmán, Francisco and Koehn, Philip - ,Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "CCMatrix",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 25228938,
+      "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB\n\nAngela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "OpenSubtitles",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 29887386,
+      "reference": "J. Tiedemann, 2016, Finding Alternative Translations in a Large Corpus of Movie Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "WikiMatrix",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 545745,
+      "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "wikimedia",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 226834,
+      "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "Wikipedia",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 139853,
+      "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikipedia-en_he.argosdata"
+        ]
+    },
+    {
+      "name": "XLEnt",
+      "type": "data",
+      "from_code": "en",
+      "to_code": "he",
+      "size": 3192990,
+      "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzmán, Francisco and Koehn, Philip - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_he.argosdata"
+        ]
+    }
 ]
