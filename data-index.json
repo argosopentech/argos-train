@@ -872,7 +872,7 @@
         "links": [
             "http://data.argosopentech.com/data-wikimedia-en_cs.argosdata"
         ]
-    }
+    },
     {
       "name": "CCAligned",
       "type": "data",
