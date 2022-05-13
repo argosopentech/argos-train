@@ -950,4 +950,59 @@
             "http://data.argosopentech.com/data-xlent-en_he.argosdata"
         ]
     }
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 436052,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/training/data-wikimatrix-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 10738610,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmán, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/training/data-ccaligned-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 14474569,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/training/data-opensubtitles-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 34207840,
+        "reference": "ParaCrawl project",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/training/data-paracrawl-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "Europarl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 1991647,
+        "reference": " J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/training/data-europarl-en_da.argosdata"
+        ]
+    }
 ]
