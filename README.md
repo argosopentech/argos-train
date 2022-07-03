@@ -48,6 +48,11 @@ argos-train
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
 
+## Manually creating an Argos Translate package
+If you don't want to use Argos Train you can manually train a model with [OpenNMT](https://opennmt.net/) and package it for Argos Translate. Argos Translate packages are a zip archive with a .argosmodel extension containing; a CTranslate2 model, a SentencePiece model, and a Stanza 1.1.1 model. Reference the training script at [bin/argos-train](bin/argos-train) for more information.
+
+- [Example packages](https://www.argosopentech.com/argospm/index/)
+
 ## License
 Licensed under either the MIT or CC0 License (same as [Argos Translate](https://www.argosopentech.com/)).
 
