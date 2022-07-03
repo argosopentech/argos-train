@@ -54,5 +54,5 @@ If you don't want to use Argos Train you can manually train a model with [OpenNM
 - [Example packages](https://www.argosopentech.com/argospm/index/)
 
 ## License
-Licensed under either the MIT or CC0 License (same as [Argos Translate](https://www.argosopentech.com/)).
+Licensed under either the MIT or Creative Commons CC0 License
 
