@@ -149,6 +149,17 @@
         ]
     },
     {
+        "name": "Wiktionary",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 3048,
+        "reference": "Wikiextract - Tatu Ylonen",
+        "links": [
+            "http://data.argosopentech.com/data-wiktionary-en_de.argosdata"
+        ]
+    },
+    {
         "name": "EUbookshop",
         "type": "data",
         "from_code": "en",
@@ -201,17 +212,6 @@
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
             "http://data.argosopentech.com/data-wikipedia-en_de.argosdata"
-        ]
-    },
-    {
-        "name": "Wiktionary",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "de",
-        "size": 57544,
-        "reference": "Wikiextract - https://github.com/tatuylonen/wiktextract (GitHub), https://kaikki.org/",
-        "links": [
-            "http://data.argosopentech.com/data-wiktionary-en_de.argosdata"
         ]
     },
     {
