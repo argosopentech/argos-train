@@ -3,319 +3,215 @@
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 6938181,
+        "to_code": "cs",
+        "size": 12730121,
         "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - CCAligned: A Massive Collection of Cross-lingual Web-Document Pairs",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_sk.argosdata"
+            "http://data.argosopentech.com/data-ccaligned-en_cs.argosdata"
         ]
     },
     {
         "name": "CCMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 38096241,
-        "reference": "Angela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "to_code": "cs",
+        "size": 56307029,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
         "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_sk.argosdata"
-        ]
-    },
-    {
-        "name": "DGT",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "sk",
-        "size": 5118830,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-dgt-en_sk.argosdata"
+            "http://data.argosopentech.com/data-ccmatrix-en_cs.argosdata"
         ]
     },
     {
         "name": "EUbookshop",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 452097,
+        "to_code": "cs",
+        "size": 455472,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-eubookshop-en_sk.argosdata"
+            "http://data.argosopentech.com/data-eubookshop-en_cs.argosdata"
         ]
     },
     {
         "name": "Europarl",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 639958,
+        "to_code": "cs",
+        "size": 647095,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-europarl-en_sk.argosdata"
+            "http://data.argosopentech.com/data-europarl-en_cs.argosdata"
         ]
     },
     {
-        "name": "OpenSubtitles",
+        "name": "ParaCrawl",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 8850871,
-        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "to_code": "cs",
+        "size": 50153753,
+        "reference": "ParaCrawl project",
         "links": [
-            "http://data.argosopentech.com/data-opensubtitles-en_sk.argosdata"
-        ]
-    },
-    {
-        "name": "TildeMODEL",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "sk",
-        "size": 2190889,
-        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
-        "links": [
-            "http://data.argosopentech.com/data-tildemodel-en_sk.argosdata"
+            "http://data.argosopentech.com/data-paracrawl-en_cs.argosdata"
         ]
     },
     {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 178985,
+        "to_code": "cs",
+        "size": 519195,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_sk.argosdata"
+            "http://data.argosopentech.com/data-wikimatrix-en_cs.argosdata"
         ]
     },
     {
         "name": "wikimedia",
         "type": "data",
         "from_code": "en",
-        "to_code": "sk",
-        "size": 10024,
+        "to_code": "cs",
+        "size": 102831,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_sk.argosdata"
-        ]
-    },
-    {
-        "name": "XLEnt",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "sk",
-        "size": 2594162,
-        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
-        "links": [
-            "http://data.argosopentech.com/data-xlent-en_sk.argosdata"
-        ]
-    },
-    {
-        "name": "bible-eudin",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 60570,
-        "reference": "Christos Christodoulopoulos and Mark Steedman",
-        "links": [
-            "http://data.argosopentech.com/data-bibleeudin-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 1114190,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "Tatoeba",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 24358,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-tatoeba-en_la.argosdata"
+            "http://data.argosopentech.com/data-wikimedia-en_cs.argosdata"
         ]
     },
     {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "la",
-        "size": 32281,
+        "to_code": "da",
+        "size": 436052,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "wikimedia",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 1525,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "XLEnt",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 197696,
-        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
-        "links": [
-            "http://data.argosopentech.com/data-xlent-en_la.argosdata"
+            "https://libretranslate.fortytwo-it.com/argosdata/data-wikimatrix-en_da.argosdata",
+            "http://data.argosopentech.com/data-wikimatrix-en_da.argosdata"
         ]
     },
     {
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
-        "to_code": "fa",
-        "size": 5287317,
+        "to_code": "da",
+        "size": 10738610,
         "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
         "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_fa.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "fa",
-        "size": 24597533,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_fa.argosdata"
-        ]
-    },
-    {
-        "name": "Mizan",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "fa",
-        "size": 1021597,
-        "reference": "Kashefi, O. (2018). MIZAN: a large persian-english parallel corpus. Computing Research Repository, arXiv:1801.02107.",
-        "links": [
-            "http://data.argosopentech.com/data-mizan-en_fa.argosdata"
+            "https://libretranslate.fortytwo-it.com/argosdata/data-ccaligned-en_da.argosdata",
+            "http://data.argosopentech.com/data-ccaligned-en_da.argosdata"
         ]
     },
     {
         "name": "OpenSubtitles",
         "type": "data",
         "from_code": "en",
-        "to_code": "fa",
-        "size": 6198109,
+        "to_code": "da",
+        "size": 14474569,
         "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
         "links": [
-            "http://data.argosopentech.com/data-opensubtitles-en_fa.argosdata"
+            "https://libretranslate.fortytwo-it.com/training/data-opensubtitles-en_da.argosdata",
+            "http://data.argosopentech.com/data-opensubtitles-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 34207840,
+        "reference": "ParaCrawl project",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/data-paracrawl-en_da.argosdata",
+            "http://data.argosopentech.com/data-paracrawl-en_da.argosdata"
+        ]
+    },
+    {
+        "name": "Europarl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "da",
+        "size": 1991647,
+        "reference": " J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://libretranslate.fortytwo-it.com/argosdata/data-europarl-en_da.argosdata",
+            "http://data.argosopentech.com/data-europarl-en_da.argosdata"
         ]
     },
     {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "fa",
-        "size": 303806,
+        "to_code": "de",
+        "size": 1573438,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_fa.argosdata"
+            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_de.argosdata",
+            "ipfs://QmRrdiKQ3e41PbBWisSd6M6rE1yXFxD4VxbBPcuGRPpq8A"
         ]
     },
     {
-        "name": "wikimedia",
+        "name": "EUbookshop",
         "type": "data",
         "from_code": "en",
-        "to_code": "fa",
-        "size": 164112,
+        "to_code": "de",
+        "size": 9333066,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_fa.argosdata"
+            "http://data.argosopentech.com/data-eubookshop-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 261114531,
+        "reference": "ParaCrawl project at http://paracrawl.eu",
+        "links": [
+            "http://data.argosopentech.com/data-paracrawl-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 4250876,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
+        "links": [
+            "http://data.argosopentech.com/data-tildemodel-en_de.argosdata"
+        ]
+    },
+    {
+        "name": "Wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 114942,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_de.argosdata"
         ]
     },
     {
         "name": "Wikipedia",
         "type": "data",
         "from_code": "en",
-        "to_code": "fa",
-        "size": 97091,
-        "reference": "Krzysztof Wo\u0142k and Krzysztof Marasek: Building Subject-aligned Comparable Corpora and Mining it for Truly Parallel Sentence Pairs., Procedia Technology, 18, Elsevier, p.126-132, 2014",
-        "links": [
-            "http://data.argosopentech.com/data-wikipedia-en_fa.argosdata"
-        ]
-    },
-    {
-        "name": "XLEnt",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "fa",
-        "size": 1927538,
-        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
-        "links": [
-            "http://data.argosopentech.com/data-xlent-en_fa.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "eo",
-        "size": 15418393,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_eo.argosdata"
-        ]
-    },
-    {
-        "name": "OpenSubtitles",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "eo",
-        "size": 64485,
-        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
-        "links": [
-            "http://data.argosopentech.com/data-opensubtitles-en_eo.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "eo",
-        "size": 298201,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_eo.argosdata"
-        ]
-    },
-    {
-        "name": "wikimedia",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "eo",
-        "size": 13452,
+        "to_code": "de",
+        "size": 2459662,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_eo.argosdata"
+            "http://data.argosopentech.com/data-wikipedia-en_de.argosdata"
         ]
     },
     {
-        "name": "XLEnt",
+        "name": "Wiktionary",
         "type": "data",
         "from_code": "en",
-        "to_code": "eo",
-        "size": 2458403,
-        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "to_code": "de",
+        "size": 57544,
+        "reference": "Wikiextract - https://github.com/tatuylonen/wiktextract (GitHub), https://kaikki.org/",
         "links": [
-            "http://data.argosopentech.com/data-xlent-en_eo.argosdata"
+            "http://data.argosopentech.com/data-wiktionary-en_de.argosdata"
         ]
     },
     {
@@ -473,6 +369,61 @@
         ]
     },
     {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eo",
+        "size": 15418393,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_eo.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eo",
+        "size": 64485,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-en_eo.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eo",
+        "size": 298201,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_eo.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eo",
+        "size": 13452,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_eo.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eo",
+        "size": 2458403,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_eo.argosdata"
+        ]
+    },
+    {
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
@@ -564,78 +515,100 @@
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "de",
-        "size": 1573438,
+        "to_code": "es",
+        "size": 3377912,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_de.argosdata",
-            "ipfs://QmRrdiKQ3e41PbBWisSd6M6rE1yXFxD4VxbBPcuGRPpq8A"
+            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_es.argosdata",
+            "ipfs://QmeNBsTRZziMx1DxpDco9Z8bKfMGbRmw5zR8LpQZbfDVKF"
         ]
     },
     {
-        "name": "EUbookshop",
+        "name": "CCAligned",
         "type": "data",
         "from_code": "en",
-        "to_code": "de",
-        "size": 9333066,
+        "to_code": "fa",
+        "size": 5287317,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_fa.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "fa",
+        "size": 24597533,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_fa.argosdata"
+        ]
+    },
+    {
+        "name": "Mizan",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "fa",
+        "size": 1021597,
+        "reference": "Kashefi, O. (2018). MIZAN: a large persian-english parallel corpus. Computing Research Repository, arXiv:1801.02107.",
+        "links": [
+            "http://data.argosopentech.com/data-mizan-en_fa.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "fa",
+        "size": 6198109,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-en_fa.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "fa",
+        "size": 303806,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_fa.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "fa",
+        "size": 164112,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-eubookshop-en_de.argosdata"
-        ]
-    },
-    {
-        "name": "ParaCrawl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "de",
-        "size": 261114531,
-        "reference": "ParaCrawl project at http://paracrawl.eu",
-        "links": [
-            "http://data.argosopentech.com/data-paracrawl-en_de.argosdata"
-        ]
-    },
-    {
-        "name": "TildeMODEL",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "de",
-        "size": 4250876,
-        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
-        "links": [
-            "http://data.argosopentech.com/data-tildemodel-en_de.argosdata"
-        ]
-    },
-    {
-        "name": "Wikimedia",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "de",
-        "size": 114942,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_de.argosdata"
+            "http://data.argosopentech.com/data-wikimedia-en_fa.argosdata"
         ]
     },
     {
         "name": "Wikipedia",
         "type": "data",
         "from_code": "en",
-        "to_code": "de",
-        "size": 2459662,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "to_code": "fa",
+        "size": 97091,
+        "reference": "Krzysztof Wo\u0142k and Krzysztof Marasek: Building Subject-aligned Comparable Corpora and Mining it for Truly Parallel Sentence Pairs., Procedia Technology, 18, Elsevier, p.126-132, 2014",
         "links": [
-            "http://data.argosopentech.com/data-wikipedia-en_de.argosdata"
+            "http://data.argosopentech.com/data-wikipedia-en_fa.argosdata"
         ]
     },
     {
-        "name": "Wiktionary",
+        "name": "XLEnt",
         "type": "data",
         "from_code": "en",
-        "to_code": "de",
-        "size": 57544,
-        "reference": "Wikiextract - https://github.com/tatuylonen/wiktextract (GitHub), https://kaikki.org/",
+        "to_code": "fa",
+        "size": 1927538,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
-            "http://data.argosopentech.com/data-wiktionary-en_de.argosdata"
+            "http://data.argosopentech.com/data-xlent-en_fa.argosdata"
         ]
     },
     {
@@ -651,15 +624,158 @@
         ]
     },
     {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 5331608,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philip - ,Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 25228938,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB\n\nAngela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 29887386,
+        "reference": "J. Tiedemann, 2016, Finding Alternative Translations in a Large Corpus of Movie Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-en_he.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "es",
-        "size": 3377912,
+        "to_code": "he",
+        "size": 545745,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_es.argosdata",
-            "ipfs://QmeNBsTRZziMx1DxpDco9Z8bKfMGbRmw5zR8LpQZbfDVKF"
+            "http://data.argosopentech.com/data-wikimatrix-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 226834,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "Wikipedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 139853,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikipedia-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "he",
+        "size": 3192990,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philip - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_he.argosdata"
+        ]
+    },
+    {
+        "name": "bible-eudin",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 60570,
+        "reference": "Christos Christodoulopoulos and Mark Steedman",
+        "links": [
+            "http://data.argosopentech.com/data-bibleeudin-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 1114190,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 24358,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-tatoeba-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 32281,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 1525,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "la",
+        "size": 197696,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_la.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "pt",
+        "size": 2461558,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_pt.argosdata",
+            "ipfs://QmVbsJvHWx1MZUzgZuXfMQSaToUfSvB7DZWiKSJ7QFSumk"
         ]
     },
     {
@@ -675,15 +791,113 @@
         ]
     },
     {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 6938181,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - CCAligned: A Massive Collection of Cross-lingual Web-Document Pairs",
+        "links": [
+            "http://data.argosopentech.com/data-ccaligned-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 38096241,
+        "reference": "Angela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "links": [
+            "http://data.argosopentech.com/data-ccmatrix-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "DGT",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 5118830,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-dgt-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "EUbookshop",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 452097,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-eubookshop-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "Europarl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 639958,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-europarl-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 8850871,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 2190889,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017.",
+        "links": [
+            "http://data.argosopentech.com/data-tildemodel-en_sk.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "en",
-        "to_code": "pt",
-        "size": 2461558,
+        "to_code": "sk",
+        "size": 178985,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_pt.argosdata",
-            "ipfs://QmVbsJvHWx1MZUzgZuXfMQSaToUfSvB7DZWiKSJ7QFSumk"
+            "http://data.argosopentech.com/data-wikimatrix-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 10024,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_sk.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sk",
+        "size": 2594162,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_sk.argosdata"
         ]
     },
     {
@@ -794,220 +1008,6 @@
         "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzmn, Francisco and Koehn, Philipp - {XLEnt}: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
             "http://data.argosopentech.com/data-xlent-en_tr.argosdata"
-        ]
-    },
-    {
-        "name": "CCAligned",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 12730121,
-        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - CCAligned: A Massive Collection of Cross-lingual Web-Document Pairs",
-        "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 56307029,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "EUbookshop",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 455472,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-eubookshop-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "Europarl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 647095,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-europarl-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "ParaCrawl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 50153753,
-        "reference": "ParaCrawl project",
-        "links": [
-            "http://data.argosopentech.com/data-paracrawl-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 519195,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_cs.argosdata"
-        ]
-    },
-    {
-        "name": "wikimedia",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 102831,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_cs.argosdata"
-        ]
-    },
-    {
-      "name": "CCAligned",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 5331608,
-      "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmán, Francisco and Koehn, Philip - ,Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
-        "links": [
-            "http://data.argosopentech.com/data-ccaligned-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "CCMatrix",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 25228938,
-      "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB\n\nAngela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "OpenSubtitles",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 29887386,
-      "reference": "J. Tiedemann, 2016, Finding Alternative Translations in a Large Corpus of Movie Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
-        "links": [
-            "http://data.argosopentech.com/data-opensubtitles-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "WikiMatrix",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 545745,
-      "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "http://data.argosopentech.com/data-wikimatrix-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "wikimedia",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 226834,
-      "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikimedia-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "Wikipedia",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 139853,
-      "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikipedia-en_he.argosdata"
-        ]
-    },
-    {
-      "name": "XLEnt",
-      "type": "data",
-      "from_code": "en",
-      "to_code": "he",
-      "size": 3192990,
-      "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzmán, Francisco and Koehn, Philip - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
-        "links": [
-            "http://data.argosopentech.com/data-xlent-en_he.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "da",
-        "size": 436052,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://libretranslate.fortytwo-it.com/argosdata/data-wikimatrix-en_da.argosdata",
-            "http://data.argosopentech.com/data-wikimatrix-en_da.argosdata"
-        ]
-    },
-    {
-        "name": "CCAligned",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "da",
-        "size": 10738610,
-        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmán, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
-        "links": [
-            "https://libretranslate.fortytwo-it.com/argosdata/data-ccaligned-en_da.argosdata",
-            "http://data.argosopentech.com/data-ccaligned-en_da.argosdata"
-        ]
-    },
-    {
-        "name": "OpenSubtitles",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "da",
-        "size": 14474569,
-        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
-        "links": [
-            "https://libretranslate.fortytwo-it.com/training/data-opensubtitles-en_da.argosdata",
-            "http://data.argosopentech.com/data-opensubtitles-en_da.argosdata"
-        ]
-    },
-    {
-        "name": "ParaCrawl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "da",
-        "size": 34207840,
-        "reference": "ParaCrawl project",
-        "links": [
-            "https://libretranslate.fortytwo-it.com/argosdata/data-paracrawl-en_da.argosdata",
-            "http://data.argosopentech.com/data-paracrawl-en_da.argosdata"
-        ]
-    },
-    {
-        "name": "Europarl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "da",
-        "size": 1991647,
-        "reference": " J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "https://libretranslate.fortytwo-it.com/argosdata/data-europarl-en_da.argosdata",
-            "http://data.argosopentech.com/data-europarl-en_da.argosdata"
         ]
     }
 ]
