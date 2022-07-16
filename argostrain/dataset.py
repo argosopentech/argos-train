@@ -233,8 +233,9 @@ class NetworkDataset(IDataset):
         """Downloads the package and returns its path"""
         url = self.links[0]
         filepath = self.filepath()
-        print(f"Downloading {filepath}")
-        utils.download(url, filepath)
+        if not filepath.exists():
+            print(f"Downloading {filepath}")
+            utils.download(url, filepath)
         return filepath
 
     def data(self, length=None):
