@@ -457,6 +457,17 @@
         ]
     },
     {
+        "name": "Wiktionary",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "es",
+        "size": 2787,
+        "reference": "Wikiextract - Tatu Ylonen",
+        "links": [
+            "http://data.argosopentech.com/data-wiktionary-en_es.argosdata"
+        ]
+    },
+    {
         "name": "MultiUN",
         "type": "data",
         "from_code": "en",
