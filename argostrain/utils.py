@@ -18,5 +18,5 @@ def error(*args):
 def download(url, path):
     url = str(url)
     path = str(path)
-    res = subprocess.run(["curl", "--retry", "25", "-o", path, url])
+    res = subprocess.run(["curl", "--retry", "25", "-C", "-o", path, url])
     return res.returncode
