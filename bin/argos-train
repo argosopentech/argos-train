@@ -19,7 +19,9 @@ settings.CACHE_PATH.mkdir(exist_ok=True)
 
 MAX_DATA_SIZE = 5 * (10 ** 7)
 
-assert not settings.SOURCE_PATH.is_file() and not settings.TARGET_PATH.is_file()
+# Delete training data if it exists
+settings.SOURCE_PATH.unlink(missing_ok=True)
+settings.TARGET_PATH.unlink(missing_ok=True)
 
 from_code = input("From code (ISO 639): ")
 to_code = input("To code (ISO 639): ")
