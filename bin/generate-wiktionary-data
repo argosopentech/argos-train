@@ -8,11 +8,8 @@ import argparse
 from pathlib import Path
 
 # Configure
-if "sl" not in os.environ:
-    print("$sl not in environment, run `source config.sh`")
-    exit(1)
-sl = os.environ["sl"]
-tl = os.environ["tl"]
+sl = 'en'
+tl = 'es'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("wikidata", help="path to Wiktionary JSON file")
@@ -123,12 +120,12 @@ for data in wikidata:
 
 # Write to file
 for filename, data in [
-    ("raw_data/wiktionary." + sl, source_data),
-    ("raw_data/wiktionary." + tl, target_data),
+    ("wiktionary." + sl, source_data),
+    ("wiktionary." + tl, target_data),
 ]:
     filename = Path(filename)
     assert not filename.exists()
     data_file = open(filename, "w")
     data_file.write("\n".join(data))
     data_file.close()
-print("Wrote to raw_data/wiktionary.*")
+print("Wrote to wiktionary.*")
