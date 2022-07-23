@@ -1,0 +1,224 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import json
+import subprocess
+import shutil
+import sys
+
+import argostrain
+from argostrain.dataset import *
+from argostrain import data
+from argostrain import opennmtutils
+from argostrain import settings
+
+import stanza
+
+def train(from_code, to_code, from_name, to_name, version, package_version):
+    settings.RUN_PATH.mkdir(exist_ok=True)
+    settings.CACHE_PATH.mkdir(exist_ok=True)
+
+    MAX_DATA_SIZE = 5 * (10 ** 7)
+
+    # Delete training data if it exists
+    settings.SOURCE_PATH.unlink(missing_ok=True)
+    settings.TARGET_PATH.unlink(missing_ok=True)
+
+    from_code = input("From code (ISO 639): ")
+    to_code = input("To code (ISO 639): ")
+    from_name = input("From name: ")
+    to_name = input("To name: ")
+    version = input("Version: ")
+    package_version = version
+    argos_version = "1.5"
+
+    available_datasets = get_available_datasets()
+
+    datasets = list(
+        filter(
+            lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
+        )
+    )
+
+    if len(datasets) == 0:
+        # Try to use reverse data
+        reverse_datasets = list(
+            filter(
+                lambda x: x.to_code == from_code and x.from_code == to_code,
+                available_datasets,
+            )
+        )
+        if len(reverse_datasets) > 0:
+            for reverse_dataset in reverse_datasets:
+                dataset = Dataset(reverse_dataset.data()[1], reverse_dataset.data()[0])
+
+                # Hack to preserve reference metadata
+                dataset.reference = reverse_dataset.reference
+                dataset.size = reverse_dataset.size
+
+                datasets.append(dataset)
+        else:
+            print("No data available for this language pair, check data-index.json")
+            sys.exit(1)
+
+    # Limit max amount of data used
+    limited_datasets = list()
+    limited_datasets_size = 0
+    datasets.sort(key=lambda x: x.size)
+    for dataset in datasets:
+        if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
+            limited_datasets.append(dataset)
+            limited_datasets_size += dataset.size
+        else:
+            print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
+    datasets = limited_datasets
+
+    # Check for existing checkpoints
+    checkpoints = opennmtutils.get_checkpoints()
+    if len(checkpoints) > 0:
+        input("Warning: Checkpoints exist (enter to continue)")
+
+    # Generate README.md
+    readme = f"# {from_name}-{to_name}"
+    with open(Path("MODEL_README.md")) as readme_template:
+        readme += "".join(readme_template.readlines())
+        for dataset in datasets:
+            readme += dataset.reference + "\n\n"
+    with open(settings.RUN_PATH / "README.md", "w") as readme_file:
+        readme_file.write(readme)
+
+    # Generate metadata.json
+    metadata = {
+        "package_version": package_version,
+        "argos_version": argos_version,
+        "from_code": from_code,
+        "from_name": from_name,
+        "to_code": to_code,
+        "to_name": to_name,
+    }
+    metadata_json = json.dumps(metadata, indent=4)
+    with open(settings.RUN_PATH / "metadata.json", "w") as metadata_file:
+        metadata_file.write(metadata_json)
+
+    # Download and write data source and target
+    while len(datasets) > 0:
+        dataset = datasets.pop()
+        print(str(dataset))
+        source, target = dataset.data()
+
+        with open(settings.SOURCE_PATH, "a") as s:
+            s.writelines(source)
+
+        with open(settings.TARGET_PATH, "a") as t:
+            t.writelines(target)
+
+        del dataset
+
+
+    argostrain.data.prepare_data(settings.SOURCE_PATH, settings.TARGET_PATH)
+
+    with open(Path("run/split_data/all.txt"), "w") as combined:
+        with open(Path("run/split_data/src-train.txt")) as src:
+            for line in src:
+                combined.write(line)
+        with open(Path("run/split_data/tgt-train.txt")) as tgt:
+            for line in tgt:
+                combined.write(line)
+
+
+    # TODO: Don't hardcode vocab_size and set user_defined_symbols
+    subprocess.run(
+        [
+            "spm_train",
+            "--input=run/split_data/all.txt",
+            "--model_prefix=run/sentencepiece",
+            "--vocab_size=50000",
+            "--character_coverage=0.9995",
+            "--input_sentence_size=1000000",
+            "--shuffle_input_sentence=true",
+        ]
+    )
+
+    subprocess.run(["rm", "run/split_data/all.txt"])
+
+    subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
+
+    subprocess.run(["onmt_train", "-config", "config.yml"])
+
+
+    # Package
+    subprocess.run(
+        [
+            "./../OpenNMT-py/tools/average_models.py",
+            "-m",
+            "run/openmt.model_step_9000.pt",
+            "run/openmt.model_step_10000.pt",
+            "-o",
+            "run/averaged.pt",
+        ]
+    )
+
+    subprocess.run(
+        [
+            "ct2-opennmt-py-converter",
+            "--model_path",
+            "run/averaged.pt",
+            "--output_dir",
+            "run/model",
+            "--quantization",
+            "int8",
+        ]
+    )
+
+
+    package_version_code = package_version.replace(".", "_")
+    model_dir = f"translate-{from_code}_{to_code}-{package_version_code}"
+    model_path = Path("run") / model_dir
+
+    subprocess.run(["mkdir", model_path])
+
+    subprocess.run(["cp", "-r", "run/model", model_path])
+
+    subprocess.run(["cp", "run/sentencepiece.model", model_path])
+
+    # Include a Stanza sentence boundary detection model
+    stanza_model_located = False
+    stanza_lang_code = from_code
+    while not stanza_model_located:
+        try:
+            stanza.download(stanza_lang_code, dir="run/stanza", processors="tokenize")
+            stanza_model_located = True
+        except:
+            print(f"Could not locate stanza model for lang {stanza_lang_code}")
+            print(
+                "Enter the code of a different language to attempt to use its stanza model."
+            )
+            print(
+                "This will work best for with a similar language to the one you are attempting to translate."
+            )
+            print(
+                "This will require manually editing the Stanza package in the finished model to change its code"
+            )
+            stanza_lang_code = input("Stanza language code (ISO 639): ")
+
+
+    subprocess.run(["cp", "-r", "run/stanza", model_path])
+
+    subprocess.run(["cp", "run/metadata.json", model_path])
+    subprocess.run(["cp", "run/README.md", model_path])
+
+    package_path = (
+        Path("run") / f"translate-{from_code}_{to_code}-{package_version_code}.argosmodel"
+    )
+
+    shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
+    subprocess.run(["mv", model_dir + ".zip", package_path])
+
+    # Make .argoscheckpoint zip
+
+    latest_checkpoint = opennmtutils.get_checkpoints()[-1]
+    print(latest_checkpoint)
+    print(latest_checkpoint.name)
+    print(latest_checkpoint.num)
+
+    print(f"Package saved to {str(package_path.resolve())}")
