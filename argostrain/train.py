@@ -24,14 +24,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version):
     settings.SOURCE_PATH.unlink(missing_ok=True)
     settings.TARGET_PATH.unlink(missing_ok=True)
 
-    from_code = input("From code (ISO 639): ")
-    to_code = input("To code (ISO 639): ")
-    from_name = input("From name: ")
-    to_name = input("To name: ")
-    version = input("Version: ")
-    package_version = version
-    argos_version = "1.5"
-
     available_datasets = get_available_datasets()
 
     datasets = list(
