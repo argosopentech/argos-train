@@ -14,7 +14,7 @@ from argostrain import settings
 
 import stanza
 
-def train(from_code, to_code, from_name, to_name, version, package_version):
+def train(from_code, to_code, from_name, to_name, version, package_version, argos_version):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
 

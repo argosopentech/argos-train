@@ -11,5 +11,5 @@ version = input("Version: ")
 package_version = version
 argos_version = "1.5"
 
-train.train(from_code, to_code, from_name, to_name, version, package_version)
+train.train(from_code, to_code, from_name, to_name, version, package_version, argos_version)
 
