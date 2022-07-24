@@ -85,14 +85,15 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
 
             del dataset
 
-    # Generate README.md
-    readme = f"# {from_name}-{to_name}"
-    with open(Path("MODEL_README.md")) as readme_template:
-        readme += "".join(readme_template.readlines())
-        for dataset in datasets:
-            readme += dataset.reference + "\n\n"
-    with open(settings.RUN_PATH / "README.md", "w") as readme_file:
-        readme_file.write(readme)
+        # Generate README.md
+        readme = f"# {from_name}-{to_name}"
+        with open(Path("MODEL_README.md")) as readme_template:
+            readme += "".join(readme_template.readlines())
+            for dataset in datasets:
+                readme += dataset.reference + "\n\n"
+        with open(settings.RUN_PATH / "README.md", "w") as readme_file:
+            readme_file.write(readme)
+
 
     # Generate metadata.json
     metadata = {
