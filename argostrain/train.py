@@ -14,61 +14,76 @@ from argostrain import settings
 
 import stanza
 
-def train(from_code, to_code, from_name, to_name, version, package_version, argos_version):
+def train(from_code, to_code, from_name, to_name, version, package_version, argos_version, data_exists):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
 
     MAX_DATA_SIZE = 5 * (10 ** 7)
 
-    # Delete training data if it exists
-    settings.SOURCE_PATH.unlink(missing_ok=True)
-    settings.TARGET_PATH.unlink(missing_ok=True)
-
-    available_datasets = get_available_datasets()
-
-    datasets = list(
-        filter(
-            lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
-        )
-    )
-
-    if len(datasets) == 0:
-        # Try to use reverse data
-        reverse_datasets = list(
-            filter(
-                lambda x: x.to_code == from_code and x.from_code == to_code,
-                available_datasets,
-            )
-        )
-        if len(reverse_datasets) > 0:
-            for reverse_dataset in reverse_datasets:
-                dataset = Dataset(reverse_dataset.data()[1], reverse_dataset.data()[0])
-
-                # Hack to preserve reference metadata
-                dataset.reference = reverse_dataset.reference
-                dataset.size = reverse_dataset.size
-
-                datasets.append(dataset)
-        else:
-            print("No data available for this language pair, check data-index.json")
-            sys.exit(1)
-
-    # Limit max amount of data used
-    limited_datasets = list()
-    limited_datasets_size = 0
-    datasets.sort(key=lambda x: x.size)
-    for dataset in datasets:
-        if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
-            limited_datasets.append(dataset)
-            limited_datasets_size += dataset.size
-        else:
-            print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
-    datasets = limited_datasets
-
     # Check for existing checkpoints
     checkpoints = opennmtutils.get_checkpoints()
     if len(checkpoints) > 0:
         input("Warning: Checkpoints exist (enter to continue)")
+
+    if !data_exists:
+        # Delete training data if it exists
+        settings.SOURCE_PATH.unlink(missing_ok=True)
+        settings.TARGET_PATH.unlink(missing_ok=True)
+
+        available_datasets = get_available_datasets()
+
+        datasets = list(
+            filter(
+                lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
+            )
+        )
+
+        if len(datasets) == 0:
+            # Try to use reverse data
+            reverse_datasets = list(
+                filter(
+                    lambda x: x.to_code == from_code and x.from_code == to_code,
+                    available_datasets,
+                )
+            )
+            if len(reverse_datasets) > 0:
+                for reverse_dataset in reverse_datasets:
+                    dataset = Dataset(reverse_dataset.data()[1], reverse_dataset.data()[0])
+
+                    # Hack to preserve reference metadata
+                    dataset.reference = reverse_dataset.reference
+                    dataset.size = reverse_dataset.size
+
+                    datasets.append(dataset)
+            else:
+                print("No data available for this language pair, check data-index.json")
+                sys.exit(1)
+
+        # Limit max amount of data used
+        limited_datasets = list()
+        limited_datasets_size = 0
+        datasets.sort(key=lambda x: x.size)
+        for dataset in datasets:
+            if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
+                limited_datasets.append(dataset)
+                limited_datasets_size += dataset.size
+            else:
+                print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
+        datasets = limited_datasets
+
+        # Download and write data source and target
+        while len(datasets) > 0:
+            dataset = datasets.pop()
+            print(str(dataset))
+            source, target = dataset.data()
+
+            with open(settings.SOURCE_PATH, "a") as s:
+                s.writelines(source)
+
+            with open(settings.TARGET_PATH, "a") as t:
+                t.writelines(target)
+
+            del dataset
 
     # Generate README.md
     readme = f"# {from_name}-{to_name}"
@@ -91,20 +106,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
     metadata_json = json.dumps(metadata, indent=4)
     with open(settings.RUN_PATH / "metadata.json", "w") as metadata_file:
         metadata_file.write(metadata_json)
-
-    # Download and write data source and target
-    while len(datasets) > 0:
-        dataset = datasets.pop()
-        print(str(dataset))
-        source, target = dataset.data()
-
-        with open(settings.SOURCE_PATH, "a") as s:
-            s.writelines(source)
-
-        with open(settings.TARGET_PATH, "a") as t:
-            t.writelines(target)
-
-        del dataset
 
 
     argostrain.data.prepare_data(settings.SOURCE_PATH, settings.TARGET_PATH)
