@@ -12,7 +12,6 @@ def prepare_data(source_data, target_data):
 
     # Build dataset
     dataset = FileDataset(open(source_data), open(target_data))
-    print("Read data from file")
 
     # Split and write data
     source_data, target_data = dataset.data()
