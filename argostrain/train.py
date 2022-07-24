@@ -25,7 +25,7 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
     if len(checkpoints) > 0:
         input("Warning: Checkpoints exist (enter to continue)")
 
-    if !data_exists:
+    if not data_exists:
         # Delete training data if it exists
         settings.SOURCE_PATH.unlink(missing_ok=True)
         settings.TARGET_PATH.unlink(missing_ok=True)
