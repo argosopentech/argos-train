@@ -31,7 +31,7 @@ Data from [data-index.json](/data-index.json) is used for training. Argos Transl
 
 To train a model with custom data add your data to `data-index.json` after running `argos-train-init` with a link to download your custom data package. Data packages are [zipped directories with a .argosdata extension](http://data.argosopentech.com/data-wikimedia-en_sk.argosdata) that contain a `source` and `target` file with parallel data in corresponding lines and a `metadata.json` file.
 
-You can also manually load data by putting your data at `raw/source` and `raw/target` and setting `data_exists=True` in `bin/argos-train`.
+You can also manually load data by putting your data at `run/source` and `run/target` and setting `data_exists=True` in `bin/argos-train`.
 
 ## Docker
 Docker image available at [argosopentech/argostrain](https://hub.docker.com/repository/docker/argosopentech/argostrain).
