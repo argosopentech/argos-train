@@ -29,8 +29,8 @@ for dataset in datasets:
     generated_target = list()
     source_data, target_data = dataset.data()
     for i in range(0, len(source_data) - 1):
-        first_sentence = source_data[i]
-        second_sentence = source_data[i + 1]
+        first_sentence = source_data[i].strip()
+        second_sentence = source_data[i + 1].strip()
 
         # Randomly split second sentence
         second_sentence = second_sentence[0 : random.randint(0, len(second_sentence))]
