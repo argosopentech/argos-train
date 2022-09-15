@@ -6,7 +6,7 @@ from pathlib import Path
 import argostrain
 from argostrain.dataset import *
 
-MAX_DATASET_SIZE = 5 * (10 ** 6)
+MAX_DATASET_SIZE = 5 * (10 ** 5)
 
 source_file_path = Path("run/source")
 target_file_path = Path("run/target")
@@ -16,10 +16,12 @@ assert not target_file_path.exists()
 
 available_datasets = get_available_datasets()
 
-datasets = list(filter(lambda x: x.size < MAX_DATASET_SIZE, available_datasets))
+datasets = [
+    TrimmedDataset(available_dataset, MAX_DATASET_SIZE)
+    for available_dataset in available_datasets
+]
 
 for dataset in datasets:
-    print(str(dataset))
     generated_source = list()
     generated_target = list()
     source_data, target_data = dataset.data()
