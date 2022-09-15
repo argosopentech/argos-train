@@ -42,8 +42,8 @@ for dataset in datasets:
         generated_source.append(first_sentence + second_sentence)
         generated_target.append(first_sentence)
 
-        # Write generated data to file
-        with open(source_file_path, "a") as source_file:
-            source_file.writelines(generated_source)
-        with open(target_file_path, "a") as target_file:
-            target_file.writelines(generated_target)
+    # Write generated data to file
+    with open(source_file_path, "a") as source_file:
+        source_file.writelines(generated_source)
+    with open(target_file_path, "a") as target_file:
+        target_file.writelines(generated_target)
