@@ -233,6 +233,7 @@ class NetworkDataset(IDataset):
         """Downloads the package and returns its path"""
         url = self.links[0]
         filepath = self.filepath()
+        settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
         if not filepath.exists():
             print(f"Downloading {filepath}")
             utils.download(url, filepath)
