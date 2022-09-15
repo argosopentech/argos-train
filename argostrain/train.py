@@ -14,7 +14,17 @@ from argostrain import settings
 
 import stanza
 
-def train(from_code, to_code, from_name, to_name, version, package_version, argos_version, data_exists):
+
+def train(
+    from_code,
+    to_code,
+    from_name,
+    to_name,
+    version,
+    package_version,
+    argos_version,
+    data_exists,
+):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
 
@@ -34,7 +44,8 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
 
         datasets = list(
             filter(
-                lambda x: x.from_code == from_code and x.to_code == to_code, available_datasets
+                lambda x: x.from_code == from_code and x.to_code == to_code,
+                available_datasets,
             )
         )
 
@@ -48,7 +59,9 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
             )
             if len(reverse_datasets) > 0:
                 for reverse_dataset in reverse_datasets:
-                    dataset = Dataset(reverse_dataset.data()[1], reverse_dataset.data()[0])
+                    dataset = Dataset(
+                        reverse_dataset.data()[1], reverse_dataset.data()[0]
+                    )
 
                     # Hack to preserve reference metadata
                     dataset.reference = reverse_dataset.reference
@@ -94,7 +107,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
         with open(settings.RUN_PATH / "README.md", "w") as readme_file:
             readme_file.write(readme)
 
-
     # Generate metadata.json
     metadata = {
         "package_version": package_version,
@@ -108,7 +120,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
     with open(settings.RUN_PATH / "metadata.json", "w") as metadata_file:
         metadata_file.write(metadata_json)
 
-
     argostrain.data.prepare_data(settings.SOURCE_PATH, settings.TARGET_PATH)
 
     with open(Path("run/split_data/all.txt"), "w") as combined:
@@ -118,7 +129,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
         with open(Path("run/split_data/tgt-train.txt")) as tgt:
             for line in tgt:
                 combined.write(line)
-
 
     # TODO: Don't hardcode vocab_size and set user_defined_symbols
     subprocess.run(
@@ -138,7 +148,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
     subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
 
     subprocess.run(["onmt_train", "-config", "config.yml"])
-
 
     # Package
     subprocess.run(
@@ -163,7 +172,6 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
             "int8",
         ]
     )
-
 
     package_version_code = package_version.replace(".", "_")
     model_dir = f"translate-{from_code}_{to_code}-{package_version_code}"
@@ -195,14 +203,14 @@ def train(from_code, to_code, from_name, to_name, version, package_version, argo
             )
             stanza_lang_code = input("Stanza language code (ISO 639): ")
 
-
     subprocess.run(["cp", "-r", "run/stanza", model_path])
 
     subprocess.run(["cp", "run/metadata.json", model_path])
     subprocess.run(["cp", "run/README.md", model_path])
 
     package_path = (
-        Path("run") / f"translate-{from_code}_{to_code}-{package_version_code}.argosmodel"
+        Path("run")
+        / f"translate-{from_code}_{to_code}-{package_version_code}.argosmodel"
     )
 
     shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
