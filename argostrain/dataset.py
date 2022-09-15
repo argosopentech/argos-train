@@ -7,6 +7,7 @@ import zipfile
 import codecs
 from multiprocessing import Pool
 from urllib import request, parse
+import itertools
 
 from argostrain import utils
 from argostrain.utils import info, error, warning
@@ -53,8 +54,8 @@ def trim_to_length_random(source, target, length):
             random.shuffle(zipped_data)
             source = [x[0] for x in zipped_data]
             target = [x[1] for x in zipped_data]
-        source = source[:length]
-        target = target[:length]
+        source = itertools.islice(source, 0, length)
+        target = itertools.islice(target, 0, length)
         return (source, target)
 
 
