@@ -7,7 +7,6 @@ import argostrain
 from argostrain.dataset import *
 
 MAX_DATASET_SIZE = 5 * (10 ** 5)
-DATASETS_COUNT = 10
 
 source_file_path = Path("run/source")
 target_file_path = Path("run/target")
@@ -16,8 +15,10 @@ assert not source_file_path.exists()
 assert not target_file_path.exists()
 
 available_datasets = get_available_datasets()
-random.shuffle(available_datasets)
-available_datasets = available_datasets[:DATASETS_COUNT]
+
+# DATASETS_COUNT = 10
+# random.shuffle(available_datasets)
+# available_datasets = available_datasets[:DATASETS_COUNT]
 
 datasets = [
     TrimmedDataset(available_dataset, MAX_DATASET_SIZE)
@@ -36,8 +37,9 @@ for dataset in datasets:
         second_sentence = second_sentence[0 : random.randint(0, len(second_sentence))]
 
         # Space pad end of first sentence
-        if first_sentence[-1] != " ":
-            first_sentence = first_sentence + " "
+        if len(first_sentence) > 0:
+            if first_sentence[-1] != " ":
+                first_sentence = first_sentence + " "
 
         generated_source.append(first_sentence + second_sentence)
         generated_target.append(first_sentence)
