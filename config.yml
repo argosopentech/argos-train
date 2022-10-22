@@ -46,7 +46,7 @@ skip_empty_level: silent
 save_model: run/openmt.model
 save_checkpoint_steps: 1000
 valid_steps: 5000
-train_steps: 20000
+train_steps: 50000
 early_stopping: 4
 
 # Batching
