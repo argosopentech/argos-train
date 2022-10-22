@@ -11,9 +11,11 @@ version = input("Version: ")
 package_version = version
 argos_version = "1.5"
 
+epochs_count = 50000
+
 # If data_exists=False then data is downloaded, otherwise it's assumed to
 # be in settings.SOURCE_PATH and settings.TARGET_PATH
 data_exists = False
 
-train.train(from_code, to_code, from_name, to_name, version, package_version, argos_version, data_exists)
+train.train(from_code, to_code, from_name, to_name, version, package_version, argos_version, data_exists, epochs_count)
 

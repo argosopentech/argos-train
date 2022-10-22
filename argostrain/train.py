@@ -24,6 +24,7 @@ def train(
     package_version,
     argos_version,
     data_exists,
+    epochs_count
 ):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
@@ -154,8 +155,8 @@ def train(
         [
             "./../OpenNMT-py/tools/average_models.py",
             "-m",
-            "run/openmt.model_step_49000.pt",
-            "run/openmt.model_step_50000.pt",
+            f"run/openmt.model_step_{epochs_count - 1000}.pt",
+            f"run/openmt.model_step_{epochs_count}.pt",
             "-o",
             "run/averaged.pt",
         ]
