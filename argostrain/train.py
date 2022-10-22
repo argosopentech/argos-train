@@ -154,8 +154,8 @@ def train(
         [
             "./../OpenNMT-py/tools/average_models.py",
             "-m",
-            "run/openmt.model_step_9000.pt",
-            "run/openmt.model_step_10000.pt",
+            "run/openmt.model_step_49000.pt",
+            "run/openmt.model_step_50000.pt",
             "-o",
             "run/averaged.pt",
         ]
