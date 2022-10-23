@@ -73,6 +73,8 @@ def train(
                 print("No data available for this language pair, check data-index.json")
                 sys.exit(1)
 
+        assert len(datasets) > 0
+
         # Limit max amount of data used
         limited_datasets = list()
         limited_datasets_size = 0
