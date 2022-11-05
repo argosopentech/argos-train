@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
+FROM ubuntu
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -7,6 +7,7 @@ RUN apt-get install -y sudo
 
 RUN useradd -ms /bin/bash argosopentech
 RUN passwd -d argosopentech
+RUN echo "argosopentech ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/argosopentech
 RUN usermod -aG sudo argosopentech
 
 COPY bin/argos-train-init /home/argosopentech/

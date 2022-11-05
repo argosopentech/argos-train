@@ -17,6 +17,7 @@ setup(
     url='https://www.argosopentech.com',
     packages=find_packages(),
     install_requires=required_packages,
+    python_requires=">=3.8",
     include_package_data=True,
     scripts=['bin/argos-train', 'bin/argos-train-init'],
 )

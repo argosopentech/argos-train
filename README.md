@@ -50,6 +50,8 @@ argos-train
 ## Environment
 CUDA required, tested on [vast.ai](https://vast.ai/).
 
+Vast.ai seems to reckognize the CUDA version of the Docker container incorrectly so you may need to check the "Incompatible Machines" option if you're using vast.ai.
+
 ## Manually creating an Argos Translate package
 If you don't want to use Argos Train you can manually train a model with [OpenNMT](https://opennmt.net/) and package it for Argos Translate. Argos Translate packages are a zip archive with a .argosmodel extension containing; a CTranslate2 model, a SentencePiece model, a Stanza 1.1.1 model, and a metadata file. Reference the training script at [bin/argos-train](bin/argos-train) for more information.
 
