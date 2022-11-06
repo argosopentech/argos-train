@@ -51,7 +51,7 @@ early_stopping: 4
 
 # Batching
 queue_size: 10000
-bucket_size: 250000
+bucket_size: 262144
 world_size: 1
 gpu_ranks: [0]
 batch_type: "tokens"
