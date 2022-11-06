@@ -32,7 +32,7 @@ def train(
     MAX_DATA_SIZE = 5 * (10 ** 7)
 
     # Check for existing checkpoints
-    checkpoints = opennmtutils.get_checkpoints()
+    checkpoints = argostrain.opennmtutils.get_checkpoints()
     if len(checkpoints) > 0:
         input("Warning: Checkpoints exist (enter to continue)")
 
