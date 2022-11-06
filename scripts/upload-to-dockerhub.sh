@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo echo ""
 echo "Docker Login argosopentech"
 sudo docker login -u argosopentech
 sudo docker build -t argostrain .
