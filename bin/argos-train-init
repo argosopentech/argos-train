@@ -12,7 +12,7 @@ git clone https://github.com/argosopentech/argos-train.git --depth 1 ~/argos-tra
 echo "source ~/env/bin/activate" >> ~/.profile
 
 # Install OpenNMT-py
-git clone -b legacy https://github.com/OpenNMT/OpenNMT-py.git --depth 1 ~/OpenNMT-py
+git clone -b v2.3.0 https://github.com/OpenNMT/OpenNMT-py.git --depth 1 ~/OpenNMT-py
 # git clone https://github.com/argosopentech/OpenNMT-py.git --depth 1 ~/OpenNMT-py
 ~/env/bin/pip install -e ~/OpenNMT-py
 ~/env/bin/pip install -r ~/OpenNMT-py/requirements.opt.txt
