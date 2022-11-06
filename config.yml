@@ -77,12 +77,16 @@ normalization: "tokens"
 # Model
 encoder_type: transformer
 decoder_type: transformer
-position_encoding: false
+position_encoding: true
+# OpenNMT-py v3
+# position_encoding: false
+# max_relative_positions: 20
 max_relative_positions: 20
 enc_layers: 6
 dec_layers: 6
 heads: 8
 hidden_size: 512
+rnn_size: 512
 word_vec_size: 512
 transformer_ff: 2048
 dropout_steps: [0]
