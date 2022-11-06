@@ -9,7 +9,7 @@ import sys
 import argostrain
 from argostrain.dataset import *
 from argostrain import data
-from argostrain import opennmtutils
+import argostrain.opennmtutils
 from argostrain import settings
 
 import stanza
@@ -102,6 +102,8 @@ def train(
             del dataset
 
         # Generate README.md
+        # This is broken somehow, the template is written but the credits are not added
+        # Maybe there's an issue with an end of file token in the template?
         readme = f"# {from_name}-{to_name}"
         with open(Path("MODEL_README.md")) as readme_template:
             readme += "".join(readme_template.readlines())
@@ -152,13 +154,15 @@ def train(
 
     subprocess.run(["onmt_train", "-config", "config.yml"])
 
-    # Package
+    # Average checkpoints
+    opennmt_checkpoints = argostrain.opennmtutils.get_checkpoints()
+    opennmt_checkpoints.sort()
     subprocess.run(
         [
             "./../OpenNMT-py/tools/average_models.py",
             "-m",
-            f"run/openmt.model_step_{epochs_count - 1000}.pt",
-            f"run/openmt.model_step_{epochs_count}.pt",
+            str(opennmt_checkpoints[-2].f),
+            str(opennmt_checkpoints[-1].f),
             "-o",
             "run/averaged.pt",
         ]
@@ -218,12 +222,5 @@ def train(
 
     shutil.make_archive(model_dir, "zip", root_dir="run", base_dir=model_dir)
     subprocess.run(["mv", model_dir + ".zip", package_path])
-
-    # Make .argoscheckpoint zip
-
-    latest_checkpoint = opennmtutils.get_checkpoints()[-1]
-    print(latest_checkpoint)
-    print(latest_checkpoint.name)
-    print(latest_checkpoint.num)
 
     print(f"Package saved to {str(package_path.resolve())}")

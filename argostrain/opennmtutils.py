@@ -1,3 +1,4 @@
+import pathlib
 from pathlib import Path
 
 working_dir = Path.cwd()
@@ -8,7 +9,7 @@ OPENNMT_CHECKPOINT_PREFIX = "openmt.model_step_"
 
 
 class Checkpoint:
-    def __init__(self, f):
+    def __init__(self, f: pathlib.Path):
         """
         Args:
             f (pathlib.Path): OpenNMT checkpoint file
