@@ -51,11 +51,11 @@ early_stopping: 4
 
 # Batching
 queue_size: 10000
-bucket_size: 32768
+bucket_size: 250000
 world_size: 1
 gpu_ranks: [0]
 batch_type: "tokens"
-batch_size: 4096
+batch_size: 8192
 valid_batch_size: 4096
 max_generator_batches: 2
 accum_count: [4]
@@ -77,7 +77,8 @@ normalization: "tokens"
 # Model
 encoder_type: transformer
 decoder_type: transformer
-position_encoding: true
+position_encoding: false
+max_relative_positions: 20
 enc_layers: 6
 dec_layers: 6
 heads: 8
