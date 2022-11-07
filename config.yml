@@ -81,7 +81,6 @@ position_encoding: true
 # OpenNMT-py v3
 # position_encoding: false
 # max_relative_positions: 20
-max_relative_positions: 20
 enc_layers: 6
 dec_layers: 6
 heads: 8
