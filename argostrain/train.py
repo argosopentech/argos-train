@@ -43,6 +43,18 @@ def train(
 
         available_datasets = get_available_datasets()
 
+        # Limit max amount of data used
+        limited_datasets = list()
+        limited_datasets_size = 0
+        available_datasets.sort(key=lambda x: x.size)
+        for dataset in available_dataset:
+            if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
+                limited_datasets.append(dataset)
+                limited_datasets_size += dataset.size
+            else:
+                print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
+        available_datasets = limited_datasets
+
         datasets = list(
             filter(
                 lambda x: x.from_code == from_code and x.to_code == to_code,
@@ -74,18 +86,6 @@ def train(
                 sys.exit(1)
 
         assert len(datasets) > 0
-
-        # Limit max amount of data used
-        limited_datasets = list()
-        limited_datasets_size = 0
-        datasets.sort(key=lambda x: x.size)
-        for dataset in datasets:
-            if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
-                limited_datasets.append(dataset)
-                limited_datasets_size += dataset.size
-            else:
-                print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
-        datasets = limited_datasets
 
         # Download and write data source and target
         while len(datasets) > 0:
