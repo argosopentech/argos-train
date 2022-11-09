@@ -47,7 +47,7 @@ def train(
         limited_datasets = list()
         limited_datasets_size = 0
         available_datasets.sort(key=lambda x: x.size)
-        for dataset in available_dataset:
+        for dataset in available_datasets:
             if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
                 limited_datasets.append(dataset)
                 limited_datasets_size += dataset.size
