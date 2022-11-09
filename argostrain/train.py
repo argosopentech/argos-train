@@ -43,6 +43,15 @@ def train(
 
         available_datasets = get_available_datasets()
 
+        from_and_to_codes = [from_code, to_code]
+        available_datasets = list(
+            filter(
+                lambda x: x.from_code in from_and_to_codes
+                and x.to_code in from_and_to_codes,
+                available_datasets,
+            )
+        )
+
         # Limit max amount of data used
         limited_datasets = list()
         limited_datasets_size = 0
