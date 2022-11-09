@@ -161,7 +161,7 @@ class LocalDataset(IDataset):
                     source.append(line)
             with zip_cache.open(dir_name + "target", "r") as target_file:
                 target = deque()
-                for line in codecs.iterdecode(target_file, "utf8"):
+                for line in codecs.iterdecode(target_file, "utf8", errors="ignore"):
                     target.append(line)
         assert source != None
         assert target != None
