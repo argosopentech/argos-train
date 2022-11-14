@@ -71,29 +71,29 @@ def train(
             )
         )
 
-        if len(datasets) == 0:
-            # Try to use reverse data
-            reverse_datasets = list(
-                filter(
-                    lambda x: x.to_code == from_code and x.from_code == to_code,
-                    available_datasets,
-                )
+        # Try to use reverse data
+        reverse_datasets = list(
+            filter(
+                lambda x: x.to_code == from_code and x.from_code == to_code,
+                available_datasets,
             )
-            if len(reverse_datasets) > 0:
-                for reverse_dataset in reverse_datasets:
-                    dataset = Dataset(
-                        reverse_dataset.data()[1], reverse_dataset.data()[0]
-                    )
+        )
 
-                    # Hack to preserve reference metadata
-                    dataset.reference = reverse_dataset.reference
-                    dataset.size = reverse_dataset.size
+        for reverse_dataset in reverse_datasets:
+            reverse_dataset_data = reverse_dataset.data()
+            dataset = Dataset(reverse_dataset_data[1], reverse_dataset_data[0])
 
-                    datasets.append(dataset)
-            else:
-                print("No data available for this language pair, check data-index.json")
-                sys.exit(1)
+            # Hack to preserve reference metadata
+            dataset.reference = reverse_dataset.reference
+            dataset.size = reverse_dataset.size
 
+            datasets.append(dataset)
+
+        if len(datasets) == 0:
+            print(
+                f"No data available for this language pair ({from_code}-{to_code}), check data-index.json"
+            )
+            sys.exit(1)
         assert len(datasets) > 0
 
         # Download and write data source and target
