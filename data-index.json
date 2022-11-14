@@ -1194,7 +1194,7 @@
         "size": 1502573,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "https://data.argosopentech.com/data-jrcacquis-de_fr.argosdata"
+            "https://data.argosopentech.com/data-jrcacquis-de_it.argosdata"
         ]
     },
     {
@@ -1217,6 +1217,116 @@
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
             "https://data.argosopentech.com/data-wikimedia-de_fr.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 71565820,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "https://data.argosopentech.com/data-ccmatrix-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 388343,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "https://data.argosopentech.com/data-wikimatrix-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "MultiCCAligned",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 18656659,
+        "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp",
+        "links": [
+            "https://data.argosopentech.com/data-multiccaligned-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "EUBookshop",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 5878917,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-eubookshop-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "MultiParaCrawl",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 32080322,
+        "reference": "Please, acknowledge the ParaCrawl project at http://paracrawl.eu",
+        "links": [
+            "https://data.argosopentech.com/data-multiparacrawl-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 3453140,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017",
+        "links": [
+            "https://data.argosopentech.com/data-tildemodel-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "DGT",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 4861304,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-dgt-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "JRC-Acquis",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 1495754,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-jrqacquis-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "Europarl",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 1832989,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-europarl-de_it.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "it",
+        "size": 13566188,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-de_it.argosdata"
         ]
     }
 ]
