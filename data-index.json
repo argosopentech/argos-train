@@ -1187,17 +1187,6 @@
         ]
     },
     {
-        "name": "JRC-Acquis",
-        "type": "data",
-        "from_code": "de",
-        "to_code": "fr",
-        "size": 1502573,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "https://data.argosopentech.com/data-jrcacquis-de_it.argosdata"
-        ]
-    },
-    {
         "name": "Europarl",
         "type": "data",
         "from_code": "de",
