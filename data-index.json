@@ -1383,16 +1383,5 @@
         "links": [
             "https://data.argosopentech.com/data-eubookshop-en_ca.argosdata"
         ]
-    },
-    {
-        "name": "Europarl",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "ca",
-        "size": 1965734,
-        "reference": "Europarl dataset compiled by Softcatala",
-        "links": [
-            "https://data.argosopentech.com/data-europarl-en_ca.argosdata"
-        ]
     }
 ]
