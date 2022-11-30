@@ -48,7 +48,7 @@ argos-train
 ```
 
 ## Environment
-CUDA required, tested on [vast.ai](https://vast.ai/).
+CUDA required, tested on [vast.ai](http://vast.ai/?ref=24817).
 
 Vast.ai seems to reckognize the CUDA version of the Docker container incorrectly so you may need to check the "Incompatible Machines" option if you're using vast.ai.
 
