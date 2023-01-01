@@ -33,6 +33,8 @@ To train a model with custom data add your data to `data-index.json` after runni
 
 You can also manually load data by putting your data at `run/source` and `run/target` and setting `data_exists=True` in `bin/argos-train`.
 
+You can use [this project](https://github.com/Interaction-Bot/opus-nlp-downloader) to automatically download data from Opus.
+
 ## Docker
 Docker image available at [argosopentech/argostrain](https://hub.docker.com/repository/docker/argosopentech/argostrain).
 
