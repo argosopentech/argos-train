@@ -84,7 +84,6 @@
         "size": 436052,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "https://libretranslate.fortytwo-it.com/argosdata/data-wikimatrix-en_da.argosdata",
             "http://data.argosopentech.com/data-wikimatrix-en_da.argosdata"
         ]
     },
