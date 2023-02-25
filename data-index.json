@@ -1087,6 +1087,17 @@
         ]
     },
     {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "fr",
+        "size": 1369892,
+        "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-de_fr.argosdata"
+        ]
+    },
+    {
         "name": "OpenSubtitles",
         "type": "data",
         "from_code": "de",
