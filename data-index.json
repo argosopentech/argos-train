@@ -11,17 +11,6 @@
         ]
     },
     {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "cs",
-        "size": 56307029,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_cs.argosdata"
-        ]
-    },
-    {
         "name": "EUbookshop",
         "type": "data",
         "from_code": "en",
@@ -221,17 +210,6 @@
         ]
     },
     {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "el",
-        "size": 49262631,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_el.argosdata"
-        ]
-    },
-    {
         "name": "DGT",
         "type": "data",
         "from_code": "en",
@@ -361,17 +339,6 @@
         "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
             "http://data.argosopentech.com/data-xlent-en_el.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "eo",
-        "size": 15418393,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_eo.argosdata"
         ]
     },
     {
@@ -541,17 +508,6 @@
         ]
     },
     {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "fa",
-        "size": 24597533,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_fa.argosdata"
-        ]
-    },
-    {
         "name": "Mizan",
         "type": "data",
         "from_code": "en",
@@ -641,17 +597,6 @@
         ]
     },
     {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "he",
-        "size": 25228938,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB\n\nAngela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_he.argosdata"
-        ]
-    },
-    {
         "name": "OpenSubtitles",
         "type": "data",
         "from_code": "en",
@@ -715,17 +660,6 @@
         "reference": "Christos Christodoulopoulos and Mark Steedman",
         "links": [
             "http://data.argosopentech.com/data-bibleeudin-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "la",
-        "size": 1114190,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_la.argosdata"
         ]
     },
     {
@@ -805,17 +739,6 @@
         "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp - CCAligned: A Massive Collection of Cross-lingual Web-Document Pairs",
         "links": [
             "http://data.argosopentech.com/data-ccaligned-en_sk.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "sk",
-        "size": 38096241,
-        "reference": "Angela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_sk.argosdata"
         ]
     },
     {
@@ -915,17 +838,6 @@
         "reference": "El-Kishky, Ahmed and Chaudhary, Vishrav and Guzmn, Francisco and Koehn, Philipp - Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)",
         "links": [
             "http://data.argosopentech.com/data-ccaligned-en_tr.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "tr",
-        "size": 47045956,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "http://data.argosopentech.com/data-ccmatrix-en_tr.argosdata"
         ]
     },
     {
@@ -1072,17 +984,6 @@
         ]
     },
     {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "de",
-        "to_code": "fr",
-        "size": 136541660,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "https://data.argosopentech.com/data-ccmatrix-de_fr.argosdata"
-        ]
-    },
-    {
         "name": "XLEnt",
         "type": "data",
         "from_code": "de",
@@ -1201,17 +1102,6 @@
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
             "https://data.argosopentech.com/data-wikimedia-de_fr.argosdata"
-        ]
-    },
-    {
-        "name": "CCMatrix",
-        "type": "data",
-        "from_code": "de",
-        "to_code": "it",
-        "size": 71565820,
-        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
-        "links": [
-            "https://data.argosopentech.com/data-ccmatrix-de_it.argosdata"
         ]
     },
     {
