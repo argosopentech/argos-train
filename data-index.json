@@ -1268,5 +1268,104 @@
         "links": [
             "https://data.argosopentech.com/data-europarl-en_ca.argosdata"
         ]
+    },
+    {
+        "name": "bible-uedin",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 124386,
+        "reference": "the Bible in 100 languages, Christos Christodoulopoulos and Mark Steedman, *Language Resources and Evaluation*, 49 (2)",
+        "links": [
+            "https://data.argosopentech.com/data-bible-uedin-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 10746372,
+        "reference": "@inproceedings{elkishky_ccaligned_2020, author = {El-Kishky, Ahmed and Chaudhary, Vishrav and Guzm\u00e1n, Francisco and Koehn, Philipp}, booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP 2020)}, month = {November}, title = {{CCAligned}: A Massive Collection of Cross-lingual Web-Document Pairs}, year = {2020} address = Online, publisher = Association for Computational Linguistics, url = https://www.aclweb.org/anthology/2020.emnlp-main.480, doi = 10.18653/v1/2020.emnlp-main.480, pages = 5960--5969 } and, please, acknowledge OPUS as well for this service.  For more information on the sentence pair mining method, see (pdf):  @InProceedings{chaudhary-EtAl:2019:WMT, author = {Chaudhary, Vishrav  and  Tang, Yuqing  and  Guzm\u00e1n, Francisco  and  Schwenk, Holger  and  Koehn, Philipp}, title = {Low-Resource Corpus Filtering Using Multilingual Sentence Embeddings}, booktitle = {Proceedings of the Fourth Conference on Machine Translation (Volume 3: Shared Task Papers, Day 2)}, month = {August}, year = {2019}, address = {Florence, Italy}, publisher = {Association for Computational Linguistics}, pages = {263--268}, url = {http://www.aclweb.org/anthology/W19-5435} }",
+        "links": [
+            "https://data.argosopentech.com/data-ccaligned-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "GNOME",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 78,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-gnome-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "NeuLab-TedTalks",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 102773,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-neulab-tedtalks-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 3281533,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "QED",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 264677,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-qed-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "TED2020",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 160762,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-ted2020-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 26597,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-wikimedia-en_th.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "th",
+        "size": 1236145,
+        "reference": "{elkishky_xlent_2021, author = {El-Kishky, Ahmed and Renduchintala, Adithya and Cross, James and Guzm'an, Francisco and Koehn, Philipp}, booktitle = {Preprint}, title = {{XLEnt}: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment}, year = {2021}, address = Online } and, please, acknowledge OPUS as well for this service.",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_th.argosdata"
+        ]
     }
 ]
