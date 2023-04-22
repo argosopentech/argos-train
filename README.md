@@ -5,6 +5,9 @@ Argos Train trains an [OpenNMT](https://opennmt.net/) PyTorch [Transformer](http
 Pre-trained Argos Translate packages are available for [download](https://www.argosopentech.com/argospm/index/). If you have trained packages you're willing to share please [get in contact](https://community.libretranslate.com/t/contributing-a-trained-language-model-package-to-argos-translate/308) so that they can be published on the [Argos Translate package index](https://github.com/argosopentech/argospm-index).
 
 ## Training example
+
+From inside argosopentech/argostrain Docker container:
+
 ```
 $ su argosopentech
 $ source ~/argos-train-init
