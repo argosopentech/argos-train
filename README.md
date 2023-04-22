@@ -60,7 +60,7 @@ If you don't want to use Argos Train you can manually train a model with [OpenNM
 - [Example packages](https://www.argosopentech.com/argospm/index/)
 
 ## Documentation
-- [Windows and Docker tutorial](https://community.libretranslate.com/t/training-an-argos-translation-model-locally-on-windows/588]
+- [Windows and Docker tutorial](https://community.libretranslate.com/t/training-an-argos-translation-model-locally-on-windows/588)
 
 ## License
 Licensed under either the MIT or Creative Commons CC0 License
