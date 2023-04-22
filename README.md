@@ -1,6 +1,6 @@
 # Argos Train
 
-[Argos Translate](https://github.com/argosopentech/argos-translate) | [Tutorial](https://libretranslate.fortytwo-it.com/training.php) | [Video tutorial](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) | [Extended video tutorial](https://www.youtube.com/watch?v=LwTPgEMtivU)
+[Argos Translate](https://github.com/argosopentech/argos-translate)
 
 Argos Train trains an [OpenNMT](https://opennmt.net/) PyTorch [Transformer](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)) model and a [SentencePiece](https://github.com/google/sentencepiece) tokenizer and packages them with [Stanza](https://stanfordnlp.github.io/stanza/) data as an Argos Translate package. Argos Translate packages, which are zip archives with a .argosmodel extension, can be used with [Argos Translate](https://github.com/argosopentech/argos-translate) and [LibreTranslate](https://libretranslate.com). 
 
@@ -61,6 +61,9 @@ If you don't want to use Argos Train you can manually train a model with [OpenNM
 
 ## Documentation
 - [Windows and Docker tutorial](https://community.libretranslate.com/t/training-an-argos-translation-model-locally-on-windows/588)
+- [Video tutorial](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw)
+- [Extended video tutorial](https://www.youtube.com/watch?v=LwTPgEMtivU)
+
 
 ## License
 Licensed under either the MIT or Creative Commons CC0 License
