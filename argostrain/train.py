@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 import json
-import subprocess
 import shutil
+import subprocess
 import sys
-
-import argostrain
-from argostrain.dataset import *
-from argostrain import data
-import argostrain.opennmtutils
-from argostrain import settings
+from pathlib import Path
 
 import stanza
+
+import argostrain
+import argostrain.opennmtutils
+from argostrain import data, settings
+from argostrain.dataset import *
 
 
 def train(
@@ -23,7 +22,7 @@ def train(
     version,
     package_version,
     argos_version,
-    data_exists
+    data_exists,
 ):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)

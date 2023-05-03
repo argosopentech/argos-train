@@ -1,7 +1,7 @@
-import sys
-import os
 import argparse
+import os
 import random
+import sys
 from functools import partial
 
 import argostrain

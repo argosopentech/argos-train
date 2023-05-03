@@ -1,7 +1,7 @@
+from collections import deque
+
 from argostrain.dataset import *
 from argostrain.utils import *
-
-from collections import deque
 
 
 def multilang_special_token(code):

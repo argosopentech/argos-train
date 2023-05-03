@@ -1,9 +1,9 @@
-from argostrain.dataset import *
-from argostrain.utils import *
-
 from collections import deque
 
 from argostranslate import package, translate
+
+from argostrain.dataset import *
+from argostrain.utils import *
 
 MIN_TAG_TEXT_LENGTH = 10
 OPEN_TOKEN = "<x>"

@@ -1,17 +1,16 @@
-from pathlib import Path
-from collections import deque
-from random import randrange, random
+import codecs
+import itertools
 import json
 import random
 import zipfile
-import codecs
+from collections import deque
 from multiprocessing import Pool
-from urllib import request, parse
-import itertools
+from pathlib import Path
+from random import random, randrange
+from urllib import parse, request
 
-from argostrain import utils
-from argostrain.utils import info, error, warning
-from argostrain import settings
+from argostrain import settings, utils
+from argostrain.utils import error, info, warning
 
 
 class IDataset:

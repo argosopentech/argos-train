@@ -1,8 +1,8 @@
+import random
+from collections import deque
+
 from argostrain.dataset import *
 from argostrain.utils import *
-
-from collections import deque
-import random
 
 
 def generate_sbd_data(dataset):
