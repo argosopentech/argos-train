@@ -23,8 +23,7 @@ def train(
     version,
     package_version,
     argos_version,
-    data_exists,
-    epochs_count,
+    data_exists
 ):
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
