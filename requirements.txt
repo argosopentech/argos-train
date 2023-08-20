@@ -1,2 +1,2 @@
 stanza==1.1.1
-ctranslate2==2.10.1
+ctranslate2==2.11.0
