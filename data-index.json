@@ -1367,5 +1367,192 @@
         "links": [
             "https://data.argosopentech.com/data-xlent-en_th.argosdata"
         ]
+    },
+    {
+        "name": "bible-uedin",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 61863,
+        "reference": "This is a multilingual parallel corpus created from translations of the Bible compiled by Christos Christodoulopoulos and Mark Steedman.",
+        "links": [
+            "https://data.argosopentech.com/data-bibleuedin-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "DGT",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 5096168,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-dgt-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "ELRC-CORDIS_Results v1",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 252920,
+        "reference": "ELRC-1126-CORDIS_Results_Brief is a public data set distributed by the https://www.elrc-share.eu",
+        "links": [
+            "https://data.argosopentech.com/data-elrccordis-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "Europarl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 1946253,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-europarl-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "GlobalVoices v2018q4",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 129550,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-globalvoices-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "GNOME",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 318084,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-gnome-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "JRC-Acquis",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 810979,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-jrcacquis-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "LinguaTools-WikiTitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 11544626,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-linguatoolswikititles-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 35216229,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "PHP",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 35538,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-php-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 502269,
+        "reference": "This is a collection of translated sentences from Tatoeba https://tatoeba.org/en/",
+        "links": [
+            "https://data.argosopentech.com/data-tatoeba-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "TED2013",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 159391,
+        "reference": "A parallel corpus of TED talk subtitles provided by CASMACAT: http://www.casmacat.eu/corpus/ted2013.html. The files are originally provided by https://wit3.fbk.eu",
+        "links": [
+            "https://data.argosopentech.com/data-ted2013-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "TED2020",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 373072,
+        "reference": "Reimers, Nils and Gurevych, Iryna - aking Monolingual Sentence Embeddings Multilingual using Knowledge Distillation (2020)",
+        "links": [
+            "https://data.argosopentech.com/data-ted2020-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "TildeMODEL",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 3752393,
+        "reference": "Roberts Rozis, Raivis Skadins, 2017, Tilde MODEL - Multilingual Open Data for EU Languages. Proceedings of the 21th Nordic Conference of Computational Linguistics NODALIDA 2017",
+        "links": [
+            "https://data.argosopentech.com/data-tildemodel-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "Ubuntu",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 19612,
+        "reference": "A parallel corpus of Ubuntu localization files. Source: https://translations.launchpad.net",
+        "links": [
+            "https://data.argosopentech.com/data-ubuntu-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "Wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 568428,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "https://data.argosopentech.com/data-wikimedia-en_it.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 6065170,
+        "reference": "XLEnt v1.2",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_it.argosdata"
+        ]
     }
 ]
