@@ -44,5 +44,6 @@ def get_checkpoints():
 
         return opennmt_checkpoints
     except Exception as e:
+        print("Argos Train get_checkpoints error")
         print(e)
         return []
