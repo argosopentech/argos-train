@@ -34,10 +34,15 @@ class Checkpoint:
 
 
 def get_checkpoints():
-    opennmt_checkpoints = [
-        Checkpoint(f) for f in list(run_dir.glob(OPENNMT_CHECKPOINT_PREFIX + "*"))
-    ]
+    try:
 
-    opennmt_checkpoints.sort()
+        opennmt_checkpoints = [
+            Checkpoint(f) for f in list(run_dir.glob(OPENNMT_CHECKPOINT_PREFIX + "*"))
+        ]
 
-    return opennmt_checkpoints
+        opennmt_checkpoints.sort()
+
+        return opennmt_checkpoints
+    except Exception as e:
+        print(e)
+        return []
