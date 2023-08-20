@@ -36,6 +36,9 @@ def train(
 
     if not data_exists:
         # Delete training data if it exists
+        if settings.SOURCE_PATH.exists() or settings.TARGET_PATH.exists():
+            print("Data already exists and will be deleted if you continue")
+            input("Press enter to continue (Ctrl-C to cancel)")
         settings.SOURCE_PATH.unlink(missing_ok=True)
         settings.TARGET_PATH.unlink(missing_ok=True)
 
