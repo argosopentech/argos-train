@@ -115,8 +115,11 @@ def train(
         # This is broken somehow, the template is written but the credits are not added
         # Maybe there's an issue with an end of file token in the template?
         readme = f"# {from_name}-{to_name}"
-        with open(Path("MODEL_README.md")) as readme_template:
-            readme += "".join(readme_template.readlines())
+        with open(Path("MODEL_README.md")) as readme_template_file:
+            readme_template = readme_template_file.readlines()
+            print(readme_template)
+            readme_template = readme_template[0:-1]
+            readme += "".join(readme_template)
             for dataset in datasets:
                 readme += dataset.reference + "\n\n"
         with open(settings.RUN_PATH / "README.md", "w") as readme_file:
