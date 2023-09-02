@@ -1,5 +1,16 @@
 [
     {
+        "name": "NLLU",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "it",
+        "size": 14025542,
+        "reference": "The source text comes from Paracrawl (https://paracrawl.eu/). We do not own any of the source text from which this data has been translated. We license the translated text and packaging of this parallel data under the Creative Commons Attribution 4.0 International (CC BY 4.0). Please cite \"LibreTranslate\" if you use the translated data.",
+        "links": [
+            "http://data.argosopentech.com/data-nllu-en_it.argosdata"
+        ]
+    },
+    {
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
