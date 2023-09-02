@@ -27,8 +27,6 @@ def train(
     settings.RUN_PATH.mkdir(exist_ok=True)
     settings.CACHE_PATH.mkdir(exist_ok=True)
 
-    MAX_DATA_SIZE = 5 * (10 ** 7)
-
     # Check for existing checkpoints
     checkpoints = argostrain.opennmtutils.get_checkpoints()
     if len(checkpoints) > 0:
@@ -52,18 +50,6 @@ def train(
                 available_datasets,
             )
         )
-
-        # Limit max amount of data used
-        limited_datasets = list()
-        limited_datasets_size = 0
-        available_datasets.sort(key=lambda x: x.size)
-        for dataset in available_datasets:
-            if limited_datasets_size + dataset.size < MAX_DATA_SIZE:
-                limited_datasets.append(dataset)
-                limited_datasets_size += dataset.size
-            else:
-                print(f"Excluding data {str(dataset)}, over MAX_DATA_SIZE")
-        available_datasets = limited_datasets
 
         datasets = list(
             filter(
