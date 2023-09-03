@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+from networking import get
+
 
 def info(*args):
     if "DEBUG" in os.environ and os.environ["DEBUG"] in ["1", "TRUE", "True", "true"]:
@@ -16,7 +18,9 @@ def error(*args):
 
 
 def download(url, path):
-    url = str(url)
-    path = str(path)
-    res = subprocess.run(["curl", "--retry", "25", "-o", path, url])
-    return res.returncode
+    info(f"Downloading {url} to {path}")
+    data = get(url)
+    if data is None:
+        error(f"Could not download {url}")
+    with open(path, "wb") as f:
+        f.write(data)
