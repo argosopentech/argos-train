@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 import urllib.request
 
-from utils import error, info
+from argostrain.utils import error, info
 
 USER_AGENT = "ArgosTrain"
 

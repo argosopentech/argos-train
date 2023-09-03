@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from networking import get
+from argostrain.networking import get
 
 
 def info(*args):
