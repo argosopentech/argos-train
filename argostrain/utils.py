@@ -1,8 +1,6 @@
 import os
 import subprocess
 
-from argostrain.networking import get
-
 
 def info(*args):
     if "DEBUG" in os.environ and os.environ["DEBUG"] in ["1", "TRUE", "True", "true"]:

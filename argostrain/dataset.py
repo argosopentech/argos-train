@@ -9,6 +9,7 @@ from pathlib import Path
 from random import random, randrange
 from urllib import parse, request
 
+import argostrain.networking
 from argostrain import settings, utils
 from argostrain.utils import error, info, warning
 
@@ -235,8 +236,11 @@ class NetworkDataset(IDataset):
         filepath = self.filepath()
         settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
         if not filepath.exists():
-            print(f"Downloading {filepath}")
-            utils.download(url, filepath)
+            data = argostrain.networking.get(url)
+            if data is None:
+                error(f"Could not download {url}")
+            with open(filepath, "wb") as f:
+                f.write(data)
         return filepath
 
     def data(self, length=None):
