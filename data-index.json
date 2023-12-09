@@ -132,18 +132,6 @@
         ]
     },
     {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "de",
-        "size": 1573438,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_de.argosdata",
-            "ipfs://QmRrdiKQ3e41PbBWisSd6M6rE1yXFxD4VxbBPcuGRPpq8A"
-        ]
-    },
-    {
         "name": "Wiktionary",
         "type": "data",
         "from_code": "en",
@@ -496,18 +484,6 @@
         ]
     },
     {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "es",
-        "size": 3377912,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_es.argosdata",
-            "ipfs://QmeNBsTRZziMx1DxpDco9Z8bKfMGbRmw5zR8LpQZbfDVKF"
-        ]
-    },
-    {
         "name": "CCAligned",
         "type": "data",
         "from_code": "en",
@@ -582,18 +558,6 @@
         "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
             "http://data.argosopentech.com/data-xlent-en_fa.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "fr",
-        "size": 2757884,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_fr.argosdata",
-            "ipfs://QmTNYQ6ss9uS2qTXnnxiZqjQEJb8AM7SvTh4wNTL9mCGZ9"
         ]
     },
     {
@@ -715,30 +679,6 @@
         "reference": "El-Kishky, Ahmed and Renduchintala, Adi and Cross, James and Guzm\u00e1n, Francisco and Koehn, Philipp - XLEnt: Mining Cross-lingual Entities with Lexical-Semantic-Phonetic Word Alignment",
         "links": [
             "http://data.argosopentech.com/data-xlent-en_la.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "pt",
-        "size": 2461558,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_pt.argosdata",
-            "ipfs://QmVbsJvHWx1MZUzgZuXfMQSaToUfSvB7DZWiKSJ7QFSumk"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "en",
-        "to_code": "ru",
-        "size": 1661909,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "https://argosopentech.nyc3.digitaloceanspaces.com/argospm/data-wikimatrix-en_ru.argosdata",
-            "ipfs://QmbCpsYf35UdWrhhwB3g8tC3vnuT252dYJupt9pNYpF5gs"
         ]
     },
     {
