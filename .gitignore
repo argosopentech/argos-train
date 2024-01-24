@@ -1,5 +1,7 @@
 data/cache/*
 run/
+run/README.md
+run/README
 
 
 # https://github.com/github/gitignore
