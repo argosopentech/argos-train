@@ -1505,5 +1505,137 @@
         "links": [
             "https://data.argosopentech.com/data-xlent-en_it.argosdata"
         ]
+    },
+    {
+        "name": "bible-uedin",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 15893,
+        "reference": "OPUS and A massively parallel corpus: the Bible in 100 languages, Christos Christodoulopoulos and Mark Steedman, *Language Resources and Evaluation*, 49 (2) ",
+        "links": [
+            "https://data.argosopentech.com/data-bibleuedin-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 7778871,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "https://data.argosopentech.com/data-ccmatrix-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "EhuHac",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 585210,
+        "reference": " J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-ehuhac-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "GNOME",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 652298,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-gnome-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "HPLT",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 610694,
+        "reference": "A New Massive Multilingual Dataset for High-Performance Language Technologies - Ona de Gibert, Graeme Nail, Nikolay Arefyev, Marta Ba\u00f1\u00f3n, Jelmer van der Linde, Shaoxiong Ji, Jaume Zaragoza-Bernabeu, Mikko Aulamo, Gema Ram\u00edrez-S\u00e1nchez, Andrey Kutuzov, Sampo Pyysalo, Stephan Oepen, J\u00f6rg Tiedemann",
+        "links": [
+            "https://data.argosopentech.com/data-hplt-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "KDE4",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 100160,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-kde4-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 805780,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 2070,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-tatoeba-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 119480,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "https://data.argosopentech.com/data-wikimatrix-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 60990,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-wikimedia-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "Wiktionary",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 629,
+        "reference": "Wiktionary data extracted using Arogs Train",
+        "links": [
+            "https://data.argosopentech.com/data-wiktionary-en_eu.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 800631,
+        "reference": "https://data.statmt.org/xlent/elkishky_XLEnt.pdf",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_eu.argosdata"
+        ]
     }
 ]
