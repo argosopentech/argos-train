@@ -1637,5 +1637,115 @@
         "links": [
             "https://data.argosopentech.com/data-xlent-en_eu.argosdata"
         ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 13178507,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB",
+        "links": [
+            "https://data.argosopentech.com/data-ccmatrix-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "HPLT",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 1063114,
+        "reference": "Ona de Gibert, Graeme Nail, Nikolay Arefyev, Marta Ba\u00f1\u00f3n, Jelmer van der Linde, Shaoxiong Ji, Jaume Zaragoza-Bernabeu, Mikko Aulamo, Gema Ram\u00edrez-S\u00e1nchez, Andrey Kutuzov, Sampo Pyysalo, Stephan Oepen, J\u00f6rg Tiedemann - A New Massive Multilingual Dataset for High-Performance Language Technologies",
+        "links": [
+            "https://data.argosopentech.com/data-hplt-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "KDE4",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 172591,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-kde4-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "NLLB",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 13178507,
+        "reference": "Angela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "links": [
+            "https://data.argosopentech.com/data-nllb-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 203550,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016) For more information, please look at J. Tiedemann, 2016, Finding Alternative Translations in a Large Corpus of Movie Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016) (and, please, cite the paper as well).",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 1026,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-tatoeba-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "eu",
+        "size": 446152,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "https://data.argosopentech.com/data-wikimatrix-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 61845,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "https://data.argosopentech.com/data-wikimedia-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "Wiktionary",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 1718,
+        "reference": "https://github.com/argosopentech/argos-train/blob/master/bin/generate-wiktionary-data",
+        "links": [
+            "https://data.argosopentech.com/data-wiktionary-en_gl.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "gl",
+        "size": 1699312,
+        "reference": "http://data.statmt.org/xlent/elkishky_XLEnt.pdf",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_gl.argosdata"
+        ]
     }
 ]
