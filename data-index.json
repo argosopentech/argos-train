@@ -1756,7 +1756,7 @@
         "size": 7950,
         "reference": "A massively parallel corpus: the Bible in 100 languages, Christos Christodoulopoulos and Mark Steedman, *Language Resources and Evaluation*, 49 (2) ",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-bibleuedin-es_eu.argosdata"
         ]
     },
     {
@@ -1767,7 +1767,7 @@
         "size": 6564108,
         "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB\n\nAngela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin.Beyond English-Centric Multilingual Machine Translation\n",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-ccmatrix-es_eu.argosdata"
         ]
     },
     {
@@ -1778,7 +1778,7 @@
         "size": 609912,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-ehuhac-es_eu.argosdata"
         ]
     },
     {
@@ -1789,7 +1789,7 @@
         "size": 637182,
         "reference": "Etchegoyhen, Thierry and Gete, Harritxu : Handle with Care: A Case Study in Comparable Corpora Exploitation for Neural Machine Translation",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-eitbparcc-es_eu.argosdata"
         ]
     },
     {
@@ -1800,7 +1800,7 @@
         "size": 642347,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-elhuyar-es_eu.argosdata"
         ]
     },
     {
@@ -1811,7 +1811,7 @@
         "size": 18650,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-gnome-es_eu.argosdata"
         ]
     },
     {
@@ -1822,7 +1822,7 @@
         "size": 95918,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-kde4-es_eu.argosdata"
         ]
     },
     {
@@ -1833,11 +1833,11 @@
         "size": 793593,
         "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016). For more information, please look at J. Tiedemann, 2016, Finding Alternative Translations in a Large Corpus of Movie Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016) (and, please, cite the paper as well). ",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-opensubtitles-es_eu.argosdata"
         ]
     },
     {
-        "name": "OpenSubtitles",
+        "name": "Paracrawl",
         "type": "data",
         "from_code": "es",
         "to_code": "eu",
@@ -1855,7 +1855,7 @@
         "size": 2852,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-tatoeba-es_eu.argosdata"
         ]
     },
     {
@@ -1866,7 +1866,7 @@
         "size": 154281,
         "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-wikimatrix-es_eu.argosdata"
         ]
     },
     {
@@ -1877,7 +1877,7 @@
         "size": 156940,
         "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-wikimedia-es_eu.argosdata"
         ]
     },
     {
@@ -1888,7 +1888,7 @@
         "size": 271385,
         "reference": "https://opus.nlpl.eu/XLEnt/es&eu/v1.2/XLEnt",
         "links": [
-            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+            "http://data.argosopentech.com/data-xlent-es_eu.argosdata"
         ]
     }
 ]
