@@ -1848,17 +1848,6 @@
         ]
     },
     {
-        "name": "Tatoeba",
-        "type": "data",
-        "from_code": "es",
-        "to_code": "eu",
-        "size": 2852,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-tatoeba-es_eu.argosdata"
-        ]
-    },
-    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "es",
