@@ -235,19 +235,20 @@ class NetworkDataset(IDataset):
         """Downloads the package and returns its path"""
         url = self.links[0]
         parsed_url = urlparse(url)
+        filepath = None
         if parsed_url.scheme == "file":
             filepath = Path(parsed_url.path)
         elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
             filepath = self.filepath()
+            settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
+            if not filepath.exists():
+                data = argostrain.networking.get(url)
+                if data is None:
+                    error(f"Could not download {url}")
+                with open(filepath, "wb") as f:
+                    f.write(data)
         else:
             raise Exception("Unknown scheme " + url)
-        settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
-        if not filepath.exists():
-            data = argostrain.networking.get(url)
-            if data is None:
-                error(f"Could not download {url}")
-            with open(filepath, "wb") as f:
-                f.write(data)
         return filepath
 
     def data(self, length=None):
