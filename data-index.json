@@ -1848,6 +1848,113 @@
         ]
     },
     {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 32165951,
+        "reference": "Holger Schwenk, Guillaume Wenzek, Sergey Edunov, Edouard Grave, Armand Joulin and Angela Fan, CCMatrix: Mining Billions of High-Quality Parallel Sentences on the WEB"
+    },
+    {
+        "name": "GNOME",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 14685,
+        "reference": "A parallel corpus of GNOME localization files. Source: https://l10n.gnome.org ",
+        "links": [
+            "http://data.argosopentech.com/data-gnome-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "KDE4",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 169502,
+        "reference": "KDE4 - A parallel corpus of KDE4 localization files",
+        "links": [
+            "http://data.argosopentech.com/data-kde4-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "NLLB",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 32165951,
+        "reference": "Angela Fan, Shruti Bhosale, Holger Schwenk, Zhiyi Ma, Ahmed El-Kishky, Siddharth Goyal, Mandeep Baines, Onur Celebi, Guillaume Wenzek, Vishrav Chaudhary, Naman Goyal, Tom Birch, Vitaliy Liptchinsky, Sergey Edunov, Edouard Grave, Michael Auli, and Armand Joulin. Beyond English-Centric Multilingual Machine Translation",
+        "links": [
+            "http://data.argosopentech.com/data-nllb-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 216940,
+        "reference": "P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)",
+        "links": [
+            "http://data.argosopentech.com/data-opensubtitles-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 1879689,
+        "reference": "http://paracrawl.eu",
+        "links": [
+            "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "Tatoeba",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 3137,
+        "reference": "https://tatoeba.org/en/",
+        "links": [
+            "http://data.argosopentech.com/data-tatoeba-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 610825,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 184861,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012) ",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "gl",
+        "size": 464628,
+        "reference": "XLEnt: Mining a Large Cross-lingual Entity Dataset with Lexical-Semantic-Phonetic Word Alignment - El-Kishky, Ahmed and Renduchintala, Adithya and Cross, James and Guzman, Francisco and Koehn, Philipp",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-es_eu.argosdata"
+        ]
+    },
+    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "es",
