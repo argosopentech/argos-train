@@ -11,8 +11,9 @@ Pre-trained Argos Translate packages are available for [download](https://www.ar
 From inside argosopentech/argostrain Docker container:
 
 ```
-$ su argosopentech
-$ source ~/argos-train-init
+su argosopentech
+export HOME="/home/argosopentech"
+source ~/argos-train-init
 
 ...
 
