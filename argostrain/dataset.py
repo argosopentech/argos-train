@@ -236,11 +236,11 @@ class NetworkDataset(IDataset):
         url = self.links[0]
         parsed_url = urlparse(url)
         if parsed_url.scheme == "file":
-            filepath = parsed_url.path
+            filepath = Path(parsed_url.path)
         elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
             filepath = self.filepath()
         else:
-            raise Exception("Unknown scheme")
+            raise Exception("Unknown scheme " + url)
         settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
         if not filepath.exists():
             data = argostrain.networking.get(url)
