@@ -1914,17 +1914,6 @@
         ]
     },
     {
-        "name": "Tatoeba",
-        "type": "data",
-        "from_code": "es",
-        "to_code": "gl",
-        "size": 3137,
-        "reference": "https://tatoeba.org/en/",
-        "links": [
-            "http://data.argosopentech.com/data-tatoeba-es_gl.argosdata"
-        ]
-    },
-    {
         "name": "WikiMatrix",
         "type": "data",
         "from_code": "es",
