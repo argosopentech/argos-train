@@ -237,8 +237,8 @@ class NetworkDataset(IDataset):
         if parsed_url.scheme == "file":
             self.filepath = Path(parsed_url.path)
         elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
-            self.filepath = settings.CACHE_PATH / self.filename()
             settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
+            self.filepath = settings.CACHE_PATH / self.filename()
             if not self.filepath.exists():
                 data = argostrain.networking.get(url)
                 if data is None:
@@ -252,7 +252,7 @@ class NetworkDataset(IDataset):
     def data(self, length=None):
         if self.filepath is None:
             self.download()
-        assert zipfile.is_zipfile(filepath)
+        assert zipfile.is_zipfile(self.filepath)
         if self.local_dataset == None:
             self.local_dataset = LocalDataset(filepath)
         return self.local_dataset.data(length)
