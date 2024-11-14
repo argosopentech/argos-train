@@ -8,6 +8,7 @@ from multiprocessing import Pool
 from pathlib import Path
 from random import random, randrange
 from urllib import parse, request
+from urllib.parse import urlparse
 
 import argostrain.networking
 from argostrain import settings, utils
@@ -233,7 +234,13 @@ class NetworkDataset(IDataset):
     def download(self):
         """Downloads the package and returns its path"""
         url = self.links[0]
-        filepath = self.filepath()
+        parsed_url = urlparse(url)
+        if parsed_url.scheme == "file":
+            filepath = path
+        elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
+            filepath = self.filepath()
+        else:
+            raise Exception("Unknown scheme")
         settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
         if not filepath.exists():
             data = argostrain.networking.get(url)
@@ -260,7 +267,7 @@ def get_available_datasets():
     """Returns a list of available NetworkDatasets
 
     Returns:
-        [NetworkDataset]: The available datasets.
+        [IDataset]: The available datasets.
     """
     # Needs to be run from project root
     DATA_INDEX = Path("data-index.json")
