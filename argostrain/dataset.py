@@ -254,7 +254,7 @@ class NetworkDataset(IDataset):
             self.download()
         assert zipfile.is_zipfile(self.filepath)
         if self.local_dataset == None:
-            self.local_dataset = LocalDataset(filepath)
+            self.local_dataset = LocalDataset(self.filepath)
         return self.local_dataset.data(length)
 
     def __len__(self):
