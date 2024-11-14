@@ -204,7 +204,7 @@ class NetworkDataset(IDataset):
             metadata: A json object from json.load
         """
         self.load_metadata_from_json(metadata)
-        self.local_filepath = None
+        self.filepath = None
         self.local_dataset = None
 
     def load_metadata_from_json(self, metadata):
