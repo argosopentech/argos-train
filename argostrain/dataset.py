@@ -204,6 +204,7 @@ class NetworkDataset(IDataset):
             metadata: A json object from json.load
         """
         self.load_metadata_from_json(metadata)
+        self.local_filepath = None
         self.local_dataset = None
 
     def load_metadata_from_json(self, metadata):
@@ -228,32 +229,28 @@ class NetworkDataset(IDataset):
     def filename(self):
         return str(self) + ".argosdata"
 
-    def filepath(self):
-        return settings.CACHE_PATH / self.filename()
-
     def download(self):
         """Downloads the package and returns its path"""
         url = self.links[0]
         parsed_url = urlparse(url)
-        filepath = None
+        self.filepath = None
         if parsed_url.scheme == "file":
-            filepath = Path(parsed_url.path)
+            self.filepath = Path(parsed_url.path)
         elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
-            filepath = self.filepath()
+            self.filepath = settings.CACHE_PATH / self.filename()
             settings.CACHE_PATH.mkdir(parents=True, exist_ok=True)
-            if not filepath.exists():
+            if not self.filepath.exists():
                 data = argostrain.networking.get(url)
                 if data is None:
                     error(f"Could not download {url}")
-                with open(filepath, "wb") as f:
+                with open(self.filepath, "wb") as f:
                     f.write(data)
         else:
             raise Exception("Unknown scheme " + url)
-        return filepath
+        return self.filepath
 
     def data(self, length=None):
-        filepath = self.filepath()
-        if not Path(filepath).exists():
+        if self.filepath is None:
             self.download()
         assert zipfile.is_zipfile(filepath)
         if self.local_dataset == None:
