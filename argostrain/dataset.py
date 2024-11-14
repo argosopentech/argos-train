@@ -236,7 +236,7 @@ class NetworkDataset(IDataset):
         url = self.links[0]
         parsed_url = urlparse(url)
         if parsed_url.scheme == "file":
-            filepath = path
+            filepath = parsed_url.path
         elif parsed_url.scheme == "http" or parsed_url.scheme == "https":
             filepath = self.filepath()
         else:
