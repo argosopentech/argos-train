@@ -55,7 +55,16 @@ unzip *.txt.zip
 rm *.txt.zip
 mkdir $slug
 mv README LICENSE $slug
-cp ../metadata.json $slug
+
+#cp ../metadata.json $slug
+echo "{"                              >  "$slug/metadata.json"
+echo "    \"name\": \"DatasetName\"," >> "$slug/metadata.json"
+echo "    \"type\": \"data\","        >> "$slug/metadata.json"
+echo "    \"from_code\": \"$from\","  >> "$slug/metadata.json"
+echo "    \"to_code\": \"$to\","      >> "$slug/metadata.json"
+echo "    \"size\": 0,"               >> "$slug/metadata.json"
+echo "    \"reference\": \"Ref\""     >> "$slug/metadata.json"
+echo "}"                              >> "$slug/metadata.json"
 
 
 echo "Opus slug:"
