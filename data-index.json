@@ -1144,6 +1144,105 @@
         ]
     },
     {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 1192542,
+        "reference": "https://opus.nlpl.eu/CCAligned/en&is/v1/CCAligned",
+        "links": [
+            "https://data.argosopentech.com/data-ccaligned-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 8723145,
+        "reference": "https://opus.nlpl.eu/CCMatrix/en&is/v1/CCMatrix",
+        "links": [
+            "https://data.argosopentech.com/data-ccmatrix-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "ELRC-2718-EMEA",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 542624,
+        "reference": "https://opus.nlpl.eu/ELRC-2718-EMEA/en&is/v1/ELRC-2718-EMEA",
+        "links": [
+            "https://data.argosopentech.com/data-elrc2718emea-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "HPLT",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 2694541,
+        "reference": "https://opus.nlpl.eu/HPLT/en&is/v2/HPLT",
+        "links": [
+            "https://data.argosopentech.com/data-hplt-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "NLLB",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 8723145,
+        "reference": "https://opus.nlpl.eu/NLLB/en&is/v1/NLLB",
+        "links": [
+            "https://data.argosopentech.com/data-nllb-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 4057039,
+        "reference": "https://object.pouta.csc.fi/OPUS-OpenSubtitles/v2024/moses/en-is.txt.zip",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 2967579,
+        "reference": "https://opus.nlpl.eu/ParaCrawl/en&is/v9/ParaCrawl",
+        "links": [
+            "https://data.argosopentech.com/data-paracrawl-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "ParIce",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 2097022,
+        "reference": "Barkarson and Steingr\u00edmsson, 2019. Compiling and Filtering ParIce: An English-Icelandic Parallel Corpus ",
+        "links": [
+            "https://data.argosopentech.com/data-paraice-en_is.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "is",
+        "size": 962661,
+        "reference": "https://opus.nlpl.eu/XLEnt/en&is/v1.2/XLEnt",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_is.argosdata"
+        ]
+    },
+    {
         "name": "NLLU",
         "type": "data",
         "from_code": "en",
@@ -1845,6 +1944,39 @@
         "reference": "http://paracrawl.eu",
         "links": [
             "http://data.argosopentech.com/data-paracrawl-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 154281,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 156940,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 271385,
+        "reference": "https://opus.nlpl.eu/XLEnt/es&eu/v1.2/XLEnt",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-es_eu.argosdata"
         ]
     },
     {
