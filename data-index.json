@@ -1793,6 +1793,50 @@
         ]
     },
     {
+        "name": "LinguaTools-WikiTitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "zh",
+        "size": 6664332,
+        "reference": "https://opus.nlpl.eu/LinguaTools-WikiTitles/en&zh/v2014/LinguaTools-WikiTitles",
+        "links": [
+            "http://data.argosopentech.com/data-linguatools-en_zh.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "zh",
+        "size": 14170869,
+        "reference": "opus.nlpl.eu/ParaCrawl/en&zh/v9/ParaCrawl",
+        "links": [
+            "http://data.argosopentech.com/data-paracrawl-en_zh.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "zh",
+        "size": 302259,
+        "reference": "https://opus.nlpl.eu/wikimedia/en&zh/v20230407/wikimedia",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-en_zh.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "zh",
+        "size": 6292330,
+        "reference": "https://opus.nlpl.eu/XLEnt/en&zh/v1.2/XLEnt",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-en_zh.argosdata"
+        ]
+    },
+    {
         "name": "bible-uedin",
         "type": "data",
         "from_code": "en",
@@ -1980,6 +2024,39 @@
         ]
     },
     {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 154281,
+        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
+        "links": [
+            "http://data.argosopentech.com/data-wikimatrix-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 156940,
+        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
+        "links": [
+            "http://data.argosopentech.com/data-wikimedia-es_eu.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "es",
+        "to_code": "eu",
+        "size": 271385,
+        "reference": "https://opus.nlpl.eu/XLEnt/es&eu/v1.2/XLEnt",
+        "links": [
+            "http://data.argosopentech.com/data-xlent-es_eu.argosdata"
+        ]
+    },
+    {
         "name": "CCMatrix",
         "type": "data",
         "from_code": "es",
@@ -2076,39 +2153,6 @@
         "reference": "XLEnt: Mining a Large Cross-lingual Entity Dataset with Lexical-Semantic-Phonetic Word Alignment - El-Kishky, Ahmed and Renduchintala, Adithya and Cross, James and Guzman, Francisco and Koehn, Philipp",
         "links": [
             "http://data.argosopentech.com/data-xlent-es_gl.argosdata"
-        ]
-    },
-    {
-        "name": "WikiMatrix",
-        "type": "data",
-        "from_code": "es",
-        "to_code": "eu",
-        "size": 154281,
-        "reference": "Holger Schwenk, Vishrav Chaudhary, Shuo Sun, Hongyu Gong and Paco Guzman, WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia, arXiv, July 11 2019.",
-        "links": [
-            "http://data.argosopentech.com/data-wikimatrix-es_eu.argosdata"
-        ]
-    },
-    {
-        "name": "wikimedia",
-        "type": "data",
-        "from_code": "es",
-        "to_code": "eu",
-        "size": 156940,
-        "reference": "J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)",
-        "links": [
-            "http://data.argosopentech.com/data-wikimedia-es_eu.argosdata"
-        ]
-    },
-    {
-        "name": "XLEnt",
-        "type": "data",
-        "from_code": "es",
-        "to_code": "eu",
-        "size": 271385,
-        "reference": "https://opus.nlpl.eu/XLEnt/es&eu/v1.2/XLEnt",
-        "links": [
-            "http://data.argosopentech.com/data-xlent-es_eu.argosdata"
         ]
     }
 ]
