@@ -48,7 +48,7 @@ echo "To code:"
 read to
 echo "URL:"
 read url
-echo "Slug:"
+echo "Slug (ex: data-nllb-en_de):"
 read slug
 wget $url
 unzip *.txt.zip
@@ -67,12 +67,14 @@ echo "    \"reference\": \"Ref\""     >> "$slug/metadata.json"
 echo "}"                              >> "$slug/metadata.json"
 
 
-echo "Opus slug:"
+echo "Opus slug (ex: CCAligned.de-en) copy from above:"
 read opus_slug
 mv $opus_slug.$from $slug/source
 mv $opus_slug.$to $slug/target
 rm $opus_slug.*
+echo "Number of lines in source file:"
 wc -l $slug/source
+echo "Copy ^ this number to paste into metadata.json in the next step"
 
 echo "Enter to continue"
 read
