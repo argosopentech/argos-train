@@ -1807,7 +1807,7 @@
         "name": "ParaCrawl",
         "type": "data",
         "from_code": "en",
-        "to_code": ,
+        "to_code": "zh",
         "size": 14170869,
         "reference": "opus.nlpl.eu/ParaCrawl/en&zh/v9/ParaCrawl",
         "links": [
