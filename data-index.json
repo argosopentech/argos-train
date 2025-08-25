@@ -1796,7 +1796,7 @@
         "name": "LinguaTools-WikiTitles",
         "type": "data",
         "from_code": "en",
-        "to_code": "zh",
+        "to_code": ,
         "size": 6664332,
         "reference": "https://opus.nlpl.eu/LinguaTools-WikiTitles/en&zh/v2014/LinguaTools-WikiTitles",
         "links": [
@@ -1807,7 +1807,7 @@
         "name": "ParaCrawl",
         "type": "data",
         "from_code": "en",
-        "to_code": "zh",
+        "to_code": ,
         "size": 14170869,
         "reference": "opus.nlpl.eu/ParaCrawl/en&zh/v9/ParaCrawl",
         "links": [
@@ -1818,7 +1818,7 @@
         "name": "wikimedia",
         "type": "data",
         "from_code": "en",
-        "to_code": "zh",
+        "to_code": ,
         "size": 302259,
         "reference": "https://opus.nlpl.eu/wikimedia/en&zh/v20230407/wikimedia",
         "links": [
@@ -1829,11 +1829,11 @@
         "name": "NLLB",
         "type": "data",
         "from_code": "en",
-        "to_code": "zh",
+        "to_code": ,
         "size": 71383325,
         "reference": "https://opus.nlpl.eu/NLLB/en&zh/v1/NLLB",
         "links": [
-            "http://data.argosopentech.com/data-nllu-en_zh.argosdata"
+            "http://data.argosopentech.com/data-nllb-en_zh.argosdata"
         ]
     },
     {
