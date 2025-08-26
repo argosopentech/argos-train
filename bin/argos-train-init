@@ -37,5 +37,6 @@ source ~/env/bin/activate
 cd ~/argos-train
 
 # Ensure correct PyTorch version
+~/env/bin/pip uninstall -y bitsandbytes
 ~/env/bin/pip install "torch>=2.0,<2.2" "torchvision<0.17" "torchaudio<2.2" --index-url https://download.pytorch.org/whl/cu121
 
