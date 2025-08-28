@@ -36,3 +36,7 @@ source ~/.profile
 source ~/env/bin/activate
 cd ~/argos-train
 
+# Numpy fix
+pip uninstall numpy -y
+pip install "numpy<2"
+
