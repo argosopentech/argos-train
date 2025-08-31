@@ -11,6 +11,10 @@ git clone https://github.com/argosopentech/argos-train.git --depth 1 ~/argos-tra
 ~/env/bin/pip install -e ~/argos-train
 echo "source ~/env/bin/activate" >> ~/.profile
 
+# Argos Train uses an older numpy version because of Stanza which requires PyTorch
+# Remove numpy before installing OpenNMT-py so that it doesn't get conflicted
+pip uninstall numpy -y
+
 # Install OpenNMT-py
 # git clone -b v2.3.0 https://github.com/OpenNMT/OpenNMT-py.git --depth 1 ~/OpenNMT-py
 # git clone https://github.com/argosopentech/OpenNMT-py.git --depth 1 ~/OpenNMT-py
@@ -36,7 +40,7 @@ source ~/.profile
 source ~/env/bin/activate
 cd ~/argos-train
 
-# Numpy fix
+# Restore legacy numpy version
 pip uninstall numpy -y
 pip install "numpy<2"
 
