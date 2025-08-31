@@ -42,5 +42,5 @@ cd ~/argos-train
 
 # Restore legacy numpy version
 pip uninstall numpy -y
-pip install "numpy<2"
+pip install "numpy<2" 2> /dev/null # Install old numpy and ignore errors
 
