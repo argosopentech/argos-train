@@ -149,7 +149,6 @@ def train(
 
     subprocess.run(["rm", "run/split_data/all.txt"])
 
-    # NOTE:
     # OpenNMT interprets the *fullwidth pipe* character `￨` (U+FF5C) as a token feature
     # separator. If your data contains it but your config does not expect features,
     # onmt_build_vocab will crash with:
@@ -157,22 +156,19 @@ def train(
     #
     # The following code removes all `￨` from src-train.txt and tgt-train.txt
     # and then rebuilds the vocab.
-    files = [
-        "run/split_data/src-train.txt",
-        "run/split_data/tgt-train.txt",
-    ]
-    for f in files:
-        clean_file = f + ".clean"
-        # Run `tr` to remove the fullwidth pipe and write to .clean file
-        with open(f, "rb") as infile, open(clean_file, "wb") as outfile:
-            subprocess.run(
-                ["tr", "-d", "￨"],
-                stdin=infile,
-                stdout=outfile,
-                check=True,
-            )
-        # Replace the original file with the cleaned one
-        subprocess.run(["mv", clean_file, f], check=True)
+    #
+    # Remove fullwidth pipe from src-train.txt
+    subprocess.run(
+        "sed -i 's/￨//g' run/split_data/src-train.txt",
+        shell=True,
+        check=True,
+    )
+    # Remove fullwidth pipe from tgt-train.txt
+    subprocess.run(
+        "sed -i 's/￨//g' run/split_data/tgt-train.txt",
+        shell=True,
+        check=True,
+    )
 
     # onmt_build_vocab
     subprocess.run(["onmt_build_vocab", "-config", "config.yml", "-n_sample", "-1"])
