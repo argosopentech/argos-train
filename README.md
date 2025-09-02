@@ -12,8 +12,8 @@ From inside argosopentech/argostrain Docker container:
 
 ```
 cd /home/argosopentech
-su argosopentech
 export HOME="/home/argosopentech"
+su argosopentech
 source ~/argos-train-init
 
 ...
