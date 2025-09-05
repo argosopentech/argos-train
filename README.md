@@ -8,17 +8,20 @@ Pre-trained Argos Translate packages are available for [download](https://www.ar
 
 ## Training example
 
-From inside argosopentech/argostrain Docker container:
+From inside the argosopentech/argostrain Docker container:
 
 ```
+# Become the argosopentech user
 su argosopentech
+
+# Install deps
 cd /home/argosopentech
 export HOME="/home/argosopentech"
 source ~/argos-train-init
 
 ...
 
-
+# Run training script
 $ argos-train
 From code (ISO 639): en
 To code (ISO 639): es
