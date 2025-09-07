@@ -190,6 +190,10 @@ def train(
         ]
     )
 
+    # Force old PyTorch behavior for compatibility
+    env = os.environ.copy()
+    env["PYTORCH_WEIGHTS_ONLY"] = "0"
+
     subprocess.run(
         [
             "ct2-opennmt-py-converter",
@@ -199,7 +203,8 @@ def train(
             "run/model",
             "--quantization",
             "int8",
-        ]
+        ],
+        env=env,
     )
 
     package_version_code = package_version.replace(".", "_")
