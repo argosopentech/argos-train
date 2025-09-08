@@ -8,6 +8,10 @@ from pathlib import Path
 import os
 
 import stanza
+import onmt.inputters
+import torch
+import runpy
+
 
 import argostrain
 import argostrain.opennmtutils
@@ -192,21 +196,20 @@ def train(
     )
 
     # Force old PyTorch behavior for compatibility
-    env = os.environ.copy()
-    env["PYTORCH_WEIGHTS_ONLY"] = "0"
+    _orig_load = torch.load
+    def _patched_load(*args, **kwargs):
+        kwargs["weights_only"] = False
+        return _orig_load(*args, **kwargs)
+    torch.load = _patched_load
+    os.environ["PYTORCH_WEIGHTS_ONLY"] = "0"
+    old_argv = sys.argv
+    sys.argv = ["ct2-opennmt-py-converter","--model_path", "run/averaged.pt",
+                "--output_dir", "run/model","--quantization", "int8",]
+    try:
+                runpy.run_module("ctranslate2.converters.opennmt_py", run_name="__main__")
+    finally:
+                sys.argv = old_argv
 
-    subprocess.run(
-        [
-            "ct2-opennmt-py-converter",
-            "--model_path",
-            "run/averaged.pt",
-            "--output_dir",
-            "run/model",
-            "--quantization",
-            "int8",
-        ],
-        env=env,
-    )
 
     package_version_code = package_version.replace(".", "_")
     model_dir = f"translate-{from_code}_{to_code}-{package_version_code}"
