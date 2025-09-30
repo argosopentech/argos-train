@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Argos Translate Data Index</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h1 { margin-bottom: 10px; }
+
+    #controls {
+      margin-bottom: 15px;
+    }
+    #controls input, #controls select {
+      padding: 6px;
+      font-size: 1rem;
+      margin-right: 8px;
+    }
+
+    #data-index-table {
+      font-size: 1rem;
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    #data-index-table th {
+      background-color: #007bff;
+      color: white;
+      text-align: left;
+      padding: 10px;
+    }
+    #data-index-table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    #data-index-table tr:nth-child(even) { background-color: #f9f9f9; }
+    #data-index-table tr:hover { background-color: #f1f1f1; }
+  </style>
+</head>
+<body>
+  <h1>Argos Translate Data Index</h1>
+
+  <div id="controls">
+    <input type="text" id="search-box" placeholder="Search by name/reference...">
+    <select id="from-filter"><option value="">From: All</option></select>
+    <select id="to-filter"><option value="">To: All</option></select>
+  </div>
+
+  <div id="data-index-table"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="data_index.js"></script>
+</body>
+</html>
+
