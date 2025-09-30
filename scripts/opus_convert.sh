@@ -72,13 +72,15 @@ read opus_slug
 mv $opus_slug.$from $slug/source
 mv $opus_slug.$to $slug/target
 rm $opus_slug.*
-echo "Number of lines in source file:"
+echo "Counting number of lines"
 wc -l $slug/source
 echo "Copy ^ this number to paste into metadata.json in the next step"
 
 echo "Enter to continue"
 read
 vim $slug/metadata.json
+
+echo "Zipping .argosdata package"
 zip -r $slug.argosdata $slug
 
 
