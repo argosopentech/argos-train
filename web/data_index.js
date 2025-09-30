@@ -42,7 +42,7 @@ $(document).ready(function(){
             tr.append($("<td/>").text(d.name));
             tr.append($("<td/>").text(d.from_code));
             tr.append($("<td/>").text(d.to_code));
-            tr.append($("<td/>").text(formatSize(d.size)));
+            tr.append($("<td/>").text(formatLines(d.size)));
             tr.append($("<td/>").text(d.reference));
 
             var linkTd = $("<td/>");
@@ -56,12 +56,10 @@ $(document).ready(function(){
         });
     }
 
-    function formatSize(bytes) {
-        if (bytes < 1024) return bytes + " B";
-        let i = Math.floor(Math.log(bytes) / Math.log(1024));
-        let sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
-        return (bytes / Math.pow(1024, i)).toFixed(1) + " " + sizes[i];
+    function formatLines(n) {
+        return n.toLocaleString();
     }
+
 
     // filtering
     function applyFilters() {
