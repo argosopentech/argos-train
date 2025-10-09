@@ -407,6 +407,17 @@
         ]
     },
     {
+        "name": "NLLB",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "de",
+        "size": 247470736,
+        "reference": "ai.meta.com/research/no-language-left-behind/",
+        "links": [
+            "https://data.argosopentech.com/data-nllb-en_de.argosdata"
+        ]
+    },
+    {
         "name": "Wiktionary",
         "type": "data",
         "from_code": "en",
