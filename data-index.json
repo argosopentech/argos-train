@@ -1,5 +1,49 @@
 [
     {
+        "name": "DGT",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "en",
+        "size": 5105672,
+        "reference": "https://opus.nlpl.eu/DGT/en&de/v2019/DGT",
+        "links": [
+            "https://data.argosopentech.com/data-dgt-de_en.argosdata"
+        ]
+    },
+    {
+        "name": "EUbookshop",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "en",
+        "size": 9333066,
+        "reference": "https://opus.nlpl.eu/EUbookshop/en&de/v2/EUbookshop",
+        "links": [
+            "https://data.argosopentech.com/data-eubookshop-de_en.argosdata"
+        ]
+    },
+    {
+        "name": "EuroPat",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "en",
+        "size": 19734743,
+        "reference": "https://opus.nlpl.eu/EuroPat/de&en/v3/EuroPat",
+        "links": [
+            "https://data.argosopentech.com/data-europat-de_en.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "de",
+        "to_code": "en",
+        "size": 65673701,
+        "reference": "https://opus.nlpl.eu/OpenSubtitles/de&en/v2024/OpenSubtitles",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-de_en.argosdata"
+        ]
+    },
+    {
         "name": "XLEnt",
         "type": "data",
         "from_code": "de",
