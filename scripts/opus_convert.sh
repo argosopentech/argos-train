@@ -83,5 +83,7 @@ vim $slug/metadata.json
 echo "Zipping .argosdata package"
 zip -r $slug.argosdata $slug
 
-
+# Uploading to data.argosopentech.com
+# Run from root dir:
+# scp *.argosdata root@data.argosopentech.com:/var/www/html/
 
