@@ -94,13 +94,22 @@ def train(
             print(str(dataset))
             source, target = dataset.data()
 
-            with open(settings.SOURCE_PATH, "a") as s:
+            source_stash_path = str(settings.SOURCE_PATH) + "_stash"
+            target_stash_path = str(settings.TARGET_PATH) + "_stash"
+
+            with open(source_stash_path) as s:
                 s.writelines(source)
 
-            with open(settings.TARGET_PATH, "a") as t:
+            with open(target_stash_path) as t:
                 t.writelines(target)
 
+            # Use system commands to try to reduce memory usage
+            os.system(f"cat {source_stash_path} >> {str(settings.SOURCE_PATH)}")
+            os.system(f"cat {target_stash_path} >> {str(settings.TARGET_PATH})")
+
             del dataset
+            del source
+            del target
 
         # Generate README.md
         # This is broken somehow, the template is written but the credits are not added
