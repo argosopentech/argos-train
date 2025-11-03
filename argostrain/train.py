@@ -105,7 +105,7 @@ def train(
 
             # Use system commands to try to reduce memory usage
             os.system(f"cat {source_stash_path} >> {str(settings.SOURCE_PATH)}")
-            os.system(f"cat {target_stash_path} >> {str(settings.TARGET_PATH})")
+            os.system(f"cat {target_stash_path} >> {str(settings.TARGET_PATH)}")
 
             del dataset
             del source
