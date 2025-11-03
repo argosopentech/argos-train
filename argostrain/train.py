@@ -94,18 +94,21 @@ def train(
             print(str(dataset))
             source, target = dataset.data()
 
-            source_stash_path = str(settings.SOURCE_PATH) + "_stash"
-            target_stash_path = str(settings.TARGET_PATH) + "_stash"
+            source_stash_path = Path(str(settings.SOURCE_PATH) + "_stash")
+            target_stash_path = Path(str(settings.TARGET_PATH) + "_stash")
 
-            with open(source_stash_path) as s:
+            with open(source_stash_path, 'w') as s:
                 s.writelines(source)
 
-            with open(target_stash_path) as t:
+            with open(target_stash_path, 'w') as t:
                 t.writelines(target)
 
             # Use system commands to try to reduce memory usage
             os.system(f"cat {source_stash_path} >> {str(settings.SOURCE_PATH)}")
             os.system(f"cat {target_stash_path} >> {str(settings.TARGET_PATH)}")
+
+            source_stash_path.unlink()
+            targget_stash_path.unlink()
 
             del dataset
             del source
