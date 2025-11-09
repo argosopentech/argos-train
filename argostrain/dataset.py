@@ -228,10 +228,18 @@ class LocalDataset(IDataset):
         Args:
             filepath (pathlib.Path): A path to an argos data package with a .argosdata extension.
         """
+
         self.unzip_dir = settings.CACHE_PATH / f"{str(uuid.uuid4())}"
         if not self.unzip_dir.exists():
             with zipfile.ZipFile(filepath, "r") as zip_cache:
                 zip_cache.extractall(self.unzip_dir)
+
+        # Find package dir that has been unzipped
+        # run/cache/guid/data-dgt-de_en/metadata.json
+        dirs_in_unzip = list(self.unzip_dir.iterdir())
+        if len(dirs_in_unzip) == 1 and dirs_in_unzip[0].is_dir():
+            self.unzip_dir = dirs_in_unzip[0]
+
         with open(self.unzip_dir / "metadata.json") as metadata_file:
             metadata = json.load(metadata_file)
             self.load_metadata_from_json(metadata)
