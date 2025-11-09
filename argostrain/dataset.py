@@ -1,7 +1,9 @@
 import codecs
 import itertools
 import json
+import os
 import random
+import uuid
 import zipfile
 from collections import deque
 from multiprocessing import Pool
@@ -23,6 +25,12 @@ class IDataset:
             length (int): Trim to length if not None
 
         Source and target data is collections.deque
+        """
+        raise NotImplementedError()
+
+    def datapath(self):
+        """Returns a tuple of (source_dataset_path, target_dataset_path)
+        If a local file doesn't exist create it
         """
         raise NotImplementedError()
 
@@ -70,12 +78,76 @@ class Dataset(IDataset):
         """
         self.source = source
         self.target = target
+        self.datapath = None
+        self.guid = None
 
     def data(self, length=None):
         return trim_to_length_random(self.source, self.target, length)
 
+    def datapath(self):
+        if self.datapath is not None:
+            return self.datapath
+        self.guid = uuid.uuid4()
+        source_datapath = settings.CACHE_PATH / f"{str(self.guid)}_source.txt"
+        target_datapath = settings.CACHE_PATH / f"{str(self.guid)}_target
+        with open(source_datapath, "w") as source_file:
+            source_file.writelines(self.source)
+        with open(target_datapath, "w") as target_file:
+            target_file.writelines(self.target)
+        self.datapath = (source_datapath, target_datapath)
+        return self.datapath
+
     def __len__(self):
         return len(self.source)
+
+def append_datapaths(dataset1, dataset2, output_datapath_):
+    """Appends the datapaths of two datasets and returns the new datapaths.
+
+    Use shell commands for efficiency.
+
+    Args:
+        dataset1 (IDataset): The first dataset
+        dataset2 (IDataset): The second dataset
+        output_datapath (pathlib.Path): The output datapath
+
+    Returns:
+        pathlib.Path: The output datapath
+    """
+    source1_path, target1_path = dataset1.datapath()
+    source2_path, target2_path = dataset2.datapath()
+    output_source_path = output_datapath / "source"
+    output_target_path = output_datapath / "target"
+    os.system(f"cat {source1_path} {source2_path} > {output_source_path}")
+    os.system(f"cat {target1_path} {target2_path} > {output_target_path}")
+    return (output_source_path, output_target_path)
+
+class CachedDataset(IDataset):
+    def __init__(self, source_datapath, target_datapath):
+        """Creates a CachedDataset.
+
+        Args:
+            source_datapath (pathlib.Path): The path to the source data file
+            target_datapath (pathlib.Path): The path to the target data file
+        """
+        self.source_datapath = source_datapath
+        self.target_datapath = target_datapath
+        self.source = None
+        self.target = None
+
+    def data(self, length=None):
+        if self.source == None and self.target == None:
+            with open(self.source_datapath) as source_file:
+                self.source = source_file.readlines()
+            with open(self.target_datapath) as target_file:
+                self.target = target_file.readlines()
+        return trim_to_length_random(self.source, self.target, length)
+
+    def __len__(self):
+        source, target = self.data()
+        return len(source)
+
+    def datapath(self):
+        return (self.source_datapath, self.target_datapath)
 
 
 class CompositeDataset(IDataset):
@@ -134,6 +206,17 @@ class CompositeDataset(IDataset):
                 target += data[1][:limit]
         return (source, target)
 
+    def datapath(self):
+        source_datapath = settings.CACHE_PATH / f"composite_{str(uuid.uuid4())}_source.txt"
+        target_datapath = settings.CACHE_PATH / f"composite_{str(uuid.uuid4())}_target.txt"
+        for dataset, weight in self.datasets:
+            dataset_source_datapath, dataset_target_datapath = dataset.datapath()
+            for i in range(weight):
+                os.system(f"cat {dataset_source_datapath} >> {source_datapath}")
+                os.system(f"cat {dataset_target_datapath} >> {target_datapath}")
+        return (source_datapath, target_datapath)
+
+
     def __len__(self):
         return sum([len(dataset) for dataset in self.datasets])
 
@@ -145,31 +228,15 @@ class LocalDataset(IDataset):
         Args:
             filepath (pathlib.Path): A path to an argos data package with a .argosdata extension.
         """
-        source = None
-        target = None
-        with zipfile.ZipFile(filepath, "r") as zip_cache:
-            dir_names = [
-                info.filename for info in zip_cache.infolist() if info.is_dir()
-            ]
-            assert len(dir_names) > 0
-            dir_name = dir_names[0]
-            with zip_cache.open(dir_name + "metadata.json") as metadata_file:
-                metadata = json.load(metadata_file)
-                self.load_metadata_from_json(metadata)
-            with zip_cache.open(dir_name + "source", "r") as source_file:
-                source = deque()
-                for line in codecs.iterdecode(source_file, "utf8"):
-                    source.append(line)
-            with zip_cache.open(dir_name + "target", "r") as target_file:
-                target = deque()
-                for line in codecs.iterdecode(target_file, "utf8", errors="ignore"):
-                    target.append(line)
-        assert source != None
-        assert target != None
-        assert len(source) == len(target)
-        self.source = source
-        self.target = target
-        filepath = Path(filepath)
+        self.unzip_dir = settings.CACHE_PATH / f"{str(uuid.uuid4())}"
+        if not self.unzip_dir.exists():
+            with zipfile.ZipFile(filepath, "r") as zip_cache:
+                zip_cache.extractall(self.unzip_dir)
+        with open(self.unzip_dir / "metadata.json") as metadata_file:
+            metadata = json.load(metadata_file)
+            self.load_metadata_from_json(metadata)
+        self.source = None
+        self.target = None
 
     def __str__(self):
         return (
@@ -190,7 +257,20 @@ class LocalDataset(IDataset):
         self.links = metadata.get("links")
 
     def data(self, length=None):
+        if self.source == None and self.target == None:
+            self.source = deque()
+            self.target = deque()
+            with open(self.unzip_dir / "source", "r", encoding="utf8") as source_file:
+                for line in source_file:
+                    self.source.append(line)
+            with open(self.unzip_dir / "target", "r", encoding="utf8") as target_file:
+                for line in target_file:
+                    self.target.append(line)
+
         return trim_to_length_random(self.source, self.target, length)
+
+    def datapath(self):
+        return (self.unzip_dir / "source", self.unzip_dir / "target")
 
     def __len__(self):
         return len(self.source)
@@ -257,6 +337,12 @@ class NetworkDataset(IDataset):
             self.local_dataset = LocalDataset(self.filepath)
         return self.local_dataset.data(length)
 
+    def datapath(self):
+        if self.filepath is None:
+            self.download()
+        return self.local_dataset.datapath()
+
+
     def __len__(self):
         return len(self.data()[0])
 
@@ -277,28 +363,6 @@ def get_available_datasets():
             available_datasets.append(dataset)
     return available_datasets
 
-
-class FileDataset(IDataset):
-    def __init__(self, source_file, target_file):
-        """Creates a FileDataset
-
-        Args:
-            source_file (file): The file-like object containing source data
-            target_file (file): The file-like object containing target data
-        """
-        self.source_file = source_file
-        self.target_file = target_file
-        self.source = None
-        self.target = None
-
-    def data(self, length=None):
-        if self.source == None and self.target == None:
-            self.source = self.source_file.readlines()
-            self.target = self.target_file.readlines()
-        return trim_to_length_random(self.source, self.target, length)
-
-    def __len__(self):
-        return len(self.data()[0])
 
 
 class TrimmedDataset(IDataset):

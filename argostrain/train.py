@@ -72,8 +72,8 @@ def train(
         )
 
         for reverse_dataset in reverse_datasets:
-            reverse_dataset_data = reverse_dataset.data()
-            dataset = Dataset(reverse_dataset_data[1], reverse_dataset_data[0])
+            source_datapath, target_datapath = reverse_dataset.datapath()
+            dataset = CachedDataset(source_datapath, target_datapath)
 
             # Hack to preserve reference metadata
             dataset.reference = reverse_dataset.reference
@@ -92,27 +92,15 @@ def train(
         while len(datasets) > 0:
             dataset = datasets.pop()
             print(str(dataset))
-            source, target = dataset.data()
 
-            source_stash_path = Path(str(settings.SOURCE_PATH) + "_stash")
-            target_stash_path = Path(str(settings.TARGET_PATH) + "_stash")
-
-            with open(source_stash_path, 'w') as s:
-                s.writelines(source)
-
-            with open(target_stash_path, 'w') as t:
-                t.writelines(target)
-
+            source_datapath, target_datapath = dataset.datapath()
             # Use system commands to try to reduce memory usage
-            os.system(f"cat {source_stash_path} >> {str(settings.SOURCE_PATH)}")
-            os.system(f"cat {target_stash_path} >> {str(settings.TARGET_PATH)}")
-
-            source_stash_path.unlink()
-            targget_stash_path.unlink()
+            os.system(f"cat {source_datapath} >> {str(settings.SOURCE_PATH)}")
+            os.system(f"cat {target_datapath} >> {str(settings.TARGET_PATH)}")
 
             del dataset
-            del source
-            del target
+            del source_datapath
+            del target_datapath 
 
         # Generate README.md
         # This is broken somehow, the template is written but the credits are not added
