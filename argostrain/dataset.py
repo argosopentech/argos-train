@@ -327,18 +327,18 @@ class NetworkDataset(IDataset):
                     f.write(data)
         else:
             raise Exception("Unknown scheme " + url)
-        return self.filepath
-
-    def data(self, length=None):
-        if self.filepath is None:
-            self.download()
         assert zipfile.is_zipfile(self.filepath)
         if self.local_dataset == None:
             self.local_dataset = LocalDataset(self.filepath)
+        return self.filepath
+
+    def data(self, length=None):
+        if self.local_dataset is None:
+            self.download()
         return self.local_dataset.data(length)
 
     def datapath(self):
-        if self.filepath is None:
+        if self.local_dataset is None:
             self.download()
         return self.local_dataset.datapath()
 
