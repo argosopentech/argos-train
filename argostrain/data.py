@@ -8,35 +8,17 @@ import argostrain
 from argostrain.dataset import *
 
 
-def prepare_data(source_data, target_data):
-
-    # Build dataset
-    dataset = FileDataset(open(source_data), open(target_data))
-
-    # Split and write data
-    source_data, target_data = dataset.data()
-    source_data = list(source_data)
-    target_data = list(target_data)
-
+def prepare_data(source_data_path, target_data_path):
     VALID_SIZE = 2000
-    assert len(source_data) > VALID_SIZE
+    os.makedirs("run/split_data", exist_ok=True)
 
-    os.mkdir("run/split_data")
+    # Split source file
+    os.system(f"head -n {VALID_SIZE} {source_data_path} > run/split_data/src-val.txt")
+    os.system(f"tail -n +{VALID_SIZE + 1} {source_data_path} > run/split_data/src-train.txt")
 
-    source_valid_file = open("run/split_data/src-val.txt", "w")
-    source_valid_file.writelines(source_data[0:VALID_SIZE])
-    source_valid_file.close()
-
-    source_train_file = open("run/split_data/src-train.txt", "w")
-    source_train_file.writelines(source_data[VALID_SIZE:])
-    source_train_file.close()
-
-    target_valid_file = open("run/split_data/tgt-val.txt", "w")
-    target_valid_file.writelines(target_data[0:VALID_SIZE])
-    target_valid_file.close()
-
-    target_train_file = open("run/split_data/tgt-train.txt", "w")
-    target_train_file.writelines(target_data[VALID_SIZE:])
-    target_train_file.close()
+    # Split target file
+    os.system(f"head -n {VALID_SIZE} {target_data_path} > run/split_data/tgt-val.txt")
+    os.system(f"tail -n +{VALID_SIZE + 1} {target_data_path} > run/split_data/tgt-train.txt")
 
     print("Done splitting data")
+
