@@ -89,7 +89,7 @@ class Dataset(IDataset):
             return self.datapath
         self.guid = uuid.uuid4()
         source_datapath = settings.CACHE_PATH / f"{str(self.guid)}_source.txt"
-        target_datapath = settings.CACHE_PATH / f"{str(self.guid)}_target
+        target_datapath = settings.CACHE_PATH / f"{str(self.guid)}_target.txt"
         with open(source_datapath, "w") as source_file:
             source_file.writelines(self.source)
         with open(target_datapath, "w") as target_file:
