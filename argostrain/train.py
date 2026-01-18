@@ -91,6 +91,12 @@ def train(
         # Download and write data source and target
         while len(datasets) > 0:
             dataset = datasets.pop()
+            if dataset.size > 100_000_000:
+                # Exclude NLLB because it was causing issues
+                print(
+                    f"Dataset too large ({dataset.size} sentences), skipping {str(dataset)}"
+                )
+                continue
             print(str(dataset))
 
             source_datapath, target_datapath = dataset.datapath()
