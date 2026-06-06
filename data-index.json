@@ -1650,6 +1650,138 @@
         ]
     },
     {
+        "name": "CCAligned",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 2044993,
+        "reference": "https://opus.nlpl.eu/datasets/CCAligned?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-ccaligned-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "CCMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 5756664,
+        "reference": "https://opus.nlpl.eu/datasets/CCMatrix?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-ccmatrix-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "GlobalVoices",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 32307,
+        "reference": "https://opus.nlpl.eu/datasets/GlobalVoices?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-globalvoices-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "GNOME",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 40,
+        "reference": "https://opus.nlpl.eu/datasets/GNOME?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-gnome-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "NLLB",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 23513175,
+        "reference": "https://opus.nlpl.eu/datasets/NLLB?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-nllb-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "OpenSubtitles",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 94636,
+        "reference": "https://opus.nlpl.eu/datasets/OpenSubtitles?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-opensubtitles-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "ParaCrawl",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 132520,
+        "reference": "https://opus.nlpl.eu/datasets/ParaCrawl?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-paracrawl-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "TED2020",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 9745,
+        "reference": "https://object.pouta.csc.fi/OPUS-TED2020/v1/moses/en-sw.txt.zip",
+        "links": [
+            "https://data.argosopentech.com/data-ted2020-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "tico-19",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 3071,
+        "reference": "https://opus.nlpl.eu/datasets/tico-19?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-tico19-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "WikiMatrix",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 51387,
+        "reference": "https://opus.nlpl.eu/datasets/WikiMatrix?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-wikimatrix-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "wikimedia",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 16289,
+        "reference": "https://opus.nlpl.eu/datasets/wikimedia?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-wikimedia-en_sw.argosdata"
+        ]
+    },
+    {
+        "name": "XLEnt",
+        "type": "data",
+        "from_code": "en",
+        "to_code": "sw",
+        "size": 871902,
+        "reference": "https://opus.nlpl.eu/datasets/XLEnt?pair=en&sw",
+        "links": [
+            "https://data.argosopentech.com/data-xlent-en_sw.argosdata"
+        ]
+    },
+    {
         "name": "bible-uedin",
         "type": "data",
         "from_code": "en",
