@@ -72,7 +72,7 @@ def train(
         )
 
         for reverse_dataset in reverse_datasets:
-            source_datapath, target_datapath = reverse_dataset.datapath()
+            target_datapath, source_datapath = reverse_dataset.datapath() # Reverse
             dataset = CachedDataset(source_datapath, target_datapath)
 
             # Hack to preserve reference metadata
